@@ -1,0 +1,30 @@
+#######################################################################
+###
+##  File: Rakefile
+##  Desc: Defines administrative tasks to perform for build, test  deploying of the
+##        <%= project_name %> project.
+##
+##  Although <%= project_id %> itself may not be a RAILS application, we use rake to support
+##  adminstrative, maintainance, test and deployment tasks.  Ruby was choosen to provide
+##  cross-platform compatiability.
+##
+#
+
+require 'pathname'        # Cross-platform directory/file paths
+
+require 'rake'            # Defines the rake DSL
+require 'rake/testtask'   # Defines common ruby testing tasks
+require 'rake/rdoctask'   # Defines common ruby documentation tasks
+#require 'tasks/rails'     # Defines common rails tasks
+
+
+project_specific_task_dir = Pathname.new "#{ENV['<%= project_id.upcase %>_ROOT']}/Models/RubyModels/lib/tasks"
+
+######################################################
+## Load <%= project_name %> project specific tasks
+
+project_specific_task_dir.children.each do |task_name|
+  require task_name   if '.rake' == task_name.extname
+end
+
+

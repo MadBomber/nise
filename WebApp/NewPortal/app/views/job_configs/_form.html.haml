@@ -1,0 +1,11 @@
+= form_for(@job_config) do |f|
+  - if @job_config.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@job_config.errors.count, "error")
+        prohibited this job_config from being saved:
+      %ul
+        - @job_config.errors.full_messages.each do |msg|
+          %li= msg
+  .actions
+    = f.submit

@@ -1,0 +1,10 @@
+// -*- MPC -*-
+
+project(ise_server) : ISE-common, aceexe, avoids_ace_for_tao {
+  exename   = ise_main
+  includes += .
+
+  Source_Files {
+    main.cpp
+  }
+}

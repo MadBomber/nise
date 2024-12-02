@@ -1,0 +1,14 @@
+#!/bin/sh
+########################################################
+###
+##  File: amqp_sim_control
+##  Desc: Invokes the amqp_control.rb program to insert a message with the SimControl.0.0 routing key
+##        Use --help for detailed usage instructions
+#
+
+# NOTE: using 'ruby' in front of $ISE_ROOT/Utilities/rabbitmq/amqp_probe.rb causes problems;
+#       This means that amqp_probe.rb must have its executable bit set so that it can be
+#       executed directly.
+
+chmod +x $ISE_ROOT/Utilities/rabbitmq/amqp_sim_control.rb     # sometimes subversion does not have executable bit set.
+$ISE_ROOT/Utilities/rabbitmq/amqp_sim_control.rb "$@"

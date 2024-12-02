@@ -1,0 +1,9 @@
+// -*- MPC -*-
+
+project(Sr) : ISE-models {
+  includes += .
+
+  Source_Files {
+    Sr.cpp
+  }
+}

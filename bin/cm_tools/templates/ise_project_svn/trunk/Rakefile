@@ -1,0 +1,40 @@
+############################################################
+###
+##  File: Rakefile
+##  Desc: Top-level rake file for the <%= project_name %> project
+#
+
+require 'rubygems'    # standard ruby gems library finder
+require 'metric_fu'   # GEM: project metrics calculation tasks
+require 'pathname'    # STDLIB: cross-platform path/file names
+
+# Assume that the system environment variable for the top-level of this
+# project has been set.  Create an equivalent Ruby global constant.
+$<%= project_id %>_ROOT = Pathname.new ENV['<%= project_id %>_ROOT']
+
+# Identify all the areas where project-level task files might reside.
+# Note that no web applications directories are identified.  They
+# typically have their own Rakefile.
+
+task_dirs = %Q{
+  tasks
+  lib/tasks
+  Models/tasks
+  RubyModels/lib/tasks
+}
+
+# Load All task files
+
+task_dirs.each do |td|
+  task_dir_path = $<%= project_id %>_ROOT + td
+  if task_dir_path.exist?
+    task_dir_path.children do |c|
+      if '.task' == c.extname
+        require c.to_s
+      end
+    end
+  end
+end
+
+
+

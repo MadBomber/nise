@@ -1,0 +1,550 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    GeoRuby (1.3.4)
+    ParseTree (3.0.8)
+      RubyInline (>= 3.7.0)
+      sexp_processor (>= 3.0.0)
+    RedCloth (4.2.9)
+    RubyInline (3.11.4)
+      ZenTest (~> 4.3)
+    ZenTest (4.8.3)
+    actionmailer (3.2.9)
+      actionpack (= 3.2.9)
+      mail (~> 2.4.4)
+    actionpack (3.2.9)
+      activemodel (= 3.2.9)
+      activesupport (= 3.2.9)
+      builder (~> 3.0.0)
+      erubis (~> 2.7.0)
+      journey (~> 1.0.4)
+      rack (~> 1.4.0)
+      rack-cache (~> 1.2)
+      rack-test (~> 0.6.1)
+      sprockets (~> 2.2.1)
+    activemodel (3.2.9)
+      activesupport (= 3.2.9)
+      builder (~> 3.0.0)
+    activerecord (3.2.9)
+      activemodel (= 3.2.9)
+      activesupport (= 3.2.9)
+      arel (~> 3.0.2)
+      tzinfo (~> 0.3.29)
+    activerecord-mysql2-adapter (0.0.3)
+      mysql2
+    activeresource (3.2.9)
+      activemodel (= 3.2.9)
+      activesupport (= 3.2.9)
+    activesupport (3.2.9)
+      i18n (~> 0.6)
+      multi_json (~> 1.0)
+    ae (1.8.1)
+      ansi
+    amqp (0.7.5)
+      eventmachine
+    amqp-utils (0.5.1)
+      amqp (~> 0.7.1)
+      clio (~> 0.3.0)
+      facets (~> 2.9)
+      heredoc_unindent (~> 1.1.2)
+      json (~> 1.5)
+      msgpack (~> 0.4.5)
+      trollop (~> 1.16.2)
+    annotate (2.5.0)
+      rake
+    annoy (0.5.6)
+      highline (>= 1.5.0)
+    ansi (1.4.3)
+    archive-tar-minitar (0.5.2)
+    arel (3.0.2)
+    awesome_print (1.0.2)
+    blankslate (3.1.2)
+    bond (0.4.3)
+    boson (1.2.4)
+    bourne (1.1.2)
+      mocha (= 0.10.5)
+    builder (3.0.4)
+    bunny (0.8.0)
+    chef (0.8.10)
+      bunny (>= 0.6.0)
+      erubis
+      extlib
+      json
+      mixlib-authentication (>= 1.1.0)
+      mixlib-cli (>= 1.1.0)
+      mixlib-config (>= 1.1.0)
+      mixlib-log (>= 1.1.0)
+      moneta
+      ohai (>= 0.5.0)
+    chef-server (0.8.10)
+      coderay
+      haml
+      json
+      merb-assets (~> 1.0.0)
+      merb-core (~> 1.0.0)
+      merb-haml (~> 1.0.0)
+      merb-helpers (~> 1.0.0)
+      ruby-openid
+      thin
+    ci_reporter (1.8.3)
+      builder (>= 2.1.2)
+    clio (0.3.0)
+    clipboard (1.0.1)
+    code_analyzer (0.3.0)
+      sexp_processor
+    coderay (1.0.8)
+    coffee-script (2.2.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.4.0)
+    colored (1.2)
+    columnize (0.3.6)
+    composite_primary_keys (5.0.10)
+      activerecord (~> 3.2.0, >= 3.2.9)
+    configatron (2.9.1)
+      yamler (>= 0.1.0)
+    configuration (1.3.2)
+    couchdb (0.2.2)
+      transport (>= 1.0.1)
+    couchdb-ruby (0.8.0)
+      json
+    crummy (1.6.0)
+    daemons (1.1.9)
+    dalli (2.5.0)
+    diff-lcs (1.1.3)
+    dnote (1.7.1)
+    dnssd (2.0)
+    drx (0.4.5)
+    drydock (0.6.9)
+    erubis (2.7.0)
+    eventmachine (1.0.0)
+    every_day_irb (1.4.0)
+    execjs (1.4.0)
+      multi_json (~> 1.0)
+    extlib (0.9.15)
+    facets (2.9.3)
+    fancy_irb (0.7.3)
+      paint (>= 0.8.1)
+      unicode-display_width (>= 0.1.1)
+    ffi (1.2.0)
+    flay (2.0.0)
+      ruby_parser (~> 3.0.0)
+      sexp_processor (~> 4.0)
+    flog (3.1.0)
+      ruby_parser (~> 3.0.0)
+      sexp_processor (~> 4.0)
+    formtastic (2.2.1)
+      actionpack (>= 3.0)
+    friendly_id (4.0.9)
+    g (1.7.1)
+    geokit (1.6.5)
+      multi_json
+    geoutm (1.0.1)
+    guard (1.5.4)
+      listen (>= 0.4.2)
+      lumberjack (>= 1.0.2)
+      pry (>= 0.9.10)
+      thor (>= 0.14.6)
+    guard-annotate (1.0.0)
+      annotate (>= 2.4.0)
+      guard (>= 0.2.2)
+    guard-bundler (1.0.0)
+      bundler (~> 1.0)
+      guard (~> 1.1)
+    guard-coffeescript (1.2.1)
+      coffee-script (>= 2.2.0)
+      guard (>= 1.1.0)
+    haml (3.1.7)
+    heredoc_unindent (1.1.2)
+    highline (1.6.15)
+    hike (1.2.1)
+    hirb (0.7.0)
+    hoe (3.3.1)
+      rake (>= 0.8, < 11.0)
+    home_run (1.0.7)
+    hudson-remote-api (0.6.0)
+    i18n (0.6.1)
+    iniparse (1.1.6)
+    interactive_editor (0.0.10)
+      spoon (>= 0.0.1)
+    ipaddress (0.8.0)
+    irbtools (1.4.0)
+      awesome_print (~> 1.0.2)
+      boson (~> 1.2.4)
+      clipboard (~> 1.0.1)
+      coderay (~> 1.0.8)
+      every_day_irb (>= 1.4.0)
+      fancy_irb (>= 0.7.3)
+      g (>= 1.7.1)
+      hirb (~> 0.7.0)
+      interactive_editor (>= 0.0.10)
+      method_locator (>= 0.0.4)
+      method_source (>= 0.8.1)
+      methodfinder (>= 1.2.5)
+      ori (~> 0.1.0)
+      paint (>= 0.8.5)
+      wirb (>= 0.4.3)
+      zucker (>= 12.1)
+    irbtools-more (1.4.0)
+      bond (~> 0.4.1)
+      drx
+      irbtools (>= 1.2.0)
+      looksee (~> 1.0.3)
+    journey (1.0.4)
+    json (1.7.5)
+    json_pure (1.7.5)
+    libxml-ruby (2.3.3)
+    linecache19 (0.5.12)
+      ruby_core_source (>= 0.1.4)
+    listen (0.6.0)
+    localmemcache (0.4.4)
+    looksee (1.0.3)
+    lumberjack (1.0.2)
+    macaddr (1.6.1)
+      systemu (~> 2.5.0)
+    mail (2.4.4)
+      i18n (>= 0.4.0)
+      mime-types (~> 1.16)
+      treetop (~> 1.4.8)
+    merb-assets (1.0.12)
+      merb-core (>= 1.0.12)
+    merb-core (1.0.12)
+      erubis (>= 2.6.2)
+      extlib (>= 0.9.8)
+      json_pure
+      mime-types
+      rack
+      rake
+      rspec
+      thor (>= 0.9.9)
+    merb-haml (1.0.12)
+      haml (>= 2.0.3)
+      merb-core (= 1.0.12)
+    merb-helpers (1.0.12)
+      merb-core (>= 1.0.12)
+    metaclass (0.0.1)
+    method_locator (0.0.4)
+    method_source (0.8.1)
+    methodfinder (1.2.5)
+    mime-types (1.19)
+    minitest (4.3.3)
+    mixlib-authentication (1.3.0)
+      mixlib-log
+    mixlib-cli (1.2.2)
+    mixlib-config (1.1.2)
+    mixlib-log (1.4.1)
+    mocha (0.10.5)
+      metaclass (~> 0.0.1)
+    moneta (0.6.0)
+    mongoid (3.0.14)
+      activemodel (~> 3.1)
+      moped (~> 1.1)
+      origin (~> 1.0)
+      tzinfo (~> 0.3.22)
+    moped (1.3.1)
+    msgpack (0.4.7)
+    multi_json (1.5.0)
+    mysql2 (0.3.11)
+    net-scp (1.0.4)
+      net-ssh (>= 1.99.1)
+    net-sftp (2.0.5)
+      net-ssh (>= 2.0.9)
+    net-ssh (2.6.2)
+    net-ssh-gateway (1.1.0)
+      net-ssh (>= 1.99.1)
+    net-ssh-multi (1.1)
+      net-ssh (>= 2.1.4)
+      net-ssh-gateway (>= 0.99.0)
+    net-ssh-telnet (0.0.2)
+      net-ssh (>= 2.0.1)
+    notifier (0.4.1)
+    notify (0.4.0)
+    ohai (6.14.0)
+      ipaddress
+      mixlib-cli
+      mixlib-config
+      mixlib-log
+      systemu
+      yajl-ruby
+    open4 (1.3.0)
+    ori (0.1.0)
+    origin (1.0.11)
+    paint (0.8.5)
+    polyglot (0.3.3)
+    progressbar (0.12.0)
+    pry (0.9.10)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.3.1)
+    rack (1.4.1)
+    rack-cache (1.2)
+      rack (>= 0.4)
+    rack-protection (1.3.2)
+      rack
+    rack-ssl (1.3.2)
+      rack
+    rack-test (0.6.2)
+      rack (>= 1.0)
+    rails (3.2.9)
+      actionmailer (= 3.2.9)
+      actionpack (= 3.2.9)
+      activerecord (= 3.2.9)
+      activeresource (= 3.2.9)
+      activesupport (= 3.2.9)
+      bundler (~> 1.0)
+      railties (= 3.2.9)
+    rails_best_practices (1.13.1)
+      activesupport
+      awesome_print
+      code_analyzer
+      colored
+      erubis
+      i18n
+      progressbar
+    railties (3.2.9)
+      actionpack (= 3.2.9)
+      activesupport (= 3.2.9)
+      rack-ssl (~> 1.3.2)
+      rake (>= 0.8.7)
+      rdoc (~> 3.4)
+      thor (>= 0.14.6, < 2.0)
+    rake (10.0.3)
+    rake-remote_task (2.1.0)
+      open4 (~> 1.0)
+      rake (>= 0.8, < 11.0)
+    rdoc (3.12)
+      json (~> 1.4)
+    reek (0.2.3)
+      ParseTree (>= 2.2.0)
+      hoe (>= 1.7.0)
+    ref (1.0.2)
+    require_all (1.2.1)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
+    roodi (2.1.0)
+      ruby_parser
+    rspec (1.3.0)
+    rspec-rails (1.3.2)
+      rack (>= 1.0.0)
+      rspec (>= 1.3.0)
+    rtfm (0.5.2)
+    ruby-debug-base19 (0.11.25)
+      columnize (>= 0.3.1)
+      linecache19 (>= 0.5.11)
+      ruby_core_source (>= 0.1.4)
+    ruby-debug19 (0.11.6)
+      columnize (>= 0.3.1)
+      linecache19 (>= 0.5.11)
+      ruby-debug-base19 (>= 0.11.19)
+    ruby-graphviz (1.0.8)
+    ruby-openid (2.2.2)
+    ruby_core_source (0.1.5)
+      archive-tar-minitar (>= 0.5.2)
+    ruby_parser (3.0.4)
+      sexp_processor (~> 4.1)
+    rubyzip (0.9.9)
+    rye (0.9.7)
+      annoy
+      highline (>= 1.5.1)
+      net-scp (>= 1.0.2)
+      net-ssh (>= 2.0.13)
+      sysinfo (>= 0.7.3)
+    sexp_processor (4.1.3)
+    shoulda (3.3.2)
+      shoulda-context (~> 1.0.1)
+      shoulda-matchers (~> 1.4.1)
+    shoulda-context (1.0.1)
+    shoulda-matchers (1.4.2)
+      activesupport (>= 3.0.0)
+      bourne (~> 1.1.2)
+    simplecov (0.7.1)
+      multi_json (~> 1.0)
+      simplecov-html (~> 0.7.1)
+    simplecov-html (0.7.1)
+    sinatra (1.3.3)
+      rack (~> 1.3, >= 1.3.6)
+      rack-protection (~> 1.2)
+      tilt (~> 1.3, >= 1.3.3)
+    slop (3.3.3)
+    snmp (1.1.0)
+    spoon (0.0.1)
+    sprockets (2.2.2)
+      hike (~> 1.2)
+      multi_json (~> 1.0)
+      rack (~> 1.0)
+      tilt (~> 1.1, != 1.3.0)
+    sqlite3 (1.3.6)
+    sqlite3-ruby (1.3.3)
+      sqlite3 (>= 1.3.3)
+    storable (0.8.9)
+    sys-admin (1.5.6)
+    sys-cpu (0.7.0)
+      ffi (>= 1.0.0)
+    sys-filesystem (1.0.0)
+      ffi (>= 1.0.0)
+    sys-host (0.6.2)
+    sys-uname (0.9.0)
+      ffi (>= 1.0.0)
+    sysinfo (0.8.0)
+      drydock
+      storable
+    syslogger (1.4.1)
+    systemu (2.5.2)
+    tabletastic (0.2.3)
+      activesupport (~> 3.0)
+    templater (1.0.0)
+      diff-lcs (>= 1.1.2)
+      extlib (>= 0.9.5)
+      highline (>= 1.4.0)
+    term-ansicolor (1.0.7)
+    text-table (1.2.2)
+    therubyracer (0.11.0)
+      ref
+    thin (1.5.0)
+      daemons (>= 1.0.9)
+      eventmachine (>= 0.12.6)
+      rack (>= 1.0.0)
+    thor (0.16.0)
+    tilt (1.3.3)
+    transport (1.0.3)
+    treetop (1.4.12)
+      polyglot
+      polyglot (>= 0.3.1)
+    trollop (1.16.2)
+    tzinfo (0.3.35)
+    unicode-display_width (0.1.1)
+    uuid (2.3.6)
+      macaddr (~> 1.0)
+    uuidtools (2.1.3)
+    vclog (1.9.2)
+      ansi (>= 1.2)
+      facets (>= 2.4)
+      rdoc
+      xml-simple
+    vlad (2.3.1)
+      rake (>= 0.8, < 11.0)
+      rake-remote_task (~> 2.1)
+    wirb (1.0.1)
+      paint
+    xebec (2.7.0)
+    xml-simple (1.1.2)
+    yajl-ruby (1.1.0)
+    yamler (0.1.0)
+    yell (1.2.1)
+    yell-adapters-gelf (1.2.0)
+      json
+      yell (~> 1.2)
+    yell-adapters-syslog (1.2.0)
+      yell (~> 1.2)
+    yell-rails (1.2.1)
+      rails (~> 3)
+      yell (~> 1.2.1)
+    zucker (12.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  GeoRuby
+  RedCloth
+  ZenTest
+  activerecord-mysql2-adapter
+  ae
+  amqp-utils
+  annotate
+  awesome_print
+  blankslate
+  bundler
+  bunny
+  chef
+  chef-server
+  ci_reporter
+  colored
+  columnize
+  composite_primary_keys
+  configatron
+  configuration
+  couchdb
+  couchdb-ruby
+  crummy
+  dalli
+  dnote
+  dnssd
+  eventmachine
+  facets
+  ffi
+  flay
+  flog
+  formtastic
+  friendly_id
+  geokit
+  geoutm
+  guard
+  guard-annotate
+  guard-bundler
+  guard-coffeescript
+  highline
+  home_run
+  hudson-remote-api
+  iniparse
+  irbtools
+  irbtools-more
+  json
+  libxml-ruby
+  localmemcache
+  looksee
+  minitest
+  mongoid
+  multi_json
+  mysql2
+  net-scp
+  net-sftp
+  net-ssh
+  net-ssh-gateway
+  net-ssh-multi
+  net-ssh-telnet
+  notifier
+  notify
+  pry
+  rails
+  rails_best_practices
+  rake
+  reek
+  require_all
+  rest-client
+  roodi
+  rspec (= 1.3.0)
+  rspec-rails (= 1.3.2)
+  rtfm
+  ruby-debug19
+  ruby-graphviz
+  rubyzip
+  rye
+  shoulda
+  simplecov
+  sinatra
+  snmp
+  sqlite3-ruby
+  sys-admin
+  sys-cpu
+  sys-filesystem
+  sys-host
+  sys-uname
+  syslogger
+  systemu
+  tabletastic
+  templater
+  term-ansicolor
+  text-table
+  therubyracer
+  thin
+  uuid
+  uuidtools
+  vclog
+  vlad
+  xebec
+  xml-simple
+  yell
+  yell-adapters-gelf
+  yell-adapters-syslog
+  yell-rails

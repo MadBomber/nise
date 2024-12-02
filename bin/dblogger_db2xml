@@ -1,0 +1,197 @@
+#!/usr/bin/env ruby
+
+require "mysql"
+require "socket"
+require "optparse"
+require "fileutils"
+
+
+
+class DBLogger
+
+	def DBLogger.getMessagesLogged(uuid)
+
+		stmt = "SHOW TABLE STATUS FROM `" + uuid + "` WHERE COMMENT='mLog' OR COMMENT='modelLog'";
+		res = $dbh.query(stmt)
+
+		messages_array = Array.new();
+	
+		if res.nil? then
+			puts "No Results";
+		else
+			messages_array = Array.new();
+			res.each_hash do |row|
+				messages_array <<  row["Name"]
+			end
+		end
+
+		return messages_array
+	end
+
+	def DBLogger.getCommaDelimitedFields(table_name, uuid)
+			
+		delimiter = ", ', ', "	
+	
+		stmt = "DESCRIBE `" + uuid + "`.`" + table_name + "`"
+		res = $dbh.query(stmt)
+
+		serialization = "";
+
+		if res.nil? then
+			puts "NO Field Structure"
+		else
+			res.each_hash do |row|
+				serialization += row["Field"] + delimiter
+			end
+			serialization = serialization.slice(0, serialization.length - delimiter.length)
+		end
+
+		return serialization
+
+	end
+
+end
+
+
+#------------------------------------------------------------------------------------
+#
+#
+#				MAIN LOOP
+#
+#
+#-------------------------------------------------------------------------------------
+
+OPTIONS = {
+  :jobid	=> -1,
+  :uuid		=> "",
+  :mask		=> [],
+  :time_choice	=> "sim_time"
+}
+
+ARGV.options do |o|
+	script_name = File.basename($0)
+	o.set_summary_indent('  ')
+	o.banner = 	"Usage: #{script_name} [OPTIONS]"
+	o.define_head 	"DBLogger to XML (time-sorted)"
+	o.separator	""
+	o.separator	"Mandatory arguments to long options are mandatory for " +
+			"short options too."
+
+	o.on("-i", "--jobid=val", Integer, "Job ID to load (used instead of --uuid)") { |OPTIONS[:jobid]|}
+	o.on("-u", "--uuid=val", "UUID to load (used instead of --jobid)") {|OPTIONS[:uuid]|}
+	o.on("-m", "--mask=[val1,val2,val3]", Array, "Don't export data with these field names. Space delimited.") {|OPTIONS[:mask]|}
+	o.on("-t", "--time_choice=val", "Choose which version of time to sort by 'sim_time' or 'system_time'") {|OPTIONS[:time_choice]|}
+  
+	o.separator ""
+	o.on_tail("-h", "--help", "Show this help message.") { puts o; exit}
+	o.parse!
+end
+
+uuid = OPTIONS[:uuid]
+
+begin
+	$dbh = Mysql.init
+	$dbh = Mysql.real_connect(ENV["ISE_QUEEN"], "Samson", nil, "Samson")
+rescue Mysql::Error => e
+	puts "Error Code: #(e.errno)"
+	puts "Error Message: #(e.error)"
+	puts "Error SQLSTATE: #(e.sqlstate)" if e.respond_to?("sqlstate")
+end
+
+if OPTIONS[:jobid] != -1
+	stmt = "SELECT UUID FROM Job WHERE ID=" + OPTIONS[:jobid].to_s
+	res = $dbh.query(stmt)
+	
+	if res.nil? then
+		puts "NO Job record for that id"
+	else
+		res.each_hash do |row|
+			uuid = row["UUID"]
+		end
+	end
+end
+
+stmt = "DROP TABLE IF EXISTS `" + uuid + "`.`TimeBasedExport`;"
+$dbh.query(stmt)
+
+if OPTIONS[:time_choice] == "sim_time"
+	time_field_type = "double unsigned NOT NULL"
+else
+	time_field_type = "BIGINT(21) unsigned NOT NULL"
+end
+
+puts time_field_type
+
+stmt = "CREATE TABLE IF NOT EXISTS `" + uuid + "`.`TimeBasedExport` (  `id` int(10) unsigned NOT NULL auto_increment,  `table_name` varchar(1024) NOT NULL,  `key` int(11) NOT NULL,  `time` " + time_field_type + ",  `unitid` int(11) NOT NULL, `type` varchar(1024) NOT NULL, `data` varchar(10240) NOT NULL,  PRIMARY KEY  (`id`)) ENGINE=MyISAM  DEFAULT CHARSET=latin1;"
+$dbh.query(stmt)
+
+table_structs = {};
+table_structs_exploded = {};
+
+DBLogger.getMessagesLogged(uuid).each do |table_name|
+	
+	table_structs[table_name] = DBLogger.getCommaDelimitedFields(table_name, uuid)
+	table_structs_exploded[table_name] = table_structs[table_name].split(", ', ', ");
+	#puts table_structs[table_name];
+	if table_structs_exploded[table_name].index("time_") != nil
+		time_field = "time_"
+		unit_id_field = "unitID_"
+		type_field = "message"
+	else
+		time_field = "currTime_"
+		unit_id_field = "unit_id_"
+		type_field = "model"
+	end
+
+	if OPTIONS[:time_choice] == "system_time"
+		time_field = "sys_time_usec";
+	end
+
+	stmt = "INSERT INTO `" + uuid + "`.TimeBasedExport (`table_name`, `key`, `time`, `unitid`, `type`, `data`) (SELECT '" + table_name + "', id, " + time_field + ", " + unit_id_field + ", '" + type_field + "', CONCAT(" + table_structs[table_name] + ") FROM `" + uuid + "`." + table_name + ");"
+	
+	$dbh.query(stmt)
+end
+
+stmt = "SELECT * FROM `" + uuid + "`.TimeBasedExport ORDER BY time ASC, unitid ASC";
+res = $dbh.query(stmt)
+
+if res.nil? then
+	puts "No results in TimeBasedExport"
+else
+	export="<" + uuid + ">\n\t<timestep>\n\t\t<time>-1</time>\n\t\t<obj_states>\n"
+	current_time = -1;
+	res.each_hash do |row|
+
+		data = row["data"].split(", ")
+		table_fields = table_structs_exploded[row["table_name"]]
+
+		if row["time"] != current_time
+			current_time = row["time"]
+			export << "\t\t</obj_states>\n\t</timestep>\n\t<timestep>\n\t\t<time>" << current_time << "</time>\n\t\t<obj_states>\n"
+		end
+
+		i = 0
+		export << "\t\t\t<obj_state table_name='" << row["table_name"] << "' obj_type='" << row["type"] << "'>\n"
+		data.each do |data_row|
+			if OPTIONS[:mask].index(table_fields[i]) == nil
+				 export << "\t\t\t\t<" << table_fields[i] << ">" << data_row << "</" << table_fields[i] << ">\n"
+			end
+			i = i + 1 
+		end
+		export << "\t\t\t</obj_state>\n"
+	end
+
+	export << "\t\t</obj_states>\n\t</timestep>\n</" + uuid + ">"
+	
+	puts export
+end
+				
+
+
+
+
+
+$dbh.close if $dbh
+
+exit 0
+

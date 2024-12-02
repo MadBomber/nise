@@ -1,0 +1,9 @@
+#######################################################################
+###
+##  File: .roots
+##  Desc: Defines the stardard *_ROOT system environment variables
+#
+
+export ISE_ROOT=$HOME/ise    # typical; change to match your configuration
+export <%= project_id.upcase %>_ROOT=<%= destination_root %>/<%= project_id %>
+

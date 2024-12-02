@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ############################################################################## -->
+<!-- ### -->
+<!-- ##   File: uaeNavyAttacks.kml -->
+<!-- ##   Desc: Attacks from Iranian Navel Ships -->
+<!-- # -->
+<kml xmlns="http://earth.google.com/kml/2.2">
+<Document>
+	<name>uaeNavyAttacks.kml</name>
+	<StyleMap id="msn_red-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_red-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_red-pushpin0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_red-pushpin">
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="sh_red-pushpin">
+		<IconStyle>
+			<scale>1.2</scale>
+		</IconStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="sh_red-pushpin0">
+		<IconStyle>
+			<scale>1.2</scale>
+		</IconStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="sn_red-pushpin0">
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="sn_red-pushpin1">
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="msn_red-pushpin0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_red-pushpin1</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_red-pushpin6</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_red-pushpin1">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_red-pushpin2</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_red-pushpin5</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_red-pushpin2">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_red-pushpin6</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_red-pushpin4</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_red-pushpin3">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_red-pushpin4</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_red-pushpin2</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_red-pushpin4">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_red-pushpin5</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_red-pushpin3</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_red-pushpin1">
+		<IconStyle>
+			<scale>1.2</scale>
+		</IconStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="sn_red-pushpin2">
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="sn_red-pushpin3">
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="sn_red-pushpin4">
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="sh_red-pushpin2">
+		<IconStyle>
+			<scale>1.2</scale>
+		</IconStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="sh_red-pushpin3">
+		<IconStyle>
+			<scale>1.2</scale>
+		</IconStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="sh_red-pushpin4">
+		<IconStyle>
+			<scale>1.2</scale>
+		</IconStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="sn_red-pushpin5">
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="msn_red-pushpin5">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_red-pushpin0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_red-pushpin</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_red-pushpin6">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_red-pushpin3</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_red-pushpin1</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_red-pushpin5">
+		<IconStyle>
+			<scale>1.2</scale>
+		</IconStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="sn_red-pushpin6">
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="sh_red-pushpin6">
+		<IconStyle>
+			<scale>1.2</scale>
+		</IconStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Folder>
+		<name>Navy Patrol Paths</name>
+		<Placemark>
+			<name>navy1</name>
+			<styleUrl>#msn_red-pushpin6</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+54.86006034851101,26.09462457672322,0 54.81973903251716,25.84914728080235,0 54.69299496926172,25.74644991908285,0 54.49490524855948,25.76287453466024,0 54.37528141291845,25.98477781577015,0 54.47680808713867,26.13829352942336,0 54.67434399908986,26.25309351012857,0 </coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>navy2</name>
+			<styleUrl>#msn_red-pushpin5</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+54.22883372320545,25.59872012842929,0 53.95289351456275,25.3757222485147,0 53.79395069362737,25.41557977647297,0 53.78659248371776,25.68004354079569,0 53.93358052866645,25.84088132269126,0 54.23360964620045,25.99505144218637,0 54.40990626075463,26.11207600143791,0 54.67917759636723,26.18808895677995,0 </coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>navy attack1</name>
+			<styleUrl>#msn_red-pushpin3</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+54.81991920310275,25.87051823539352,0 55.35272053201338,25.24051169367156,0 </coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>navy attack2</name>
+			<styleUrl>#msn_red-pushpin0</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+54.77552628215491,25.81354560790233,0 55.39370208303904,25.25252961758836,0 </coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>navy attack3</name>
+			<styleUrl>#msn_red-pushpin1</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+54.73195642759546,25.78262232590865,0 55.29281313317053,25.18555459984915,0 </coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>navy attack4</name>
+			<styleUrl>#msn_red-pushpin</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+54.11067347248186,25.50572367192374,0 54.63029834687386,24.56883152737231,0 </coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>navy attack5</name>
+			<styleUrl>#msn_red-pushpin4</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+54.0645059564174,25.47255839621614,0 54.61266452202389,24.47078182417886,0 </coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>navy attack6</name>
+			<styleUrl>#msn_red-pushpin2</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+54.01719896455622,25.43003567550492,0 54.50333165762824,24.51603201625063,0 </coordinates>
+			</LineString>
+		</Placemark>
+	</Folder>
+</Document>
+</kml>

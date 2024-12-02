@@ -1,0 +1,13 @@
+// -*- MPC -*-
+
+project(FramedTater) : ISE-models {
+  sharedname = FramedTater
+
+  Source_Files {
+	FramedTater.cpp 
+  }
+
+  Header_Files {
+	FramedTater.hpp 
+  }
+}

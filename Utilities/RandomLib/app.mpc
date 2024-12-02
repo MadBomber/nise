@@ -1,0 +1,31 @@
+// -*- MPC -*-
+
+project(Random): RandomBase {
+  includes += ..
+  Source_Files {
+    Random.cpp
+  }
+}
+
+project(RandomExample): RandomBase {
+  after = Random
+  includes += ..
+  specific(vc71, vc8, vc9) {
+    add_references = Random
+  }
+  Source_Files {
+    RandomExample.cpp
+  }
+}
+
+project(RandomPermutation): RandomBase {
+  after = Random
+  includes += ..
+  specific(vc71, vc8, vc9) {
+    add_references = Random
+  }
+  Source_Files {
+    RandomPermutation.cpp
+  }
+}
+

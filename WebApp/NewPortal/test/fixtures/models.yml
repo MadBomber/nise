@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  node_id: 1
+  platform_id: 1
+  name: MyString
+  desc: MyString
+  location: MyString
+  dll: MyString
+
+two:
+  node_id: 1
+  platform_id: 1
+  name: MyString
+  desc: MyString
+  location: MyString
+  dll: MyString

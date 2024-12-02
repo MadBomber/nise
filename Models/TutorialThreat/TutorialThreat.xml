@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ISEModelData>
+
+  <Initialize>
+
+    <yAxis>10000.0</yAxis>
+    <xAxis>0.0</xAxis>
+    <zAxis>0.0</zAxis>
+    <stepSize>1.0</stepSize>
+    <engagementTime>1000.0</engagementTime>
+
+  </Initialize>
+
+</ISEModelData>

@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ISEModelData>
+  
+  <Model>
+    <UnitID>-1</UnitID>
+    <Initialization>
+      <xInitCond>40000.00</xInitCond>
+      <xRange>26666.67</xRange>
+      <stepSize>1999.00</stepSize>
+      <yAxis>0.00</yAxis>
+      <pitch>116.5</pitch>
+      <xAxisPrev>0.00</xAxisPrev>
+      <yAxisPrev>0.00</yAxisPrev>
+      <zAxisPrev>0.00</zAxisPrev>
+      <alphaZ>1.00</alphaZ>
+      <alphaZA>0.00</alphaZA>
+      <engagementTime>200.00</engagementTime>
+      <position>0.00</position>
+      <targetAttitude>0.00</targetAttitude>
+      <roll>0.00</roll>
+      <yaw>0.00</yaw>      
+    </Initialization>
+  </Model>
+  
+  <Model>
+    <UnitID>1</UnitID>
+    <Initialization>
+      <xInitCond>40000.00</xInitCond>
+      <xRange>26666.67</xRange>
+      <stepSize>1999.00</stepSize>
+      <yAxis>0.00</yAxis>
+      <pitch>116.5</pitch>
+      <xAxisPrev>0.00</xAxisPrev>
+      <yAxisPrev>0.00</yAxisPrev>
+      <zAxisPrev>0.00</zAxisPrev>
+      <alphaZ>1.00</alphaZ>
+      <alphaZA>0.00</alphaZA>
+    </Initialization>
+  </Model>
+
+  <Model>
+    <UnitID>2</UnitID>
+    <Initialization>
+      <xInitCond>26660.00</xInitCond>
+      <xRange>13326.67</xRange>
+      <stepSize>999.00</stepSize>
+      <yAxis>10000.00</yAxis>
+      <pitch>149.3099</pitch>
+      <xAxisPrev>26673.33667</xAxisPrev>
+      <yAxisPrev>10000.00</yAxisPrev>
+      <zAxisPrev>-17692.48806</zAxisPrev>
+      <alphaZ>1.00</alphaZ>
+      <alphaZA>0.00</alphaZA>
+    </Initialization>
+  </Model>
+
+  <Model>
+    <UnitID>3</UnitID>
+    <Initialization>
+      <xInitCond>32663</xInitCond>
+      <xRange>19329.67</xRange>
+      <stepSize>1449.00</stepSize>
+      <yAxis>-15000.00</yAxis>
+      <pitch>0.00</pitch>
+      <xAxisPrev>32676.33817</xAxisPrev>
+      <yAxisPrev>-15000.00</yAxisPrev>
+      <zAxisPrev>-17777.77778</zAxisPrev>
+      <alphaZ>0.00</alphaZ>
+      <alphaZA>-17777.77778</alphaZA>
+    </Initialization>
+  </Model>
+  
+</ISEModelData>

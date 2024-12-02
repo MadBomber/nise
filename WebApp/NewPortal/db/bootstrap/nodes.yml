@@ -1,0 +1,37 @@
+
+localhost:
+  id:           1
+  platform:     linux_platform
+  name:         localhost
+  description:  localhost for testing
+  ip_address:   127.0.0.1
+  status:       0
+  fqdn:         localhost.localdomain
+
+
+<% (100..104).each do |id| %>
+
+nice<%= id%>:
+  id:           <%= id%>
+  platform:     linux_platform
+  name:         nice<%= id%>
+  description:  VM Drone nice<%= id%>
+  ip_address:   192.168.2.<%= id%>
+  status:       0
+  fqdn:         nice<%= id%>.local
+
+<% end %>
+
+
+anyhost:
+  id:           9999
+  platform:     any_platform
+  name:         any
+  description:  Any Drone of the Correct Platform
+  ip_address:   0.0.0.0
+  status:       0
+  fqdn:         ""
+
+
+
+

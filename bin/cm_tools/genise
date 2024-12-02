@@ -1,0 +1,13 @@
+#!/bin/sh
+########################################################
+###
+##  File: genise
+##  Desc: Invokes the genise.rb program to generate ISE components
+#
+
+# NOTE: using 'ruby' in front of $ISE_ROOT/bin/cm_tools/genise.rb causes problems;
+#       This means that genise.rb must have its executable bit set so that it can be
+#       executed directly.
+
+chmod +x $ISE_ROOT/bin/cm_tools/genise.rb     # sometimes subversion does not have executable bit set.
+$ISE_ROOT/bin/cm_tools/genise.rb "$@"

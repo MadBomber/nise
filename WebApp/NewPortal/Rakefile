@@ -1,0 +1,60 @@
+#!/usr/bin/env rake
+# Add your own tasks in files placed in lib/tasks ending in .rake,
+# for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
+
+require 'debug_me'
+
+require File.expand_path('../config/application', __FILE__)
+
+NewPortal::Application.load_tasks
+
+
+######################################################################################
+###
+##  File: Rakefile
+##  Desc: Defines administrative tasks to perform for build, maintaining and deploying ISE
+##
+##  Although ISE itself is not a RAILS application, we use rake and capistrano to support
+##  adminstrative, maintainance and deployment tasks.  We do make use of ruby scripts for
+##  cross-platform compatiability.  For example the IseJCL domain specific language is
+##  developed in ruby.  The 'demake' and 'remake' scripts are also ruby.
+##
+##  Rails is a convention over configuration paradygm; however, convention and cofiguration
+##  are beginning to clash within the overall rails community as the rails framework matures.
+##
+##  The IsePortal is a rails application; however, it resides in its own subversion
+##  repository.
+
+require 'IseJCL_Utilities'  # Defines the ISE environment
+
+
+
+establish_and_validate_environment	## Ensures that the ISE environment is workable; basically
+                                    ## that the setup_symbols script has been run
+
+unless $ISE_GOOD
+  puts "Please correct the problems noted."
+  puts "... terminating."
+  exit
+end
+
+RAILS_ENV  = $ISE_ENV                    unless defined?(RAILS_ENV)
+#RAILS_ROOT = ($ISE_ROOT + 'Portal').to_s unless defined?(RAILS_ROOT)
+RAILS_ROOT = $RAILS_ROOT.to_s
+
+require(File.join(RAILS_ROOT, 'config', 'boot'))
+
+require 'rake'            # Defines the rake DSL
+require 'rake/testtask'   # Defines common ruby testing tasks
+require 'rdoc/task'       # Defines common ruby documentation tasks
+#require 'tasks/rails'     # Defines common rails tasks
+
+# Add your own tasks in files placed in lib/tasks ending in .rake,
+# for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
+# Those files will automatically be loaded.  Tasks defined there will over-ride
+# any systemic/gem-based tasks.
+
+
+## end of Rakefile
+##################
+

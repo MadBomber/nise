@@ -1,0 +1,36 @@
+= form_for(@run_model_override) do |f|
+  - if @run_model_override.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@run_model_override.errors.count, "error")
+        prohibited this run_model_override from being saved:
+      %ul
+        - @run_model_override.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :run_id
+    %br/
+    = f.number_field :run_id
+  .field
+    = f.label :user_id
+    %br/
+    = f.number_field :user_id
+  .field
+    = f.label :model_id
+    %br/
+    = f.number_field :model_id
+  .field
+    = f.label :instance
+    %br/
+    = f.number_field :instance
+  .field
+    = f.label :cmd_line_param
+    %br/
+    = f.text_field :cmd_line_param
+  .field
+    = f.label :debug_flags
+    %br/
+    = f.text_field :debug_flags
+  .actions
+    = f.submit
+

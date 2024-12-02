@@ -1,0 +1,15 @@
+%p#notice
+= notice
+
+%p
+  %b Name:
+  = @debug_flag.name
+
+%p
+  %b Desc:
+  = @debug_flag.description
+
+
+= link_to 'Edit', edit_debug_flag_path(@debug_flag)
+|
+= link_to 'Back', debug_flags_path

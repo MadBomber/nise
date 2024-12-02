@@ -1,0 +1,12 @@
+= form_for(@run_peer) do |f|
+  - if @run_peer.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@run_peer.errors.count, "error")
+        prohibited this run_peer from being saved:
+      %ul
+        - @run_peer.errors.full_messages.each do |msg|
+          %li= msg
+  .actions
+    = f.submit
+

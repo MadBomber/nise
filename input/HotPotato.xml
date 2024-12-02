@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ISEModelData>
+  
+  <Model>
+    <UnitID>1</UnitID>
+    <Initialization>
+      <ReceiveFrom>3</ReceiveFrom>
+      <SubscribeTo>0</SubscribeTo>
+      <TotalVisits>15</TotalVisits>
+    </Initialization>
+  </Model>
+  
+  <Model>
+    <UnitID>2</UnitID>
+    <Initialization>
+      <ReceiveFrom>1</ReceiveFrom>
+      <SubscribeTo>0</SubscribeTo>
+      <TotalVisits>15</TotalVisits>
+    </Initialization>
+  </Model>
+  
+  <Model>
+    <UnitID>3</UnitID>
+    <Initialization>
+      <ReceiveFrom>2</ReceiveFrom>
+      <SubscribeTo>0</SubscribeTo>
+      <TotalVisits>15</TotalVisits>
+    </Initialization>
+  </Model>
+
+</ISEModelData>

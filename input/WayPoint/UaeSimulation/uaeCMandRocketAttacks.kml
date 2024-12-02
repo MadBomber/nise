@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ############################################################################## -->
+<!-- ### -->
+<!-- ##   File: uaeCMandRocketAttacks.kml -->
+<!-- ##   Desc: Various CM and Rocket Attacks -->
+<!-- # -->
+<kml xmlns="http://earth.google.com/kml/2.2">
+<Document>
+	<name>uaeCMandRocketAttacks.kml</name>
+	<Style id="sn_red-pushpin">
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="sn_red-pushpin0">
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="msn_red-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_red-pushpin1</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_red-pushpin4</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_red-pushpin0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_red-pushpin3</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_red-pushpin0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_red-pushpin">
+		<IconStyle>
+			<scale>1.2</scale>
+		</IconStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="msn_red-pushpin1">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_red-pushpin2</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_red-pushpin2</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_red-pushpin1">
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="sh_red-pushpin0">
+		<IconStyle>
+			<scale>1.2</scale>
+		</IconStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="sh_red-pushpin1">
+		<IconStyle>
+			<scale>1.2</scale>
+		</IconStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="sn_red-pushpin2">
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="sh_red-pushpin2">
+		<IconStyle>
+			<scale>1.2</scale>
+		</IconStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="sn_red-pushpin3">
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="sn_red-pushpin4">
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="msn_red-pushpin2">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_red-pushpin5</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_red-pushpin</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_red-pushpin3">
+		<IconStyle>
+			<scale>1.2</scale>
+		</IconStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="msn_red-pushpin3">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_red-pushpin0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_red-pushpin5</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_red-pushpin4">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_red-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_red-pushpin3</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_red-pushpin5">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_red-pushpin4</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_red-pushpin1</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_red-pushpin4">
+		<IconStyle>
+			<scale>1.2</scale>
+		</IconStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="sn_red-pushpin5">
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="sh_red-pushpin5">
+		<IconStyle>
+			<scale>1.2</scale>
+		</IconStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Folder>
+		<name>Additional CM or Rocket Attacks</name>
+		<Placemark>
+			<name>Attach on Abu Musa</name>
+			<styleUrl>#msn_red-pushpin3</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+55.3682537315357,26.60563654707779,0 55.02325203637432,25.89543351464401,0 </coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>attack airport1</name>
+			<styleUrl>#msn_red-pushpin0</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+55.4956188541066,25.33738174908631,0 55.97614123066173,26.845953459901,0 55.50667080628997,25.37604067301928,0 </coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>Attack on Dubai1</name>
+			<styleUrl>#msn_red-pushpin</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+55.34743968923673,26.61103337615143,0 55.34113755954108,25.16256976909615,0 </coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>Attack on DubaiHACM</name>
+			<styleUrl>#msn_red-pushpin2</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+55.59220056782522,27.30892353939191,0 55.96449389747524,25.91281707163147,0 55.37370559904453,25.27671855514948,0 </coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>Attack on Abu Dhabi1</name>
+			<styleUrl>#msn_red-pushpin4</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+55.34043988369071,26.61145826351775,0 54.23375903568866,25.21911530802849,0 54.5933395135268,24.39628180475972,0 </coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>Attack on Abu Dhabi2</name>
+			<styleUrl>#msn_red-pushpin5</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+53.97965040724058,26.54305546500661,0 54.47897376702066,24.37776908288444,0 </coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>Attack On Abu Dhabi3</name>
+			<styleUrl>#msn_red-pushpin1</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+53.95608410996586,26.48290323448679,0 54.47250616613254,24.33609437496817,0 </coordinates>
+			</LineString>
+		</Placemark>
+	</Folder>
+</Document>
+</kml>

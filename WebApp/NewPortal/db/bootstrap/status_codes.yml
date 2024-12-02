@@ -1,0 +1,19 @@
+######################################################
+## Initial load of the status_codes table
+
+1:
+  code:  -1
+  description: |
+    Application error has been reported, details in log.
+2:
+  code:  0
+  description: |
+    Application has started and the default record was created.
+3:
+  code:  1
+  description: |
+    Application initialization has started.
+4:
+  code:  2
+  description: |
+    Application has been initialized and is in steady state.

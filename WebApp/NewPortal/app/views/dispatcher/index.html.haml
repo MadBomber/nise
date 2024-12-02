@@ -1,0 +1,32 @@
+%h1 Dispatcher#index
+%p Find me in app/views/dispatcher/index.html.haml
+
+%table
+  %tr>
+    %th Alive?
+    %th Node
+    %th PID
+    %th Control Port
+    %th Status
+    %th Name
+    %th
+    %th
+    %th
+  - @dispatchers.each do |dispatcher|
+    %tr
+      %td{:align => "center"}
+        = dispatcher.restful_command("alive") ? 'yes' : 'no'
+      %td= dispatcher.node.name + " " + dispatcher.node.description
+      %td{:align => "center"}
+        = dispatcher.pid
+      %td{:align => "center"}
+        = dispatcher.control_port
+      %td{:align => "center"}
+        = link_to_status_code dispatcher.status
+      %td= dispatcher.peer_key
+      %td= link_to 'Show', dispatcher
+      %td= link_to 'Edit', edit_run_peer_path(dispatcher)
+      %td= link_to 'Destroy', dispatcher, confirm: 'Are you sure?', method: :delete
+
+
+

@@ -1,0 +1,31 @@
+$ORIGIN .
+$TTL 216000	; 2 days 12 hours
+52.209.138.in-addr.arpa	IN SOA	lmmfc-vrsil.com. root.lmmfc-vrsil.com. (
+				1997022707 ; serial
+				28800      ; refresh (8 hours)
+				14400      ; retry (4 hours)
+				3600000    ; expire (5 weeks 6 days 16 hours)
+				86400      ; minimum (1 day)
+				)
+			NS	pcig31.52.209.138.in-addr.arpa.
+$ORIGIN 52.209.138.in-addr.arpa.
+26			PTR	vrsilnas.lmmfc-vrsil.com.
+103			PTR	LabPC103.lmmfc-vrsil.com.
+104			PTR	LabPC104.lmmfc-vrsil.com.
+105			PTR	LabPC105.lmmfc-vrsil.com.
+106			PTR	LabPC106.lmmfc-vrsil.com.
+107			PTR	LabPC107.lmmfc-vrsil.com.
+108			PTR	LabPC108.lmmfc-vrsil.com.
+109			PTR	LabPC109.lmmfc-vrsil.com.
+110			PTR	LabPC110.lmmfc-vrsil.com.
+111			PTR	LabPC111.lmmfc-vrsil.com.
+112			PTR	LabPC112.lmmfc-vrsil.com.
+113			PTR	LabPC113.lmmfc-vrsil.com.
+$TTL 216000	; 2 days 12 hours
+137			PTR	pcig22.lmmfc-vrsil.com.
+138			PTR	pcig23.lmmfc-vrsil.com.
+139			PTR	pcig24.lmmfc-vrsil.com.
+141			PTR	pcig26.lmmfc-vrsil.com.
+143			PTR	pcig28.lmmfc-vrsil.com.
+146			PTR	pcig31.lmmfc-vrsil.com.
+147			PTR	pcig32.lmmfc-vrsil.com.

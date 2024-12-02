@@ -1,0 +1,25 @@
+%h1 Listing run_peers
+%table
+  %tr
+    %th Node
+    %th PID
+    %th Control Port
+    %th Status
+    %th Name
+    %th
+    %th
+    %th
+  - @run_peers.each do |run_peer|
+    %tr
+      %td= run_peer.node.name
+      %td{:align => "center"}= run_peer.pid
+      %td{:align => "center"}= run_peer.control_port
+      %td{:align => "center"}
+        = link_to_status_code run_peer.status
+      %td= run_peer.peer_key
+      %td= link_to 'Show', run_peer
+      %td= link_to 'Edit', edit_run_peer_path(run_peer)
+      %td= link_to 'Destroy', run_peer, confirm: 'Are you sure?', method: :delete
+%br/
+= link_to 'New Run peer', new_run_peer_path
+

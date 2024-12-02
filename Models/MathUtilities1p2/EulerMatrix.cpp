@@ -1,0 +1,65 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+// Filename:         EulerMatrix.cpp
+//
+// Classification:   UNCLASSIFIED
+//
+// Unit Name:        Utilities
+//
+// System Name:      Simulation
+//
+// Description:      This file contains the class definition of EulerMatrix.
+//
+// Author:           Hector Bayona
+//                   Nancy Anderson
+//
+// Company Name:     Lockheed Martin
+//                   Missiles & Fire Control
+//                   Dallas, TX
+//
+// Revision History:
+//
+// <yyyymmdd> <Eng> <Desciption of modification>
+//  20051114   HLB   Originial Release
+//
+////////////////////////////////////////////////////////////////////////////////
+
+#define ISE_BUILD_DLL
+
+#include "EulerMatrix.hpp"
+
+namespace SamsonMath {
+
+////////////////////////////////////////////////////////////////////////////////
+// Procedure:  EulerMatrix (Constructor)
+////////////////////////////////////////////////////////////////////////////////
+
+EulerMatrix::EulerMatrix (const EulerAngles aR0, const EulerAngles aR1, const EulerAngles aR2)
+{
+   setRow (0, aR0);
+   setRow (1, aR1);
+   setRow (2, aR2);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Procedure:  EulerMatrix
+////////////////////////////////////////////////////////////////////////////////
+
+EulerMatrix::EulerMatrix ()
+{
+  Vec3<double> NullRow (0.0, 0.0, 0.0);
+  setRow (0, NullRow);
+  setRow (1, NullRow);
+  setRow (2, NullRow);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Procedure:  ~EulerMatrix (Destructor)
+////////////////////////////////////////////////////////////////////////////////
+
+EulerMatrix::~EulerMatrix (void)
+{
+}
+
+} // namespace
+

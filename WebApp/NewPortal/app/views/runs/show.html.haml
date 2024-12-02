@@ -1,0 +1,32 @@
+%p#notice= notice
+%p
+  %b Status:
+  = @run.status
+%p
+  %b Job:
+  = @run.job_id
+%p
+  %b Model:
+  = @run.run_peer_id
+%p
+  %b User:
+  = @run.user_id
+%p
+  %b Notification method:
+  = @run.notification_method
+%p
+  %b Debug flags:
+  = @run.debug_flags
+%p
+  %b Guid:
+  = @run.guid
+%p
+  %b Input dir:
+  = @run.input_dir
+%p
+  %b Output dir:
+  = @run.output_dir
+= link_to 'Edit', edit_run_path(@run)
+|
+= link_to 'Back', runs_path
+

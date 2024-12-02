@@ -1,0 +1,196 @@
+#######################################################
+###
+##  File: INSTALL.txt
+##  Desc: How to do a ground-up ISE installation.
+#
+
+The absolute best way to work with ISE is with a pre-built ISE
+virtual machine.
+
+These instructions are for builting an ISE environment from scratch
+for a Fedoral OS installation with a user login shell of BASH.  If
+this is not you base environment, these configuration instructions
+will not apply.
+
+The steps listed here ASSUME that you are doing a fresh installation
+on a brand new computer or VM.
+
+ISE depends on the OS.  So the first things that you need to do
+is to configure the OS with the libraries that ISE uses.
+
+If you are not using the Fedora OS from Red Hat, then these
+instructions will most likely lead you into a mess.
+
+DOWNLOAD ISE AND CONFIGURE THE OS
+=================================
+
+ISE is maintained in a subversion repository available on the
+LMI at the following URL:
+
+  svn://138.209.52.146/ISE/trunk
+
+In order to get ISE you must do a checkout from the subversion
+repository.  To do this you must have subversion installed.
+
+As root do:
+
+  yum install subversion subversion-devel
+
+Exit root back into you user account into which ISE is to be
+installed.
+
+Change to the directory where you want you ISE installation to be
+located.  We typically use the directory name 'sandbox' to hold
+working copies of projects.
+
+As user do:
+  cd                  # Puts you into your home directory
+  mkdir sandbox       # This is our convention; you can do what you want
+  cd sandbox          # Go to the place where you want ISE installed
+  svn co svn://138.209.52.146/ISE/trunk ise
+
+Now you have ISE downloaded from the subversion repository.  The directory
+that it was placed we call the $ISE_ROOT.
+
+In the $ISE_ROOT there is a file named: Yumfile
+
+As root do:
+  ISE_ROOT=/path/to/you/user/account/ise/installation
+  source $ISE_ROOT/Yumfile
+
+Exit the root account back to your user account.
+
+This would be a good time to reboot your box.  By rebooting
+all of the required system level services that were installed
+will be started.
+
+
+
+CONFIGURATION OF THE USER ACCOUNT
+=================================
+
+ISE has prototype dot files that need to be loaded into you home
+directory.  Any existing dot files will be backed up into a time-stamped
+archive file.
+
+These next steps will do the backup, install the ISE-related dot files and
+download programs and libraries used by ISE from the internet.  This process
+may take several minutes.
+
+As the user do:
+  cd /path/to/you/user/account/ise/installation
+  ./bin/configure_ise_user_account
+
+When the configuration process completes you should exit out of your
+shell and start a new one.
+
+
+QUICK TOUR OF YOU HOME ENVIRONMENT
+==================================
+
+After your user account has been configured for ISE, you
+can compile the ISE utilities.... BUT first a quick tour.
+
+ISE is dependent on system environment variables to know where things
+are located.  Several new files have been added to your home
+directory.  This files impact the system environment variables
+used by ISE projects.
+
+  File Name     How Used
+  ------------  ---------------------------------------------------
+  .roots        Specifieds the ROOT directories of all ISE projects.
+                The initial installation of ISE only exports the
+                $ISE_ROOT variable.  When you add ISE-based projects
+                to you account, you will need to manually add their
+                XXX_ROOT variable to this file.  The XXX represents
+                the short name for the project.  For example the
+                short name for the MicroGridSupport project is MGS.
+                So if you install this project, you will manually
+                add a line that looks something like this:
+                    export MGS_ROOT=/path/to/MGS/root/directory
+                The order of the exports is important.  The ISE_ROOT
+                line _MUST_ be the first one defnied in this file.
+                The order is used to determine the sequence used in
+                the source-ing of the $XXX_ROOT/setup_symbols scripts.
+                
+  .iserc        Provides user extensions to $ISE_ROOT/setup_symbols.
+
+
+You should look through the .bashrc file to see what aliases have been
+created to make working with ISE projects easier.  One of the important
+things that the .bashrc file does when a new shell is created is that
+it sources the .roots file to define the $XXX_ROOT system environment
+variables for all of the ISE-based projects.  It also parses the
+.roots file to create a setup_symbols file in you home directory.  This
+file ensures that the individual ISE-based projects' setup_symbols
+are executed in the desired order.
+
+The order is required to ensure that the PATH-like variables are constructed
+in a way that makes sense to you over-all project environment.
+
+An alias 'sss' is created that sources the $HOME/setup_symbols file to
+create the environment for your shell.
+
+The process is not done automatically on shell creation to allow flexibility
+in the way you interact with your system.
+
+
+COMPILING THE ISE UTILITIES
+===========================
+
+Start with a new user shell and do this:
+  sss                 # alias that does: source $HOME/setup_symbols
+  r187                # alias that sets rvm to use Ruby version 1.8.7
+  dump_env.s          # not necessary for a compile but it shows your entire ISE environment
+  iserelease.s        # builds ISE; removes previous build's artifacts; puts compiler
+                      #   messages in $ISE_ROOT/Release.log
+
+
+BUILDING THE ISE DATABASE
+=========================
+
+Assuming you are in a shell where all the ISE system environment
+variables have been established using the 'sss' command.
+
+After you have successfully build the ISE system you will need to
+build the ISE database.  To do this use the command
+
+  build_ise_database
+
+
+RUNNING THE ISE REGRESSION TEST
+===============================
+
+After successfully building the ISE database, you can run
+a standard ISE simulation as a regression test to ensure that
+everything is working the way it should.
+
+In you user shell do this:
+  dispatcher -s               # starts the IseDispatcher daemon
+  ise -j                      # lists the IseJobs in the IseDatabase
+  ise -c1                     # Executes IseJob configuration #1
+  ise -l                      # Lists the currently running IseJobs
+                              # There should only be one job at the moment
+                              # The listing will show a GUID for the job
+  cd $ISE_ROOT/output/GUID    # where GUID is what you saw with the ISE -l
+                              # This directory will show the output files
+                              #   created by the IseJob.
+
+How do you know things worked?
+
+IseJob configuration #1 should be the Samson 3 on 3 simulation.  This
+simuatlion has some expected results which can be compared to the actual
+results.
+
+Do this:
+  cd $ISE_ROOT/output
+  compare_expected_results.s GUID       # where GUID is the same thing as above
+  cd GUID   # Take a look at any file that as '.diff' as an extension.
+            # These files show the difference between the actual output files
+            #   and the expected files.  If there are no diff files then
+            #   everything is good.  If there are differences, if the differences
+            #   are in time related areas, then everything is mostly like good as well.
+            #   Basically, if the simulation does not crash, then the ISE install is good.
+
+
+            

@@ -1,0 +1,22 @@
+%h1 Listing app_messages
+
+%table
+  %tr
+    %th App message key
+    %th Description
+    %th
+    %th
+    %th
+
+  - @app_messages.each do |app_message|
+    %tr
+      %td= app_message.app_message_key
+      %td= app_message.description
+      %td= link_to 'Show', app_message
+      %td= link_to 'Edit', edit_app_message_path(app_message)
+      %td= link_to 'Destroy', app_message, confirm: 'Are you sure?', method: :delete
+
+%br
+
+= link_to 'New App message', new_app_message_path
+

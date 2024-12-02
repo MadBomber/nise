@@ -1,0 +1,14 @@
+Seed set to [259238894]
+Estimate pi = 3.1416
+Tossing a coin 20 times: HTHTHHHHTHHTTHTTHHTT
+Throwing a pair of dice 15 times: 9 5 6 8 6 4 9 7 6 10 9 4 9 4 7
+Another 20 throws: 3 9 7 7 4 3 7 7 8 5 10 9 3 7 4 7 7 7 10 6
+Draw 5 balls from urn containing 5 red and 5 white balls: WWRRR
+Shuffling the digits 0..9: 7145302896
+Estimate mean and variance of normal distribution: 0.000129125, 0.976994
+Some low precision reals (1/16):  0.125 0.625 0.8125 0.5625 0.3125
+Used 95026 random numbers
+Self test of RandomLib::MT19937 32-bit Version 4 passed
+Self test of RandomLib::MT19937 64-bit Version 4 passed
+Self test of RandomLib::SFMT19937 32-bit Version 0 passed
+Self test of RandomLib::SFMT19937 64-bit Version 0 passed

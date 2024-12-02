@@ -1,0 +1,26 @@
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\ISEStreamDatabase\bin\Debug\ISEStreamDatabase.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\ISEStreamDatabase\bin\Debug\ISEStreamDatabase.pdb
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\ISEStreamDatabase\bin\Debug\ISEStreamDatabase.tlb
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\ISEStreamDatabase\bin\Debug\Interop.AGI.Attr.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\ISEStreamDatabase\bin\Debug\Interop.AGI.Entity.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\ISEStreamDatabase\bin\Debug\Interop.AGI.Realtime.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\ISEStreamDatabase\obj\Debug\ResolveAssemblyReference.cache
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\ISEStreamDatabase\obj\Debug\Interop.AGI.Attr.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\ISEStreamDatabase\obj\Debug\Interop.AGI.Entity.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\ISEStreamDatabase\obj\Debug\Interop.AGI.Realtime.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\ISEStreamDatabase\obj\Debug\ISEStreamDatabase.csproj.ResolveComReference.cache
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\ISEStreamDatabase\obj\Debug\ISEStreamDatabase.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\ISEStreamDatabase\obj\Debug\ISEStreamDatabase.pdb
+C:\Documents and Settings\edietz\My Documents\Backup\AAD IRAD\ISE\CODE\trunk\Visualization\STK\ISEStreamDatabase\bin\Debug\ISEStreamDatabase.dll
+C:\Documents and Settings\edietz\My Documents\Backup\AAD IRAD\ISE\CODE\trunk\Visualization\STK\ISEStreamDatabase\bin\Debug\ISEStreamDatabase.pdb
+C:\Documents and Settings\edietz\My Documents\Backup\AAD IRAD\ISE\CODE\trunk\Visualization\STK\ISEStreamDatabase\bin\Debug\ISEStreamDatabase.tlb
+C:\Documents and Settings\edietz\My Documents\Backup\AAD IRAD\ISE\CODE\trunk\Visualization\STK\ISEStreamDatabase\bin\Debug\Interop.AGI.Attr.dll
+C:\Documents and Settings\edietz\My Documents\Backup\AAD IRAD\ISE\CODE\trunk\Visualization\STK\ISEStreamDatabase\bin\Debug\Interop.AGI.Entity.dll
+C:\Documents and Settings\edietz\My Documents\Backup\AAD IRAD\ISE\CODE\trunk\Visualization\STK\ISEStreamDatabase\bin\Debug\Interop.AGI.Realtime.dll
+C:\Documents and Settings\edietz\My Documents\Backup\AAD IRAD\ISE\CODE\trunk\Visualization\STK\ISEStreamDatabase\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\edietz\My Documents\Backup\AAD IRAD\ISE\CODE\trunk\Visualization\STK\ISEStreamDatabase\obj\Debug\Interop.AGI.Attr.dll
+C:\Documents and Settings\edietz\My Documents\Backup\AAD IRAD\ISE\CODE\trunk\Visualization\STK\ISEStreamDatabase\obj\Debug\Interop.AGI.Entity.dll
+C:\Documents and Settings\edietz\My Documents\Backup\AAD IRAD\ISE\CODE\trunk\Visualization\STK\ISEStreamDatabase\obj\Debug\Interop.AGI.Realtime.dll
+C:\Documents and Settings\edietz\My Documents\Backup\AAD IRAD\ISE\CODE\trunk\Visualization\STK\ISEStreamDatabase\obj\Debug\ISEStreamDatabase.csproj.ResolveComReference.cache
+C:\Documents and Settings\edietz\My Documents\Backup\AAD IRAD\ISE\CODE\trunk\Visualization\STK\ISEStreamDatabase\obj\Debug\ISEStreamDatabase.dll
+C:\Documents and Settings\edietz\My Documents\Backup\AAD IRAD\ISE\CODE\trunk\Visualization\STK\ISEStreamDatabase\obj\Debug\ISEStreamDatabase.pdb

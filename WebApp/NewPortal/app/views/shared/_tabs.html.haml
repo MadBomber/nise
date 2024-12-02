@@ -1,0 +1,36 @@
+#menuwrapper
+  = tabs_tag :open_tabs => { :id => "p7menubar" } do |tab|
+    = tab.home          'Home',         root_path
+    = tab.jobs          'Jobs',         jobs_path
+    = tab.models        'Models',       models_path
+    = tab.dispatcher    'Dispatchers',  dispatcher_index_path
+    = tab.runs          'Runs',         runs_path
+    = tab.rmo           'RMO',          run_model_overrides_path
+    = tab.app_messages  'AppMessages',  app_messages_path
+    = tab.nv            'N/V',          name_values_path
+    %li.trigger
+      %a{:href => ""}
+        RunTime
+        %img{:src => "/p7exp/images/p7PM_dark_south.gif"}/
+      %ul
+        = tab.run_messages    'RunMessages',    run_messages_path
+        = tab.run_models      'RunModels',      run_models_path
+        = tab.run_peers       'RunPeers',       run_peers_path
+        = tab.run_subscribers 'RunSubscribers', run_subscribers_path
+    - if current_user.admin
+      %li.trigger
+        %a{:href => ""}
+          Admin
+          %img{:src => "/p7exp/images/p7PM_dark_south.gif"}/
+        %ul
+          = tab.job_configs       'Job Configs',      job_configs_path
+          = tab.debug_flags       'Debug Flags',      debug_flags_path
+          = tab.status_codes      'Status Codes',     status_codes_path
+          = tab.platforms         'Platforms',        platforms_path
+          = tab.nodes             'Nodes',            nodes_path
+          = tab.dispatcher_stats  'Dispatcher Stats', dispatcher_stats_path
+          = tab.users             'Users',            users_path
+          = tab.cluster           'Cluster',          "http://127.0.0.1/cluster"
+          = tab.database          'Database',         "http://127.0.0.1/phpMyAdmin"
+    = tab.wiki    'Wiki',   configatron.wiki_url, :style => 'float: right;'
+

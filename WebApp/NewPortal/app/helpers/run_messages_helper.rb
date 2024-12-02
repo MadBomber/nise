@@ -1,0 +1,2 @@
+module RunMessagesHelper
+end

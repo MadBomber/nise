@@ -1,0 +1,23 @@
+%p#notice= notice
+%p
+  %b Node:
+  = @model.node_id
+%p
+  %b Platform:
+  = @model.platform_id
+%p
+  %b Name:
+  = @model.name
+%p
+  %b Desc:
+  = @model.description
+%p
+  %b Location:
+  = @model.location
+%p
+  %b Dll:
+  = @model.dll
+= link_to 'Edit', edit_model_path(@model)
+|
+= link_to 'Back', models_path
+

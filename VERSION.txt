@@ -1,0 +1,61 @@
+###########################################################
+###
+##  File: VERSION.txt
+##  Desc: Information about the latest version of ISE
+#
+
+== ISE 0.29rc
+
+Features:
+
+  Updates to the build system to support building on MS Windows.
+  More cross-platform support scripts using Ruby as foundation
+  ISE Job Configuration Language (IseJCL) supported
+  New script: job_archive.rb creates an IseJCL file from IseDatabase content
+
+== ISE 0.28
+
+Stable release.
+
+== History
+
+Version 0.01
+Date 3/14/2007
+Jack Lavender
+
+This build has the follwing feature
+ 
+-  Static Distpatcher
+-  Static Sample clients  (Samson and CMD0)  using a single PeerClient
+-  Single Job on system
+
+
+The Peer Client is a codle that all models and most services will be written to.
+This works very well. Any issues are with the model iteractiona and sharing variables.
+
+The Samson Client is a good starting point for testing an archtecture. I envision
+that is used for testing a the event models. Currently it does not shutdown correctly,
+nor do the Message "unregister" from the database.  This will be addressed vof build 0.1
+
+The CMD Client is a good staring point for seperating out the CMD models.  This uses
+the even structure from the Samson Client, so has the same issues.  
+
+Short Term Issues
+
+- Debug Objects from the Main Shared Object is not being read correctly int Model (which
+is loaded as Dynamic Shared Object).  Understanding why is important for sharing data
+between the PeerClient and the Model.
+
+- GCC V4.X  has changed the way shared library visibility works.  This is not completely
+understood at this time and has resulted in work-arounds rather than a unified approach.
+
+- The event structure and time in the Samson Client interaction messages is not consistent.
+This points to a memory leak.  This model is a good strawman interaction model.
+
+- Models need to read data in from exteral files, the format and reader is TBD.  XML is
+preferred for most values, but the CMD reader will be used for its data for the first version.
+
+- VAT is not working properly, nor it is under version control.  It does not seem to 
+work with outside of the "example" directory, nor with the later versions of its dependent
+library packages.  
+

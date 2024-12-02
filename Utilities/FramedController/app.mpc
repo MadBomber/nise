@@ -1,0 +1,15 @@
+// -*- MPC -*-
+
+project(FramedController) : ISE-common, acelib, boost_serialization, samson {
+  includes += . ../../Peer
+
+  Source_Files {
+    FramedController.cpp
+  }
+
+  Header_Files {
+    Options.h
+    FramedController.h
+  }
+
+}

@@ -1,0 +1,37 @@
+#!/bin/sh
+##################################################
+##  File:  update_database
+##  Desc: builds the ISE database from scratch
+##
+## FIXME: This script is not cross-platform
+#
+
+cd $RAILS_ROOT
+
+echo
+echo
+rake db:show_config
+echo
+echo
+
+echo "Migrating schema ..."
+rake db:migrate
+
+echo "Loading bootstrap data ..."
+rake db:bootstrap:load
+
+echo "Dumping schema ..."
+rake db:schema:dump
+
+echo "Dumping structure ..."
+rake db:structure:dump
+#
+# SMELL: use of $RAILS_ROOT is not cross_platform; windows requires %RAILS_ROOT%
+# SMELL: use of pound signs for comments may not be cross-platform
+
+echo "Registering standard IseJobs ..."
+$ISE_ROOT/Jobs/SamsonSimulation_3on3.rb
+$ISE_ROOT/Jobs/Tater.rb
+$ISE_ROOT/Jobs/FramedTater.rb
+
+echo "Done."

@@ -1,0 +1,5 @@
+#! /bin/sh
+################################################
+## requires param to be $WEB%/%TOPIC%
+#
+gawk -f genmsghpp.awk /ise/TWiki-4.2.0/data/$1.txt

@@ -1,0 +1,14 @@
+// -*- MPC -*-
+
+project(DIS) : mysql_xplatform, ISE-models, boost_regex {
+  includes += .
+
+  Source_Files {
+    DIS.cpp
+  }
+
+  Header_Files {
+    DIS.h
+    pdu_packed.h
+  }
+}

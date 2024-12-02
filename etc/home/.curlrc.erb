@@ -1,0 +1,9 @@
+######################################################
+###
+##  File: .curlrc
+##  Desc: Configuration parameters for the 'curl' utility
+##        The utility is used by various library managers to
+##        download libraries from the internet.
+<% unless 0 == $ISE_PROXY.length %>
+proxy = <%= $ISE_PROXY %>
+<% end %>

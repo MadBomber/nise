@@ -1,0 +1,35 @@
+= form_for(@model) do |f|
+  - if @model.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@model.errors.count, "error")
+        prohibited this model from being saved:
+      %ul
+        - @model.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :node_id
+    %br/
+    = f.number_field :node_id
+  .field
+    = f.label :platform_id
+    %br/
+    = f.number_field :platform_id
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name
+  .field
+    = f.label :desc
+    %br/
+    = f.text_field :description
+  .field
+    = f.label :location
+    %br/
+    = f.text_field :location
+  .field
+    = f.label :dll
+    %br/
+    = f.text_field :dll
+  .actions
+    = f.submit

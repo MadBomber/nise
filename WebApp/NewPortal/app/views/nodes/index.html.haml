@@ -1,0 +1,27 @@
+%h1 Listing nodes
+%table
+  %tr
+    %th Platform
+    %th Status
+    %th Name
+    %th Desc
+    %th Ip address
+    %th Fqdn
+    %th
+    %th
+    %th
+  - @nodes.each do |node|
+    %tr
+      %td= node.platform.name
+      %td{:align => "center"}
+        = link_to_status_code node.status
+      %td= node.name
+      %td= node.description
+      %td= node.ip_address
+      %td= node.fqdn
+      %td= link_to 'Show', node
+      %td= link_to 'Edit', edit_node_path(node)
+      %td= link_to 'Destroy', node, confirm: 'Are you sure?', method: :delete
+%br/
+= link_to 'New Node', new_node_path
+

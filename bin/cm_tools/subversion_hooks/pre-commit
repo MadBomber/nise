@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+######################################################
+###
+##  File: pre-commit
+##  Desc: A subversion pre-commit hook that
+##        enforces content in the LogMessage
+#
+
+# Location of svnlook binary. Change as necessary.
+SVNLOOK     = "/usr/bin/svnlook"
+repository  = ARGV[0]
+transaction = ARGV[1]
+
+log_message = `#{SVNLOOK} log -t #{transaction} #{repository}`.strip
+
+if log_message.empty?
+  $stderr.puts "LogMessage can not be empty.  Commit denied!"
+  exit 1
+end
+
+exit 0
+

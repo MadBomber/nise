@@ -1,0 +1,14 @@
+// -*- MPC -*-
+
+project : ISE-common, acelib, boost_serialization {
+
+  after += dispatcherd
+  //libs += SamsonMath
+
+  specific(vc71, vc8, vc9) {
+    add_references = IsePeer
+    includes += $(BOOST_ROOT)
+    libpaths += $(BOOST_ROOT)/lib
+  }
+
+}

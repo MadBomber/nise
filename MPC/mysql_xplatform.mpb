@@ -1,0 +1,18 @@
+// -*- MPC -*-
+
+// Must be included before any other base file.
+project {
+  specific(vc71, vc8, vc9) {
+    includes += $(MYSQL_ROOT)/include
+    libpaths += $(MYSQL_ROOT)/lib/debug
+    lit_libs -= mysqlclient
+    lit_libs += libmysql
+    
+    // libpaths += $(MYSQL_ROOT)/zlib/debug
+    // lit_libs  += zlib
+  }   else {
+    includes += $(MYSQL_ROOT)/include/mysql
+    libpaths += $(MYSQL_ROOT)/lib/mysql $(MYSQL_ROOT)/lib64/mysql
+    lit_libs += mysqlclient
+  }
+}

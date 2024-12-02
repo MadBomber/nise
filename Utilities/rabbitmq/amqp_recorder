@@ -1,0 +1,3 @@
+#!/bin/sh
+./amqp_probe.rb -r 158 --key 'BriefGeneratorStatus.*.*,BriefLoadStatus.*.*,SourceTotalPower.*.*,LoadTotalPowerMessage.*.*'
+

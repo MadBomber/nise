@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ############################################################################## -->
+<!-- ### -->
+<!-- ##   File: uaeCommercialFlightPath.kml -->
+<!-- ##   Desc: Commercial Air from Tehran, Iran to Muscat, Oman -->
+<!-- # -->
+<kml xmlns="http://earth.google.com/kml/2.2">
+<Document>
+	<name>uaeCommercialFlightPath.kml</name>
+	<open>1</open>
+	<StyleMap id="msn_green-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_green-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_green-pushpin</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_green-pushpin">
+		<IconStyle>
+			<scale>1.2</scale>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ff00</color><!-- GREEN -->
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="sn_green-pushpin">
+		<LineStyle>
+			<color>ff00ff00</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Placemark>
+		<name>iran2oman</name>
+		<description>Commercial Air from Tehran, Iran to Muscat, Oman</description>
+		<styleUrl>#msn_green-pushpin</styleUrl>
+		<LineString>
+			<extrude>1</extrude>
+			<tessellate>1</tessellate>
+			<altitudeMode>absolute</altitudeMode>
+			<coordinates>
+54.74222723020687,29.26581228726933,30000 
+55.69653947274401,27.00498070188753,30000 
+56.47123100000001,23.84619,15000 
+57.709254,23.52488900000001,5000 
+58.248418,23.589248,1500 
+58.267985,23.591752,17 
+58.29577199999999,23.59398699999999,17 </coordinates>
+		</LineString>
+	</Placemark>
+</Document>
+</kml>

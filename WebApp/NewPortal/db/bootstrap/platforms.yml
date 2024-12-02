@@ -1,0 +1,61 @@
+
+linux_platform:
+  name:           x86_64-linux
+  lib_prefix:     lib
+  lib_suffix:     .so
+  lib_path_name:  LD_LIBRARY_PATH
+  lib_path_sep:   ':'
+  description:    64-bit Intel x86 compatable Linux
+
+macosx_platform:
+  name:           x86_64-darwin10.8.0
+  lib_prefix:     lib
+  lib_suffix:     .dyld
+  lib_path_name:  DYLD_LIBRARY_PATH
+  lib_path_sep:   ':'
+  description:    Apple Macintosh OS X
+
+ruby18_platform:
+  name:           ruby18
+  lib_prefix:     ""
+  lib_suffix:     ".rb"
+  lib_path_name:  "RUBYLIB"
+  lib_path_sep:   ":"
+  description:    A Ruby Version 1.8.7 Installation
+
+ruby19_platform:
+  name:           ruby19
+  lib_prefix:     ""
+  lib_suffix:     ".rb"
+  lib_path_name:  "RUBYLIB"
+  lib_path_sep:   ":"
+  description:    A Ruby Version 1.9.* Installation
+
+ruby20_platform:
+  name:           ruby20
+  lib_prefix:     ""
+  lib_suffix:     ".rb"
+  lib_path_name:  "RUBYLIB"
+  lib_path_sep:   ":"
+  description:    A Ruby Version 2.* Installation
+
+ruby_platform:
+  name:           ruby
+  lib_prefix:     ""
+  lib_suffix:     ".rb"
+  lib_path_name:  "RUBYLIB"
+  lib_path_sep:   ":"
+  description:    Any Ruby Installation
+
+any_platform:
+  name:           any
+  lib_prefix:     ""
+  lib_suffix:     ""
+  lib_path_name:  ""
+  lib_path_sep:   ""
+  description:    Any Platform Will Do
+
+
+
+
+

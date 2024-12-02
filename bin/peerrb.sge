@@ -1,0 +1,58 @@
+#!/bin/sh
+#
+#
+# Note: the pound-dollar is how to send in an argument
+#
+
+# defaults to csh and that will not run
+#$ -S /bin/sh
+
+# redirect stdout
+# $ -o /dev/null 
+# $ -o $ISE_ROOT/output
+
+# combine outputs
+#$ -j y
+
+# redirect stderr
+# $ -e /dev/null
+# $ -e $ISE_ROOT/output
+
+# Which account to be charged cpu time
+# $ -A santa_claus
+
+# date-time to run, format [[CC]yy]MMDDhhmm[.SS]
+# $ -a 12241200
+
+# to run I want 6 or more parallel processes
+# under the PE pvm. the processes require
+# 128M of memory
+# $ -pe pvm 6- -l mem=128
+
+# If I run on dec_x put stderr in /tmp/foo, if I
+# run on sun_y, put stderr in /usr/me/foo
+# $ -e dec_x:/tmp/foo,sun_y:/usr/me/foo
+
+# Send mail to these users
+# $ -M santa@nothpole,claus@northpole
+# $ -M lavender
+
+# Mail at beginning/end/on suspension
+# $ -m bes
+
+# Export these environmental variables
+# $ -v ISE_QUEEN,ISE_ROOT,RUBYLIB,RAILS_ROOT,RAILS_ENV,STK_IP
+
+# The job is located in the current
+# working directory.
+# $ -cwd
+
+# valgrind --leak-check=full $ISE_ROOT/bin/peerd "$@"
+source ~/.roots
+echo "ise_root:   $ISE_ROOT"
+echo "aadse_root: $AADSE_ROOT"
+source $ISE_ROOT/setup_symbols
+source $AADSE_ROOT/setup_symbols
+$ISE_ROOT/bin/peerrb "$@"
+
+

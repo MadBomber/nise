@@ -1,0 +1,23 @@
+// -*- MPC -*-
+
+project(MASES_stub) : ISE-models, mysql_xplatform, yassl {
+  includes += .
+
+  specific(vc71, vc8, vc9) {
+    lit_libs += zlib
+    ignore_default_library_names = libcmtd
+  }
+
+  Source_Files {
+    MASES_stub.cpp
+    BaseMsg.cpp
+    Traj3DOF_Msg.cpp
+  }
+
+  Header_Files {
+    MASES_stub.h
+    BaseMsg.h
+    Traj3DOF_Msg.h
+    FrameTypes.h
+  }
+}

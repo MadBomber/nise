@@ -1,0 +1,14 @@
+#!/bin/sh
+########################################################
+###
+##  File: amqp_probe
+##  Desc: Invokes the amqp_probe.rb program to log AMQP messages
+##        Use --help for detailed usage instructions
+#
+
+# NOTE: using 'ruby' in front of $ISE_ROOT/Utilities/rabbitmq/amqp_probe.rb causes problems;
+#       This means that amqp_probe.rb must have its executable bit set so that it can be
+#       executed directly.
+
+chmod +x $ISE_ROOT/Utilities/rabbitmq/amqp_probe.rb     # sometimes subversion does not have executable bit set.
+$ISE_ROOT/Utilities/rabbitmq/amqp_probe.rb "$@"

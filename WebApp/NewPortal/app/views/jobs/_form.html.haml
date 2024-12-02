@@ -1,0 +1,11 @@
+= semantic_form_for @job do |f|
+  = f.inputs do
+    = f.input :name
+    = f.input :description
+    = f.input :default_input_dir
+    = f.input :default_output_dir
+    = f.input :router
+
+  = f.actions do
+    = f.action :submit, :as => :input
+

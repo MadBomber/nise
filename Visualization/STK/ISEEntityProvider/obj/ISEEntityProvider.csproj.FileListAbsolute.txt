@@ -1,0 +1,26 @@
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\ISEEntityProvider\bin\Debug\ISEEntityProvider.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\ISEEntityProvider\bin\Debug\ISEEntityProvider.pdb
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\ISEEntityProvider\bin\Debug\ISEEntityProvider.tlb
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\ISEEntityProvider\bin\Debug\Interop.AGI.Attr.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\ISEEntityProvider\bin\Debug\Interop.AGI.Entity.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\ISEEntityProvider\bin\Debug\Interop.AGI.Realtime.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\ISEEntityProvider\obj\Debug\ResolveAssemblyReference.cache
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\ISEEntityProvider\obj\Debug\Interop.AGI.Attr.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\ISEEntityProvider\obj\Debug\Interop.AGI.Entity.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\ISEEntityProvider\obj\Debug\Interop.AGI.Realtime.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\ISEEntityProvider\obj\Debug\ISEEntityProvider.csproj.ResolveComReference.cache
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\ISEEntityProvider\obj\Debug\ISEEntityProvider.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\ISEEntityProvider\obj\Debug\ISEEntityProvider.pdb
+C:\Documents and Settings\edietz\My Documents\Backup\AAD IRAD\ISE\CODE\trunk\Visualization\STK\ISEEntityProvider\bin\Debug\ISEEntityProvider.dll
+C:\Documents and Settings\edietz\My Documents\Backup\AAD IRAD\ISE\CODE\trunk\Visualization\STK\ISEEntityProvider\bin\Debug\ISEEntityProvider.pdb
+C:\Documents and Settings\edietz\My Documents\Backup\AAD IRAD\ISE\CODE\trunk\Visualization\STK\ISEEntityProvider\bin\Debug\ISEEntityProvider.tlb
+C:\Documents and Settings\edietz\My Documents\Backup\AAD IRAD\ISE\CODE\trunk\Visualization\STK\ISEEntityProvider\bin\Debug\Interop.AGI.Attr.dll
+C:\Documents and Settings\edietz\My Documents\Backup\AAD IRAD\ISE\CODE\trunk\Visualization\STK\ISEEntityProvider\bin\Debug\Interop.AGI.Entity.dll
+C:\Documents and Settings\edietz\My Documents\Backup\AAD IRAD\ISE\CODE\trunk\Visualization\STK\ISEEntityProvider\bin\Debug\Interop.AGI.Realtime.dll
+C:\Documents and Settings\edietz\My Documents\Backup\AAD IRAD\ISE\CODE\trunk\Visualization\STK\ISEEntityProvider\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\edietz\My Documents\Backup\AAD IRAD\ISE\CODE\trunk\Visualization\STK\ISEEntityProvider\obj\Debug\Interop.AGI.Attr.dll
+C:\Documents and Settings\edietz\My Documents\Backup\AAD IRAD\ISE\CODE\trunk\Visualization\STK\ISEEntityProvider\obj\Debug\Interop.AGI.Entity.dll
+C:\Documents and Settings\edietz\My Documents\Backup\AAD IRAD\ISE\CODE\trunk\Visualization\STK\ISEEntityProvider\obj\Debug\Interop.AGI.Realtime.dll
+C:\Documents and Settings\edietz\My Documents\Backup\AAD IRAD\ISE\CODE\trunk\Visualization\STK\ISEEntityProvider\obj\Debug\ISEEntityProvider.csproj.ResolveComReference.cache
+C:\Documents and Settings\edietz\My Documents\Backup\AAD IRAD\ISE\CODE\trunk\Visualization\STK\ISEEntityProvider\obj\Debug\ISEEntityProvider.dll
+C:\Documents and Settings\edietz\My Documents\Backup\AAD IRAD\ISE\CODE\trunk\Visualization\STK\ISEEntityProvider\obj\Debug\ISEEntityProvider.pdb

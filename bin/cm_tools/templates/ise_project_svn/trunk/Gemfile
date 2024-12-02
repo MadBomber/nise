@@ -1,0 +1,241 @@
+##################################################################
+###
+##  File:  Gemfile    from $<%= project_id.upcase %>_ROOT
+##  Desc:  A Ruby Gem configuration file used by the bundler gem.
+##         bundler manages the gem configuration.  It can be used
+##         to fetch the required gems from external internet sources.
+##         The standard external source is rubygems.org
+##
+##  See:  http://rubygems.org/gems/bundler
+##
+##  To load the gem libraries required by ISE do the following sequence:
+##    1) cd $<%= project_id.upcase %>_ROOT           # must be in the ISE root directory to start
+##    2) gem update --system    # updates the current system install gem support lib
+##    3) gem install bundler    # installs the latest version of bundler
+##    4) bundle install         # installs into a local directory all gems required by ISE
+##
+##  To package gems into the $ISE_ROOT/vendor/cache directory do this:
+##    1) bundle package         # locks the bundle and copies all *.gem files into ./vendor/cache
+##
+##
+
+source :rubygems
+
+
+#############################################
+## System Library Replacements
+
+unless 'java' == RUBY_PLATFORM.downcase
+  gem 'home_run'                  # Replace for Date/DateTime (not 100% compat, see gem details)
+end
+
+#############################################
+## Support Tools for automated testing and CI
+
+gem "rake"                      # Ruby based make-like utility
+gem "rake-hooks"                # adds before/after method hooks on rake tasks
+gem 'rtfm'                      # adds support for *nix man page creation
+
+#gem 'thor'                      # the new 'rake' now used by rails3 for templates
+
+
+#############################################
+## WebApps Using Rails
+
+gem "rails"             # The defacto MVC framework for Ruby
+
+gem "admin_data"        # Creats nice rails components to manipulate database table contents
+
+#############################################
+## Database (ActiveRecord) Helpers
+
+unless 'java' == RUBY_PLATFORM.downcase
+  gem "mysql"                               # active_record adaptor to the MySQL database service
+
+  group :development, :test do
+    gem "sqlite3-ruby", :require => "sqlite3" # AR adapto to the sqlite3 database service
+  end
+end
+
+
+###############################################
+## Web Services
+
+gem "sinatra"         # web application development framework for when rails is too heavy
+gem "rest-client"     # Simple REST client
+
+###############################################
+## Web Servers
+
+gem "rack"              # a modular Ruby webserver interface
+
+unless 'java' == RUBY_PLATFORM.downcase
+  gem 'thin'             # A thin, eventmachine-based fast web server
+end
+
+
+
+###############################################
+## Web Site Utilities (Javascript, HTML, CSS helpers)
+
+gem "json"            # JSON Implementation for Ruby
+
+#gem "compass"         # Stylesheet Framework
+#gem "bluecloth"       # implementation of Markdown syntax
+#gem "haml"            # structured XHTML/XML templating engine
+#gem "tilt"            # Generic interface to multiple Ruby template engines
+
+###############################################
+## File IO
+
+#unless 'java' == RUBY_PLATFORM.downcase
+#  gem "libxml-ruby"       # Ruby libxml bindings
+#end
+
+#gem "xml-simple"        # A simple API for XML processing
+#gem "rubyzip"           # work with zip files
+gem "require_all"       # Loads files from a directory with dependency-knowledge
+
+
+###############################################
+## Network IO, HTTP, SNMP, AMQP, Sockets, TCP, UDP etc.
+
+#gem "eventmachine"      # THE reactor pattern for IO
+#gem "snmp"              # Simple Network Management Protocol
+#gem "net-ssh"           # secure shell
+#gem "dnssd"             # DNS Service Discovery - uses avahi libraries on *nix and bounjour on MacOSX
+#gem "bunny"             # Wrapper of the AMQP using event-machine
+
+#group :development, :test do
+#  gem "net-scp"           # secure copy
+#  gem "net-sftp"          # secure ftp
+#  gem "net-ssh-gateway"   # assist in establishing tunneled Net::SSH connections
+#  gem "net-ssh-multi"     # Control multiple Net::SSH connections via a single interface
+#  gem "net-ssh-telnet"    # simple send/expect interface over SSH with an API almost identical to Net::Telnet
+#  gem "rye"               # Safely run SSH commands on a bunch of machines at the same time
+#end
+
+#gem 'notify'            # simple cross-platform user notification with little control over format
+#gem 'notifier'          # moroe complex cross-platform user notification with more control over format
+
+###############################################
+## Console IO
+
+#gem "highline"        # high-level command-line IO library
+#gem "term-ansicolor"  # colors strings using ANSI escape sequences
+#gem "templater"       # used by genise command
+#gem "colored"         # simular to term-ansicolor
+
+###############################################
+## Geodesic Support Libraries
+
+#gem "geokit"          # geocoding and distance calculation
+#gem "GeoRuby"         # Ruby data holder for OGC Simple Features
+#gem "tallakt-geoutm"  # supports UTM coordinate conventions/conversions
+#gem "vincenty"        # bearing and distance between two coordinates (may not be 1.9.2 compatiable)
+
+
+###############################################
+## System-level Utility Libraries
+
+#gem 'ffi'           # Provides a foreign function interface to native shared libraries
+#gem "systemu"       # like 'system' but returns exit_code, stdout and stderr to caller
+#gem 'syslogger'     # drop in replace for ruby's logger library
+
+#unless 'java' == RUBY_PLATFORM.downcase
+#  gem "sys-host"      # hostname and ip address info for a given host
+#end
+
+#group :development, :test do
+#  unless 'java' == RUBY_PLATFORM.downcase
+#    gem "sys-admin"       # A unified, cross platform replacement for the "etc" library
+#    gem "sys-cpu"         # interface for providing CPU information
+#    gem "sys-filesystem"  # interface for getting file system information
+#    gem "sys-uname"       # system platform information
+#  end
+#end
+
+
+###############################################
+## Misc. Utilities
+
+#gem "columnize"   # Read file with caching
+#gem "text-table"  # plain text table formatter
+#gem "uuid"        # UUID generator
+#gem "uuidtools"   # UUID generator
+#gem "facets"      # Premium Core Extensions and Standard Additions
+#gem "ruby-graphviz"	# supports 'bundle viz'
+
+###############################################
+## Developer Utilities (Command-line and IRB)
+
+#gem "vclog"           # Cross-VCS/SCM ChangeLog Generator
+
+group :development, :test do
+#  gem "annotate"        # stopped working with rails 2.3+
+  gem "dnote"           # scans code looking for developer note tags
+  gem "pry"             # Starts an interactive session simular to IRB
+  if RUBY_VERSION.include?("1.9")
+    gem "ruby-debug19"  # Ruby version 1.9+ debugger
+  else
+    gem "ruby-debug"    # Ruby v1.8.7- debugger
+  end
+                        # unroller depends on an old version of facets
+end
+
+################################################
+## irb utilities
+
+group :development, :test do
+
+  unless 'java' == RUBY_PLATFORM.downcase
+    gem "looksee"           # irb extension that reports all valid methods on an object
+  end
+  
+  gem "irbtools"            # set of irb extensions that includes the following
+=begin
+  gem "wirb"                # colorize output
+  gem "hirb"                # (active record) tables and custom views for specific objects
+  gem "fancy_irb"           # put result as comment and more colorization
+  gem "clipboard"           # easy clipboard access (copy & paste)
+  gem "interactive_editor"  # lets you open vim, hack something, and it gets loaded into the current session
+  gem "sketches"            # another, more flexible "start editor and it gets loaded into your irb session" plugin
+  gem "zucker"              # nice debug printing (q, o, c, .m, .d) + useful pseudo-constants (Info, OS, RubyVersion, RubyEngine)
+  gem "ap"                  # nice debug printing (ap) [also see wp]
+  gem "coderay"             # some nice colorful displaying ;)
+  gem "boson"               # commands repository (commands also work in the shell!)
+  gem "guessmethod"         # automatically corrects typos (method_missing hook) [not loaded by default]
+=end
+
+end
+
+################################################
+## Unit test Support
+
+group :development, :test do
+  gem "ZenTest"         # provides cli tools: zentest, unit_diff, autotest, and multiruby
+  gem "ae"              # extends Test::Unit with different syntactic sugar asserts
+  gem "shoulda"         # sugar for unit tests
+
+  gem "rspec"           # unit testing framework
+  gem "rspec-rails"     # unit testing framework
+end
+
+###############################################
+## Quality Assurance Tools
+
+group :development, :test do
+  gem "rails_best_practices"    # reviews a rails project for potential problems
+  gem "metric_fu"               # produces source code metrics
+  gem "roodi"                   # Ruby Object Oriented Design Inferometer
+end
+
+###############################################
+## Deployment and Configuration Tools
+
+gem "configuration" # configuration system
+gem "configatron"   # configuration system
+gem "iniparse"      # library for parsing INI-like documents
+
+#gem "vlad"          # application deployment automation
+

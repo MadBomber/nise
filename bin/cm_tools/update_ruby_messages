@@ -1,0 +1,23 @@
+#!/bin/sh
+###################################################
+###
+##  File: update_ruby_messages
+##  Desc: Creates dynamic ruby files from C++ *.h and *.hpp files
+##
+## FIXME:  This script is not cross-platform
+
+cm_tools=$ISE_ROOT/bin/cm_tools
+msg_converter=$cm_tools/auto_code_msg_hpp_as_rb.awk
+
+msg_dir_1=$ISE_ROOT/Common/Messages
+msg_dir_2=$ISE_ROOT/ISE-Models/Messages
+
+echo "Processing $msg_dir_1 ..."
+cd $msg_dir_1
+gawk -f $msg_converter *.h
+
+echo "Processing $msg_dir_2 ..."
+cd $msg_dir_2
+gawk -f $msg_converter *.hpp
+
+echo "Done."

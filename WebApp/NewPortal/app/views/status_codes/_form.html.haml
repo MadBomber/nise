@@ -1,0 +1,20 @@
+= form_for(@status_code) do |f|
+  - if @status_code.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@status_code.errors.count, "error")
+        prohibited this status_code from being saved:
+      %ul
+        - @status_code.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :code
+    %br/
+    = f.number_field :code
+  .field
+    = f.label :desc
+    %br/
+    = f.text_area :description
+  .actions
+    = f.submit
+

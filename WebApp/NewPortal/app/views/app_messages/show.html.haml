@@ -1,0 +1,15 @@
+%p{id:"notice"}
+  = notice
+
+%p
+  %b App message key:
+  = @app_message.app_message_key
+
+%p
+  %b Description:
+  = @app_message.description
+
+
+= link_to 'Edit', edit_app_message_path(@app_message)
+|
+= link_to 'Back', app_messages_path

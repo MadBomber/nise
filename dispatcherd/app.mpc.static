@@ -1,0 +1,46 @@
+// -*- MPC -*-
+
+project(dispatcherd) : aceexe {
+  exename = dispatcherd
+  includes += . ../SamsonCommon /usr/include/mysql
+  libs +=   mysqlclient xerces-c tcl8.4
+  libpaths += /usr/lib64 /usr/local/lib  /usr/lib/mysql
+  Source_Files {
+        ../SamsonCommon/DebugFlag.cpp 
+        ../SamsonCommon/SamsonHeader.cpp 
+        ../SamsonCommon/DataCountHeader.cpp 
+        ../SamsonCommon/EventHeader.cpp 
+        ../SamsonCommon/GatewayHeader.cpp 
+        ../SamsonCommon/NoHeader.cpp 
+        ../SamsonCommon/SimHeader.cpp 
+        ../SamsonCommon/SimTransform.cpp 
+        ../SamsonCommon/EventHeaderFactory.cpp 
+        ../SamsonCommon/DBMgr.cpp 
+        ../SamsonCommon/Base_ObjMgr.cpp 
+        ../SamsonCommon/Service_ObjMgr.cpp 
+        CommandHandler.cpp 
+        SAX2_Main.cpp 
+        ConnectionHandler.cpp 
+        Options.cpp 
+        ConnectionRecord.cpp 
+        ConnectionTable.cpp 
+        EventChannel.cpp 
+        DirectRoute.cpp 
+        GlobalStore.cpp 
+        DispatchTable.cpp 
+        DispatchFilter.cpp 
+        File_Parser.cpp 
+        Reaction.cpp 
+        Peer_Acceptor.cpp 
+        Peer_Connector.cpp 
+        ReceiveHandler.cpp 
+        TransmitHandler.cpp 
+        RouterStats.cpp 
+        TransceiverHandler.cpp 
+        SimInterpretor.cpp 
+        Peer_Factory.cpp 
+        SamsonDispatch.cpp 
+        SamsonIdentity.cpp 
+	dispatcherd.cpp
+  }
+}

@@ -1,0 +1,23 @@
+%p#notice= notice
+%p
+  %b Name:
+  = @platform.name
+%p
+  %b Desc:
+  = @platform.description
+%p
+  %b Lib prefix:
+  = @platform.lib_prefix
+%p
+  %b Lib suffix:
+  = @platform.lib_suffix
+%p
+  %b Lib path name:
+  = @platform.lib_path_name
+%p
+  %b Lib path sep:
+  = @platform.lib_path_sep
+= link_to 'Edit', edit_platform_path(@platform)
+|
+= link_to 'Back', platforms_path
+

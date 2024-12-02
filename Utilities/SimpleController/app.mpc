@@ -1,0 +1,15 @@
+// -*- MPC -*-
+
+project(SimpleController) : ISE-common, acelib, boost_serialization, samson {
+  includes += . ../../Peer
+
+  Source_Files {
+    SimpleController.cpp
+  }
+
+  Header_Files {
+    Options.h
+    SimpleController.h
+  }
+
+}

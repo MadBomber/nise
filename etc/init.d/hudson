@@ -1,0 +1,141 @@
+#! /bin/bash
+#
+# hudson	Start/Stop the Hudson Continuous Integration server.
+#
+# chkconfig: 345 91 10
+# description: Hudson is a Continuous Integration server. \
+#              It monitors a source code repository and triggers builds \
+#              when it detects any changes. See https://hudson.dev.java.net/ \
+#              for more details.
+# processname: hudson
+# pidfile: /var/run/hudson.pid
+
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+# Get config.
+. /etc/sysconfig/network
+
+# Check that networking is up.
+[ "${NETWORKING}" = "no" ] && exit 0
+
+
+export JAVA_HOME=/usr
+HUDSON_USER=hudson
+HUDSON_ROOT=/home/$HUDSON_USER
+startup=$HUDSON_ROOT/bin/start-hudson.sh
+shutdown=$HUDSON_ROOT/bin/stop-hudson.sh
+
+LOCK="/var/lock/subsys/hudson"
+
+pid_of_hudson() {
+    ps auxwww | grep java | grep hudson | grep -v grep | awk '{print $2}'
+}
+
+old_start(){
+ echo -n $"Starting Hudson service: "
+ su -l $HUDSON_USER -c $startup
+ RETVAL=$?
+ echo
+}
+
+start() {
+    [ -e "$LOG" ] && cnt=`wc -l "$LOG" | awk '{ print $1 }'` || cnt=1
+
+    echo -n $"Starting hudson: "
+
+    #cd "$HUDSON_HOME"
+    #nohup java -jar "$WAR" --httpPort=8888 --ajp13Port=8010 --prefix=/hudson >> "$LOG" 2>&1 &
+    
+    su -l $HUDSON_USER -c $startup
+
+    #while { pid_of_hudson > /dev/null ; } &&
+    #      ! { tail +$cnt "$LOG" | grep -q 'Winstone Servlet Engine .* running' ; } ; do
+    #    sleep 1
+    #done
+
+    # wait two seconds...not best, but the loop above requires the log to be setup correctly
+    sleep 2
+
+    pid_of_hudson > /dev/null
+    RETVAL=$?
+    [ $RETVAL = 0 ] && success $"$STRING" || failure $"$STRING"
+    echo
+
+    [ $RETVAL = 0 ] && touch "$LOCK"
+}
+
+old_stop(){
+ action $"Stopping Hudson service: "  su - $HUDSON_USER -c $shutdown 
+ RETVAL=$?
+ echo
+}
+
+stop() {
+    echo -n "Stopping hudson: "
+
+    pid=`pid_of_hudson`
+    [ -n "$pid" ] && kill $pid
+    RETVAL=$?
+    cnt=10
+    while [ $RETVAL = 0 -a $cnt -gt 0 ] &&
+          { pid_of_hudson > /dev/null ; } ; do
+        sleep 1
+        ((cnt--))
+    done
+
+    [ $RETVAL = 0 ] && rm -f "$LOCK"
+    [ $RETVAL = 0 ] && success $"$STRING" || failure $"$STRING"
+    echo
+}
+
+old_status(){
+ numproc=`ps -ef | grep hudson.war | grep -v "grep hudson.war" | wc -l`
+ if [ $numproc -gt 0 ]; then
+  echo "Hudson is running..."
+  else
+  echo "Hudson is stopped..."
+ fi
+}
+
+status() {
+    pid=`pid_of_hudson`
+    if [ -n "$pid" ]; then
+        echo "hudson (pid $pid) is running..."
+        return 0
+    fi
+    if [ -f "$LOCK" ]; then
+        echo $"${base} dead but subsys locked"
+        return 2
+    fi
+    echo "hudson is stopped"
+    return 3
+}
+
+restart(){
+  stop
+  start
+}
+
+
+# See how we were called.
+case "$1" in
+start)
+ start
+ ;;
+stop)
+ stop
+ ;;
+status)
+ status
+ ;; 
+restart)
+ restart
+ ;;
+*)
+ echo $"Usage: $0 {start|stop|status|restart}"
+ exit 1
+esac
+
+exit 0

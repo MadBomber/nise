@@ -1,0 +1,9 @@
+#!/bin/sh -f
+#########################################################################
+###
+##	File:	ise_hotbackup.sh
+##	Desc:	Creates a restorable backup of ISE SVN repository
+#
+
+sudo ruby $ISE_ROOT/bin/cm_tools/ise_hotbackup.rb
+

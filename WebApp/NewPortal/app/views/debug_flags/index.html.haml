@@ -1,0 +1,21 @@
+%h1 Listing debug_flags
+
+%table
+  %tr
+    %th Name
+    %th Desc
+    %th
+    %th
+    %th
+
+  - @debug_flags.each do |debug_flag|
+    %tr
+      %td= debug_flag.name
+      %td= debug_flag.description
+      %td= link_to 'Show', debug_flag
+      %td= link_to 'Edit', edit_debug_flag_path(debug_flag)
+      %td= link_to 'Destroy', debug_flag, confirm: 'Are you sure?', method: :delete
+
+%br
+
+= link_to 'New Debug flag', new_debug_flag_path

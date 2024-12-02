@@ -1,0 +1,17 @@
+
+nice:
+  id:           1
+  admin:        false
+  login:        nice
+  name:         NICE User
+  email:        nice@localhost
+  phone_number: ""
+
+dewayne:
+  id:           2
+  admin:        true
+  login:        Dewayne
+  name:         Dewayne VanHoozer
+  email:        dvanhoozer@gmail.com
+  phone_number: 817-905-1687
+

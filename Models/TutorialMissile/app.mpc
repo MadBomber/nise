@@ -1,0 +1,9 @@
+// -*- MPC -*-
+
+project(TutorialMissile) : ISE-models {
+  includes += .
+
+  Source_Files {
+    TutorialMissile.cpp
+  }
+}

@@ -1,0 +1,19 @@
+#########################################################################
+###
+##  File:  .proxyrc
+##  Desc:  Establish the proxy environment for this shell
+#
+<% unless 0 == $ISE_PROXY.length %>
+proxy=http://<%= $ISE_PROXY %>
+
+export no_proxy=.lmmfc-vrsil.com
+
+export http_proxy=$proxy
+export https_proxy=$proxy
+export ftp_proxy=$proxy
+
+export HTTP_PROXY=$proxy
+export HTTPS_PROXY=$proxy
+export FTP_PROXY=$proxy
+<% end %>
+

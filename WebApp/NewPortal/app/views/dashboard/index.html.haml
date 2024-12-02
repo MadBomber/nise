@@ -1,0 +1,19 @@
+/
+  File: views/dashboard/index.html.erb
+  Desc: An entry point
+
+- content_for :header do
+  = "Welcome to the"
+  = configatron.site_name
+
+%p
+  This web application provides access to the database.  Only basic functions are
+  provided.  Explore these functions by reviewing the tabs located near the top of the web page.
+
+
+%h2 Latest News from the wiki
+
+%iframe{src:"#{configatron.wiki_url}",
+  width:"100%",
+  height:"1000",
+  frameborder:"2" }

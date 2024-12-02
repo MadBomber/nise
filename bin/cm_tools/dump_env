@@ -1,0 +1,3 @@
+#!/bin/sh
+$ISE_ROOT/bin/cm_tools/dump_env.rb
+

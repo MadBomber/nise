@@ -1,0 +1,34 @@
+// -*- MPC -*-
+
+project(CMD_Target) : ISE-models, boost_thread {
+  includes += . ./osk
+
+  Source_Files {
+    CMD_Target.cpp 
+    osk/block.cpp
+    osk/sim.cpp
+    osk/state.cpp
+  }
+}
+
+project(CMD_Radar) : ISE-models, boost_thread {
+  includes += . ./osk
+
+  Source_Files {
+    CMD_Radar.cpp 
+    osk/block.cpp
+    osk/sim.cpp
+    osk/state.cpp
+  }
+}
+
+project(CMD_Missile) : ISE-models, boost_thread {
+  includes += . ./osk
+
+  Source_Files {
+    CMD_Missile.cpp 
+    osk/block.cpp
+    osk/sim.cpp
+    osk/state.cpp
+  }
+}

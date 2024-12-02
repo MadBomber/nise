@@ -1,0 +1,9 @@
+// -*- MPC -*-
+
+project(SamsonEventLog) : ISE-models {
+  includes += .
+
+  Source_Files {
+    SamsonEventLog.cpp
+  }
+}

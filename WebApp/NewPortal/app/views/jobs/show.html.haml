@@ -1,0 +1,81 @@
+/
+  File: app/views/jobs/show.html.erb
+  Desc: Reports the details of an IseJob
+
+%h1 HAML
+
+%table
+  %tr
+    %td{align:'right'}
+      Job ID: 
+    %td= @job.id
+  %tr
+    %td{align:'right'}
+      Name: 
+    %td= @job.name
+  %tr
+    %td{align:'right'}
+      Description: 
+    %td= @job.description
+  %tr
+    %td{align:'right'}
+      Default Input Dir:
+      %td= @job.default_input_dir
+  %tr
+    %td{align:'right'}
+      Default Output Dir:
+    %td= @job.default_output_dir
+  %tr
+    %td{align:'right'}
+      Created:
+    %td= "#{@job.created_at} by User: #{@job.created_by_user.name}"
+  %tr
+    %td{align:'right'}
+      Updated:
+    %td= "#{@job.updated_at} by User: #{@job.updated_by_user.name}"
+
+%h2 Runs on File
+
+%table
+  %tr
+    %th Status
+    %th RunPeer
+    %th User
+    %th Debug flags
+    %th Guid
+    %th Input dir
+    %th Output dir
+  - Run.find_all_by_job_id(@job.id).each do |run|
+    %tr
+      %td= link_to_status_code run.status
+      %td= run.run_peer_id
+      %td= link_to run.user.login, user_path(run.user_id)
+      %td= run.debug_flags
+      %td= run.guid
+      %td= run.input_dir
+      %td= run.output_dir
+      %td= link_to 'Show', run
+      %td= link_to 'Destroy', run, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+%h2 Configuration Details
+
+%table
+  %tr
+    %th Id
+    %th{align:'left'} (#) Name
+    %th{align:'left'} Description
+  - show_job_details(@job.id).each do |jc|
+    %tr
+      %td= jc.model_id
+      %td
+        = "(#{jc.model_instance}) "
+        = link_to jc.model.name, model_path(jc.model_id)
+      %td= jc.model.description
+
+%br
+%br
+
+= link_to 'Back', jobs_path
+

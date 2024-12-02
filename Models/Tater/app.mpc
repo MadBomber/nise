@@ -1,0 +1,14 @@
+// -*- MPC -*-
+
+project(Tater) : ISE-models {
+  includes += .
+
+  Source_Files {
+    Tater.cpp
+  }
+
+ Header_Files {
+    Tater.hpp
+  }
+
+}

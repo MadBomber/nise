@@ -1,0 +1,11 @@
+%p#notice= notice
+%p
+  %b Code:
+  = @status_code.code
+%p
+  %b Desc:
+  = @status_code.description
+= link_to 'Edit', edit_status_code_path(@status_code)
+|
+= link_to 'Back', status_codes_path
+

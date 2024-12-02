@@ -1,0 +1,29 @@
+- content_for :header do
+  = configatron.site_name
+  Users
+- content_for :sidebar do
+  %ul
+    %li= link_to "All users", admin_users_url
+    %li= link_to "Active users only", active_admin_users_url
+    %li= link_to "Suspended users only", suspended_admin_users_url
+    %li= link_to "Pending users only", pending_admin_users_url
+    %li= link_to "Deleted users only", deleted_admin_users_url
+%table.index
+  %tr
+    %th ID
+    %th Login
+    %th Email
+    %th Status
+    / TODO: (base_app) Add some sort of search feature to easily find users
+    - for user in @users
+      %tr
+        %td= h user.id
+        %td= link_to h(user.login), admin_user_url(user)
+        %td= h user.email
+        %td= h user.state
+        %td.actions
+          = link_to 'Show', admin_user_url(user)
+= will_paginate @users
+%p
+  = link_to 'New user', new_admin_user_path
+

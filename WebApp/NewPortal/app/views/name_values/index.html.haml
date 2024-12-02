@@ -1,0 +1,18 @@
+%h1 Listing name_values
+%table
+  %tr
+    %th Name
+    %th Value
+    %th
+    %th
+    %th
+  - @name_values.each do |name_value|
+    %tr
+      %td= name_value.name
+      %td= name_value.value
+      %td= link_to 'Show', name_value
+      %td= link_to 'Edit', edit_name_value_path(name_value)
+      %td= link_to 'Destroy', name_value, confirm: 'Are you sure?', method: :delete
+%br/
+= link_to 'New Name value', new_name_value_path
+

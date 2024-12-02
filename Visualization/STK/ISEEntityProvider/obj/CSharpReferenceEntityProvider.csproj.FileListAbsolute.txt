@@ -1,0 +1,13 @@
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\CSharpReferenceEntityProvider\bin\Debug\CSharpReferenceEntityProvider.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\CSharpReferenceEntityProvider\bin\Debug\CSharpReferenceEntityProvider.pdb
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\CSharpReferenceEntityProvider\bin\Debug\CSharpReferenceEntityProvider.tlb
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\CSharpReferenceEntityProvider\bin\Debug\Interop.AGI.Attr.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\CSharpReferenceEntityProvider\bin\Debug\Interop.AGI.Entity.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\CSharpReferenceEntityProvider\bin\Debug\Interop.AGI.Realtime.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\CSharpReferenceEntityProvider\obj\Debug\ResolveAssemblyReference.cache
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\CSharpReferenceEntityProvider\obj\Debug\Interop.AGI.Attr.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\CSharpReferenceEntityProvider\obj\Debug\Interop.AGI.Entity.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\CSharpReferenceEntityProvider\obj\Debug\Interop.AGI.Realtime.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\CSharpReferenceEntityProvider\obj\Debug\CSharpReferenceEntityProvider.csproj.ResolveComReference.cache
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\CSharpReferenceEntityProvider\obj\Debug\CSharpReferenceEntityProvider.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\CSharpReferenceEntityProvider\obj\Debug\CSharpReferenceEntityProvider.pdb

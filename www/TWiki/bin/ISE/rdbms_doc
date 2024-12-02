@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+#  display the current structure of an ISE database
+#  requires 1 param the database name
+#
+echo "Content-type: text/html"
+echo ""
+#
+perl mysqldoc2 --user=Samson --database=$1 --output=TML

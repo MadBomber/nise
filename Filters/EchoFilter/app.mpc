@@ -1,0 +1,9 @@
+// -*- MPC -*-
+
+project(EchoFilter) : ISE-filters {
+  includes += .
+
+  Source_Files {
+    EchoFilter.cpp
+  }
+}

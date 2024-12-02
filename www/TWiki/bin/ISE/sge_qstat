@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+#  display the current SGE queue status
+#
+echo "Content-type: text/html"
+echo ""
+echo "<html><body><pre>"
+. /opt/SGE/default/common/settings.sh
+/opt/SGE/bin/lx24-x86/qstat -f
+echo "<br><br>"
+/opt/SGE/bin/lx24-x86/qhost
+echo "</pre></body></html>" 

@@ -1,0 +1,22 @@
+= form_for(@debug_flag) do |f|
+  - if @debug_flag.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@debug_flag.errors.count, "error")
+        prohibited this debug_flag from being saved:
+
+      %ul
+        - @debug_flag.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    %br
+    = f.text_field :name
+  .field
+    = f.label :desc
+    %br
+    = f.text_field :description
+
+  .actions
+    = f.submit

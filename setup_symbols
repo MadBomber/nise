@@ -1,0 +1,110 @@
+#!/bin/sh -x
+###############################################################
+###
+##  File:  setup_symbols
+##  Desc:  Establish the system environment varialbes required by ISE
+##         within a *nix bash command shell
+#
+
+# export HTTP_PROXY=http://138.209.111.74:80
+
+if [ -n "${ACE_ROOT+x}" ]; then
+    source /etc/profile.d/ACE.sh
+fi
+
+ise_munge () {
+        export $2=${!2-$1}
+        if ! echo ${!2} | egrep -q "(^|:)${1}(:|$)" ; then
+           if [ "$3" = "after" ] ; then
+              export $2=${!2}:$1
+           else
+              export $2=$1:${!2}
+           fi
+        fi
+}
+
+[ -z "$ISE_ROOT" ] && export ISE_ROOT=`pwd`
+
+# SMELL: IPADDRESS may be unnecessary with a good mDNS/DNS-SD installation
+#        have to the two requires to support both 1.8.7 and 1.9.2
+[ $# -eq 0 ] && export IPADDRESS=`$ISE_ROOT/bin/set_ip.sh`
+
+export ISE_QUEEN=127.0.0.1
+export ISE_CLUSTER='labpc106 labpc107 labpc108 labpc109 pcig22 pcig24 pcig26 pcig28 pcig32'
+
+
+
+export ISE_RUN=$ISE_ROOT
+export ISE_SERVICES=$ISE_ROOT/Services
+
+#... for the Rails and YAML
+export ISE_ENV=production
+export ISE_RAILS_ENV=$ISE_ENV
+
+# Ruby and Rails Things
+unset RUBYLIB
+export RUBYOPT=rubygems
+export RAILS_ENV=$ISE_RAILS_ENV
+export RAILS_ROOT=$ISE_ROOT/WebApp/NewPortal
+
+#... for the MPC system
+export boost=1
+export BOOST_ROOT=/usr
+export BOOST_VERSION=boost-1_44
+export BOOST_CFG=-mt
+
+export MYSQL_ROOT=/usr
+if [ -n "${ACE_ROOT+x}" ]; then
+	export MPC_ROOT=${ACE_ROOT}/MPC
+fi
+
+# the database to use (C++ and Ruby)
+export ISE_DBNAME="Delilah"
+
+# ISE::Log Environment
+export ISE_LOG=syslog
+export ISE_LOG_LEVEL=ERROR
+
+
+# Allow local developer to over-ride standard environment variables
+if [ -f ~/.iserc ]; then
+    source ~/.iserc
+fi
+
+
+##################################
+## ise_munge does head patching so
+## make sequence in reverse priority order
+
+ise_munge $ISE_ROOT/lib LD_LIBRARY_PATH
+ise_munge $BOOST_ROOT/lib LD_LIBRARY_PATH
+ise_munge $ACE_ROOT/lib LD_LIBRARY_PATH
+
+ise_munge $RAILS_ROOT/app/models RUBYLIB
+ise_munge $RAILS_ROOT/lib RUBYLIB
+
+ise_munge $ISE_ROOT/RubyPeer RUBYLIB
+ise_munge $ISE_ROOT/Models/RubyModels RUBYLIB
+ise_munge $ISE_ROOT/Models/RubyModels/lib RUBYLIB
+ise_munge $ISE_ROOT/Models/Messages RUBYLIB
+ise_munge $ISE_ROOT/Scenarios RUBYLIB
+ise_munge $ISE_ROOT/Common/Messages RUBYLIB
+
+ise_munge $ISE_ROOT/Jobs PATH
+ise_munge $ISE_ROOT/bin/cm_tools/regression_test PATH
+ise_munge $ISE_ROOT/bin/cm_tools PATH
+ise_munge $ISE_ROOT/bin PATH
+
+unset ise_munge
+
+
+##################################
+## Start/Restart Standard ISE Services
+
+# Allow local developer to control which ISE Services are auto loaded
+if [ -f ~/.ise_services ]; then
+    source ~/.ise_services
+fi
+
+
+

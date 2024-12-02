@@ -1,0 +1,14 @@
+%h1 Listing run_models
+%table
+  %tr
+    %th
+    %th
+    %th
+  - @run_models.each do |run_model|
+    %tr
+      %td= link_to 'Show', run_model
+      %td= link_to 'Edit', edit_run_model_path(run_model)
+      %td= link_to 'Destroy', run_model, confirm: 'Are you sure?', method: :delete
+%br/
+= link_to 'New Run model', new_run_model_path
+

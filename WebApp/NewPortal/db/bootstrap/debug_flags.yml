@@ -1,0 +1,43 @@
+#########################################################
+## The debug_flags are used by the C++ / ACE components
+
+db:
+  name:         DB
+  description:  Trace database access
+
+app:
+  name:         APP
+  description:  Trace DLL interface code within the SamsonModel
+
+obj:
+  name:         OBJ
+  description:  Trace the object manager activities
+
+ph:
+  name:         PH
+  description:  Trace the ACE call-back handlers (peer handler) works on dispatcher and peerd
+
+apb:
+  name:         APB
+  description:  Trace the loaded DLL interface within the peerd
+
+mdl:
+  name:         MDL
+  description:  Trace inside a DLL model (user-level trace
+
+xml:
+  name:         XML
+  description:  Trace XML parsing
+
+net:
+  name:         NET
+  description:  Trace network-level send and receive
+
+rte:
+  name:         RTE
+  description:  Trace the publication/subscription route
+
+all:
+  name:         ALL
+  description:  Turns on everything
+

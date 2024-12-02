@@ -1,0 +1,18 @@
+%h1 Listing status_codes
+%table
+  %tr
+    %th Code
+    %th Desc
+    %th
+    %th
+    %th
+  - @status_codes.each do |status_code|
+    %tr
+      %td= status_code.code
+      %td= status_code.description
+      %td= link_to 'Show', status_code
+      %td= link_to 'Edit', edit_status_code_path(status_code)
+      %td= link_to 'Destroy', status_code, confirm: 'Are you sure?', method: :delete
+%br/
+= link_to 'New Status code', new_status_code_path
+

@@ -1,0 +1,21 @@
+= form_for(@app_message) do |f|
+  - if @app_message.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@app_message.errors.count, "error")
+        prohibited this app_message from being saved:
+
+      %ul
+        - @app_message.errors.full_messages.each do |msg| %>
+          %li= msg
+
+  .field
+    = f.label :app_message_key
+    %br
+    = f.text_field :app_message_key
+  .field
+    = f.label :description
+    %br
+    = f.text_area :description
+  .actions
+    = f.submit

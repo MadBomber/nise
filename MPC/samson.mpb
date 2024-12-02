@@ -1,0 +1,10 @@
+// -*- MPC -*-
+
+project {
+  after += SamsonMath IsePeer
+  libs += SamsonMath IsePeer
+
+  specific(vc71, vc8, vc9) {
+    add_references = SamsonMath IsePeer
+  }
+}

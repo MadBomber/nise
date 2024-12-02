@@ -1,0 +1,67 @@
+// -*- MPB -*-
+
+project: ISE-common, boost_serialization {
+  specific(make, gnuace) {
+    compile_flags = -O3 -funroll-loops -finline-functions -fomit-frame-pointer
+  }
+
+  verbatim(gnuace, macros) {
+    "HAVE_SSE2 = $(shell grep \"flags\\b.*\\bsse2\\b\" /proc/cpuinfo 2> /dev/null | tail -1 | wc -l | tr -d ' \t')"
+
+    "HAVE_ALTIVEC = $(shell arch 2> /dev/null | grep ppc | tail -1 | wc -l | tr -d ' \t')"
+
+    "ifeq ($(HAVE_SSE2),1)"
+    "  CPPFLAGS += -DHAVE_SSE2 -msse2"
+    "endif"
+
+    "ifeq ($(HAVE_ALTIVEC),1)"
+    "  CPPFLAGS += -DHAVE_ALTIVEC -faltivec -maltivec"
+    "endif"
+  }
+
+  verbatim(gnuace, local) {
+    "shuffle: shuffle.sh"
+    "	install $< $@"
+
+    "doc: Doxyfile Random.doc \\"
+    "	$(REQUIREDHEADERS) $(OTHERHEADERS) \\"
+    "	Random.cpp RandomExample.cpp RandomPermutation.cpp \\"
+    "	exphist.pdf exphist.png powerhist.pdf powerhist.png"
+    "	rm -rf html/*"
+    "	doxygen"
+    "	cp -p exphist.pdf exphist.png html/"
+    "	cp -p powerhist.pdf powerhist.png html/"
+    "	touch $@"
+    //"	sudo mv html/ /usr/share/doc/randomlib-2008-04"
+  }
+
+  verbatim(make, macros) {
+    "HAVE_SSE2 = $(shell grep \"flags\\b.*\\bsse2\\b\" /proc/cpuinfo 2> /dev/null | tail -1 | wc -l | tr -d ' \t')"
+
+    "HAVE_ALTIVEC = $(shell arch 2> /dev/null | grep ppc | tail -1 | wc -l | tr -d ' \t')"
+
+    "ifeq ($(HAVE_SSE2),1)"
+    "  CPPFLAGS += -DHAVE_SSE2 -msse2"
+    "endif"
+
+    "ifeq ($(HAVE_ALTIVEC),1)"
+    "  CPPFLAGS += -DHAVE_ALTIVEC -faltivec -maltivec"
+    "endif"
+  }
+
+  verbatim(make, local) {
+    "shuffle: shuffle.sh"
+    "   install $< $@"
+
+    "doc: Doxyfile Random.doc \\"
+    "   $(REQUIREDHEADERS) $(OTHERHEADERS) \\"
+    "   Random.cpp RandomExample.cpp RandomPermutation.cpp \\"
+    "   exphist.pdf exphist.png powerhist.pdf powerhist.png"
+    "   rm -rf html/*"
+    "   doxygen"
+    "   cp -p exphist.pdf exphist.png html/"
+    "   cp -p powerhist.pdf powerhist.png html/"
+    "   touch $@"
+    //" sudo mv html/ /usr/share/doc/randomlib-2008-04"
+  }
+}

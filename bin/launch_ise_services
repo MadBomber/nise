@@ -1,0 +1,11 @@
+##################################################################
+###
+##  File: launch_ise_services
+##  Desc: Launch ISE Services
+##
+##        This file should be sourced from .bash_profile to support auto-start
+#
+
+# IseJobControl on port 9000
+ruby $ISE_SERVICES/ise_job_control.rb 9000 &
+

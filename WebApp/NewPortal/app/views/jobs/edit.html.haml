@@ -1,0 +1,23 @@
+<h1>Editing job</h1>
+
+= semantic_form_for @job do |f|
+  = f.semantic_errors :state
+  = f.inputs do
+    = f.input :name
+    %br
+    = f.input :description
+    %br
+    = f.input :default_input_dir
+    %br
+    = f.input :default_output_dir
+    %br
+    = f.input :router
+    %br
+
+  = f.actions do
+    = f.action :submit, :as => :input
+
+%p
+
+= link_to 'Show', @job |
+= link_to 'Back', jobs_path

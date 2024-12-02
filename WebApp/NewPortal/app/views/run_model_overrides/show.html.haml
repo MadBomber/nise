@@ -1,0 +1,23 @@
+%p#notice= notice
+%p
+  %b Run:
+  = @run_model_override.run_id
+%p
+  %b User:
+  = @run_model_override.user_id
+%p
+  %b Model:
+  = @run_model_override.model_id
+%p
+  %b Instance:
+  = @run_model_override.instance
+%p
+  %b Cmd line param:
+  = @run_model_override.cmd_line_param
+%p
+  %b Debug flags:
+  = @run_model_override.debug_flags
+= link_to 'Edit', edit_run_model_override_path(@run_model_override)
+|
+= link_to 'Back', run_model_overrides_path
+

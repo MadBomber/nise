@@ -1,0 +1,10 @@
+// -*- MPC -*-
+
+project(TutorialThreat) : ISE-models {
+  includes += . $(ISE_ROOT)/Utilities/XMLParser
+
+  Source_Files {
+    TutorialThreat.cpp
+    ../../Utilities/XMLParser/xmlParser.cpp
+  }
+}

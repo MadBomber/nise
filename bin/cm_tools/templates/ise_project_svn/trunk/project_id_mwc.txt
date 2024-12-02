@@ -1,0 +1,15 @@
+// -*- MPC -*-
+
+workspace {
+
+//  static {
+//  }
+
+//  exclude {
+//  }
+
+//  exclude(vc71, vc8, vc9) {
+//  }
+  
+}
+

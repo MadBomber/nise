@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  app_message_key: MyString
+  description: MyText
+
+two:
+  app_message_key: MyString
+  description: MyText

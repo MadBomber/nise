@@ -1,0 +1,20 @@
+$TTL 1H
+@	SOA	queen	root.pci (	3
+						3H
+						1H
+						1W
+						1H )
+	NS	queen	
+ise-queen IN A  172.30.16.31
+queen   IN A    172.30.16.31
+ise     IN A    172.30.16.31
+ns      IN A    172.30.16.31
+ntp     IN A    172.30.16.31
+
+pcig24  IN A    172.30.16.101
+pcig25  IN A    172.30.16.102
+pcig26  IN A   	172.30.16.103
+pcig27  IN A	172.30.16.104
+pcig28  IN A	172.30.16.105
+pcig29  IN A	172.30.16.106
+

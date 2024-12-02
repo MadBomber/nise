@@ -1,0 +1,2 @@
+module AppMessagesHelper
+end

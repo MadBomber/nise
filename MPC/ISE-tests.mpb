@@ -1,0 +1,7 @@
+// -*- MPC -*-
+
+project : ISE-common {
+  dllout = $(ISE_ROOT)/tests/lib
+  install = $(ISE_ROOT)/tests/bin
+  libout = $(ISE_ROOT)/tests/lib
+}

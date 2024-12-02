@@ -1,0 +1,9 @@
+setenv ACE_ROOT /opt/ACE
+setenv TAO_ROOT ${ACE_ROOT}/TAO
+setenv CIAO_ROOT ${TAO_ROOT}/CIAO
+setenv DDS_ROOT ${TAO_ROOT}/DDS
+setenv MPC_ROOT ${ACE_ROOT}/MPC
+
+if ($?LD_LIBRARY_PATH) then
+	setenv LD_LIBRARY_PATH $ACE_ROOT/lib:$LD_LIBRARY_PATH
+endif

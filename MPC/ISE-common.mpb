@@ -1,0 +1,17 @@
+// -*- MPC -*-
+
+project {
+  includes += $(ISE_ROOT)/Common
+  libpaths += $(ISE_ROOT)/lib
+
+  dllout = $(ISE_ROOT)/lib
+  install = $(ISE_ROOT)/bin
+  libout = $(ISE_ROOT)/lib
+
+  specific (vc71, vc8, vc9) {
+    windows_style = 1
+    common_defines +=  _SCL_SECURE_NO_WARNINGS
+    includes +=  $(BOOST_ROOT)
+    libpaths += $(BOOST_ROOT)/lib
+  }
+}

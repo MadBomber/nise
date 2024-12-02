@@ -1,0 +1,35 @@
+= form_for(@node) do |f|
+  - if @node.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@node.errors.count, "error")
+        prohibited this node from being saved:
+      %ul
+        - @node.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :platform_id
+    %br/
+    = f.number_field :platform_id
+  .field
+    = f.label :status
+    %br/
+    = f.number_field :status
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name
+  .field
+    = f.label :desc
+    %br/
+    = f.text_field :description
+  .field
+    = f.label :ip_address
+    %br/
+    = f.text_field :ip_address
+  .field
+    = f.label :fqdn
+    %br/
+    = f.text_field :fqdn
+  .actions
+    = f.submit

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  desc: MyString
+  lib_prefix: MyString
+  lib_suffix: MyString
+  lib_path_name: MyString
+  lib_path_sep: MyString
+
+two:
+  name: MyString
+  desc: MyString
+  lib_prefix: MyString
+  lib_suffix: MyString
+  lib_path_name: MyString
+  lib_path_sep: MyString

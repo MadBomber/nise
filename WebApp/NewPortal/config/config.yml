@@ -1,0 +1,30 @@
+# Configuration options can be accessed as
+#   configatron.site_name
+
+default: &default
+    site_name:      NICE Portal
+    company_name:   Mad Bomber Software
+    admin_email:    bigdawg@madbombersoftware.com
+    support_name:   Support
+    support_email:  bigdawg@madbombersoftware.com
+    wiki_url:       http://localhost/twiki/bin/view/nice
+    site_url:       http://127.0.0.1
+    cluster_url:    http://127.0.0.1/cluster
+    db_admin_url:   http://127.0.0.1/phpMyAdmin
+    
+development:
+  <<: *default
+
+
+test:
+  <<: *default
+
+
+staging:
+  <<: *default
+
+
+production:
+  <<: *default
+
+

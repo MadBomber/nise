@@ -1,0 +1,15 @@
+// -*- MPC -*-
+
+project(TimedController) : ISE-common, acelib, boost_serialization, samson {
+  includes += . ../../Peer
+
+  Source_Files {
+    TimedController.cpp
+  }
+
+  Header_Files {
+    Options.h
+    TimedController.h
+  }
+
+}

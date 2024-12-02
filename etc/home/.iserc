@@ -1,0 +1,24 @@
+##################################################################
+###
+##	File:	.iserc
+##	Desc:	This file over-rides the common stuff in $ISE_ROOT/setup_symblos
+#
+
+export ACE_ROOT=~/sandbox/ACE/ACE_wrappers
+
+export ISE_ENV=development
+export ISE_RAILS_ENV=$ISE_ENV
+
+export RAILS_ENV=$ISE_RAILS_ENV
+
+# single computer configuration
+export ISE_CLUSTER='localhost'
+
+# The database server to use
+export ISE_QUEEN=localhost #iseman
+
+# setup ISE::Log parameters
+export ISE_LOG=''               # path to log file or 'syslog' to use the system's log
+                                # default is $ISE_ROOT/output/ise.log if blank
+export ISE_LOG_LEVEL='DEBUG'    # valid: DEBUG, INFO, WARN, ERROR, FATAL, UNKNOWN
+

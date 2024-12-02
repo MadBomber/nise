@@ -1,0 +1,18 @@
+// -*- MPC -*-
+
+project(SamsonMath) : ISE-common, boost_serialization, acelib {
+  includes += .
+
+  Source_Files {
+    Conversions.cpp
+    Ecef.cpp
+    Eci.cpp
+    EulerAngles.cpp
+    EulerMatrix.cpp
+    Lla.cpp
+    Matrix.cpp
+    Ned.cpp
+    Quaternion.cpp
+    Vec3.cpp
+  }
+}

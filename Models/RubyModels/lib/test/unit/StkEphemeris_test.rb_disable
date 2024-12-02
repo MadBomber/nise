@@ -1,0 +1,80 @@
+#!/usr/bin/env ruby
+#################################################################
+###
+##  File: test_StkEphemeris.rb
+##  Desc: The Ephemeris class unit test
+#
+
+require 'rubygems'
+require 'pp'
+require 'chronic'
+
+require 'StkEphemeris'
+require 'test/unit/testcase'
+require 'test/unit' if $0 == __FILE__
+
+
+
+
+#############################################
+## Test class for the IseScenario library
+
+class TestStkEphemeris < Test::Unit::TestCase
+  
+  def setup
+    $debug = false
+    
+    @test_filename  = 'data/test_StkEphemeris.e'
+    @test_time      = Chronic.parse '30 September 2009 12:00:00'
+    
+    puts @test_time
+    
+  end
+  
+  def teardown
+  end
+
+  ##########################
+  def test_invalid_filenames
+
+    assert_throws :InvalidFileName do
+      se = StkEphemeris.new
+    end
+    
+    assert_throws :InvalidFileName do
+      se = StkEphemeris.new 'xyzzy_only_works_in_games.txt'
+    end
+    
+  end
+  
+  ################################
+  def test_new_with_valid_filename
+    se = StkEphemeris.new @test_filename
+    assert se, "test file #{@test_filename} must exist."
+    
+    assert_instance_of Pathname,  se.pathname
+    assert_equal 'stk.v.5.0',     se.stk_version, "The first non-blank line is the STK Version"
+    assert_equal 552,             se.number_of_ephemeris_points
+    assert_equal 552,             se.flight_plan.data.length
+    
+    assert_instance_of EphemerisArray, se.flight_plan
+        
+    assert_equal @test_time,      se.scenario_epoch
+    assert_equal 'Lagrange',      se.interpolation_method
+    assert_equal '1',             se.interpolation_order
+    assert_equal 'Kilometers',    se.distance_unit
+    assert_equal 'Earth',         se.central_body
+    assert_equal 'Fixed',         se.coordinate_system
+    
+    pp se.flight_plan.data
+
+  end
+
+
+
+end ## end of class TestStkEphemeris
+
+## end of file: test_StkEphemeris.rb
+################################
+
+

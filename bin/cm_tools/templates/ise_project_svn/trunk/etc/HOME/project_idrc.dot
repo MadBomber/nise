@@ -1,0 +1,7 @@
+#######################################################################
+###
+##  File: .<%= project_id.downcase %>rc
+##  Desc: Allows individual developer over-rides of the system environment
+##        variables defined in setup_symbols for the <%= project_name %> project.
+#
+

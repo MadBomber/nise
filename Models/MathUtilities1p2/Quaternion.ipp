@@ -1,0 +1,347 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+// Filename:         Quaternion.ipp
+//
+// Classification:   UNCLASSIFIED
+//
+// Unit Name:        Utilities
+//
+// System Name:      MEADS Simulation
+//
+// Description:      This file contains the class definition of quaternion.
+//
+// Author:           Hector Bayona
+//                   Nancy Anderson
+//
+// Company Name:     Lockheed Martin
+//                   Missiles & Fire Control
+//                   Dallas, TX
+//
+// Revision History:
+//
+// <yyyymmdd> <Eng> <Desciption of modification>
+//  20051114   HLB   Originial Release
+//
+////////////////////////////////////////////////////////////////////////////////
+
+namespace SamsonMath {
+
+////////////////////////////////////////////////////////////////////////////////
+// Procedure:  Quaternion (Constructor)
+////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+Quaternion<T>::Quaternion (const T aQ0, const T aQ1, const T aQ2, const T aQ3):
+mQ0 (aQ0), mQ1 (aQ1), mQ2 (aQ2), mQ3 (aQ3)
+{
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Procedure:  operator==
+////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+bool Quaternion<T>::operator== (const Quaternion & aQuat1)
+{
+   if (aQuat1.mQ0 != mQ0 || aQuat1.mQ1 != mQ1 || aQuat1.mQ2 != mQ2  || aQuat1.mQ3 != mQ3)
+   {
+      return false;
+   }
+   else
+   {
+      return true;
+   }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Procedure:  operator!=
+////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+bool Quaternion<T>::operator!= (const Quaternion & aQuat1)
+{
+   if (aQuat1.mQ0 != mQ0 || aQuat1.mQ1 != mQ1 || aQuat1.mQ2 != mQ2  || aQuat1.mQ3 != mQ3)
+   {
+      return true;
+   }
+   else
+   {
+      return false;
+   }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Procedure:  operator+
+////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+const Quaternion<T> Quaternion<T>::operator+ (const Quaternion<T> & aRhs)
+{
+   return Quaternion<T> (mQ0 + aRhs.mQ0, mQ1 + aRhs.mQ1, mQ2 + aRhs.mQ2, mQ3 + aRhs.mQ3);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Procedure:  quaternionAdd
+////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+void Quaternion<T>::add (const Quaternion<T> & aQuat1, Quaternion<T> & aQResult)
+{
+   aQResult.mQ0 = aQuat1.mQ0 + mQ0;
+   aQResult.mQ1 = aQuat1.mQ1 + mQ1;
+   aQResult.mQ2 = aQuat1.mQ2 + mQ2;
+   aQResult.mQ3 = aQuat1.mQ3 + mQ3;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Procedure:  operator-
+////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+const Quaternion<T> Quaternion<T>::operator- (const Quaternion & aQuat2)
+{
+   return Quaternion<T> (mQ0 - aQuat2.mQ0, mQ1 - aQuat2.mQ1, mQ2 - aQuat2.mQ2, mQ3 - aQuat2.mQ3);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Procedure:  quaternionSubtract
+////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+void Quaternion<T>::subtract (const Quaternion<T> & aQuat1, Quaternion<T> & aQResult)
+{
+   aQResult.mQ0 = aQuat1.mQ0 - mQ0;
+   aQResult.mQ1 = aQuat1.mQ1 - mQ1;
+   aQResult.mQ2 = aQuat1.mQ2 - mQ2;
+   aQResult.mQ3 = aQuat1.mQ3 - mQ3;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Procedure:  operator*
+////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+const Quaternion<T> Quaternion<T>::operator* (const T & aScale)
+{
+   return Quaternion<T> (mQ0 * aScale, mQ1 * aScale, mQ2 * aScale, mQ3 * aScale);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Procedure:  quaternionScale
+////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+void Quaternion<T>::quaternionScale (const T & aScale, Quaternion<T> & aQResult)
+{
+   aQResult.mQ0 = mQ0 * aScale;
+   aQResult.mQ1 = mQ1 * aScale;
+   aQResult.mQ2 = mQ2 * aScale;
+   aQResult.mQ3 = mQ3 * aScale;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Procedure:  operator/
+////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+const Quaternion<T> Quaternion<T>::operator/ (const T & aScale)
+{
+   return Quaternion<T> (mQ0 / aScale, mQ1 / aScale, mQ2 / aScale, mQ3 / aScale);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Procedure:  quaternionDivideScale
+////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+void Quaternion<T>::quaternionDivideScale (const T & aScale, Quaternion<T> & aQResult)
+{
+   aQResult.mQ0 = mQ0 / aScale;
+   aQResult.mQ1 = mQ1 / aScale;
+   aQResult.mQ2 = mQ2 / aScale;
+   aQResult.mQ3 = mQ3 / aScale;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Procedure:  multiply
+////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+void Quaternion<T>::multiply (const Quaternion<T> & aQuat1, Quaternion<T> & aQResult)
+{
+   aQResult.mQ0 = aQuat1.mQ0 * mQ0 - aQuat1.mQ1 * mQ1 - aQuat1.mQ2 * mQ2 - aQuat1.mQ3 * mQ3;
+   aQResult.mQ1 = aQuat1.mQ1 * mQ0 + aQuat1.mQ0 * mQ1 - aQuat1.mQ3 * mQ2 + aQuat1.mQ2 * mQ3;
+   aQResult.mQ2 = aQuat1.mQ2 * mQ0 + aQuat1.mQ3 * mQ1 + aQuat1.mQ0 * mQ2 - aQuat1.mQ1 * mQ3;
+   aQResult.mQ3 = aQuat1.mQ3 * mQ0 - aQuat1.mQ2 * mQ1 + aQuat1.mQ1 * mQ2 + aQuat1.mQ0 * mQ3;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Procedure:  operator!
+////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+const Quaternion<T> Quaternion<T>::operator! (void)
+{
+   T inputQuaternionMagnitude;
+   Quaternion<T> aQResult;
+
+   inputQuaternionMagnitude = sqrt ((getQ0 () * getQ0 ())
+                                  + (getQ1 () * getQ1 ())
+                                  + (getQ2 () * getQ2 ())
+                                  + (getQ3 () * getQ3 ()));
+
+   aQResult.mQ0 = mQ0 / inputQuaternionMagnitude;
+   aQResult.mQ1 = mQ1 / inputQuaternionMagnitude;
+   aQResult.mQ2 = mQ2 / inputQuaternionMagnitude;
+   aQResult.mQ3 = mQ3 / inputQuaternionMagnitude;
+
+   return aQResult;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Procedure:  quaternionNormalize
+////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+Quaternion<T> Quaternion<T>::normalize (void)
+{
+   T magnitude;
+
+   magnitude = sqrt ((getQ0 () * getQ0 ()) +
+                     (getQ1 () * getQ1 ()) +
+                     (getQ2 () * getQ2 ()) +
+                     (getQ3 () * getQ3 ()));
+
+   if (magnitude > EPSILON)
+   {
+      setQ0 (getQ0 () / magnitude);
+      setQ1 (getQ1 () / magnitude);
+      setQ2 (getQ2 () / magnitude);
+      setQ3 (getQ3 () / magnitude);
+   }
+   return *this;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Procedure:  operator~
+////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+const Quaternion<T> Quaternion<T>::operator~ (void)
+{
+   return Quaternion<T> (mQ0, -mQ1, -mQ2, -mQ3);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Procedure:  quaternionInverse
+////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+Quaternion<T> Quaternion<T>::inverse (void)
+{
+   return Quaternion<T> (mQ0, -mQ1, -mQ2, -mQ3);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Procedure:  magnitude
+////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+T Quaternion<T>::magnitude (void)
+{
+   return sqrt ((getQ0 () * getQ0 ()) +
+                (getQ1 () * getQ1 ()) +
+                (getQ2 () * getQ2 ()) +
+                (getQ3 () * getQ3 ()));
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Procedure:  getQ0
+////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+inline T Quaternion<T>::getQ0(void) const
+{
+   return mQ0;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Procedure:  setQ0
+////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+inline void Quaternion<T>::setQ0 (const T aQ0)
+{
+   mQ0 = aQ0;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Procedure:  getQ1
+////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+inline T Quaternion<T>::getQ1 (void) const
+{
+   return mQ1;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Procedure:  setQ1
+////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+inline void Quaternion<T>::setQ1 (const T aQ1)
+{
+   mQ1 = aQ1;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Procedure:  getQ2
+////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+inline T Quaternion<T>::getQ2 (void) const
+{
+   return mQ2;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Procedure:  setQ2
+////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+inline void Quaternion<T>::setQ2 (const T aQ2)
+{
+   mQ2 = aQ2;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Procedure:  getQ3
+////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+inline T Quaternion<T>::getQ3 (void) const
+{
+   return mQ3;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Procedure:  setQ3
+////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+inline void Quaternion<T>::setQ3 (const T aQ3)
+{
+   mQ3 = aQ3;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Procedure:  Quaternion (Destructor)
+////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+Quaternion<T>::~Quaternion (void)
+{
+}
+
+}; // namespace

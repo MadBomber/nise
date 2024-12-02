@@ -1,0 +1,13 @@
+// -*- MPC -*-
+
+project(DBLogger) : mysql_xplatform, ISE-models, boost_regex {
+  includes += .
+
+  Source_Files {
+    DBLogger.cpp
+  }
+
+  Header_Files {
+    DBLogger.hpp
+  }
+}

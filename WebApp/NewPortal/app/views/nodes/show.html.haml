@@ -1,0 +1,23 @@
+%p#notice= notice
+%p
+  %b Platform:
+  = @node.platform_id
+%p
+  %b Status:
+  = @node.status
+%p
+  %b Name:
+  = @node.name
+%p
+  %b Desc:
+  = @node.description
+%p
+  %b Ip address:
+  = @node.ip_address
+%p
+  %b Fqdn:
+  = @node.fqdn
+= link_to 'Edit', edit_node_path(@node)
+|
+= link_to 'Back', nodes_path
+

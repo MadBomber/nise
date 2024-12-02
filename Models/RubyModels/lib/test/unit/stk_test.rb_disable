@@ -1,0 +1,257 @@
+#!/usr/bin/env ruby
+#################################################################
+###
+##  File:  test_stk.rb
+##  Desc:  unit test functions for module STK
+#
+
+require 'test/unit' unless defined? $ZENTEST and $ZENTEST
+require 'STK'
+
+$STKSocket = 'unit_test_1'    ## can be any descriptive string
+$stk_port  = 5001             ## fixed by STK ??
+$stk_ip    = '138.209.69.251' ## Jack's machine
+
+$debug_stk = true
+$debug_cmd = true
+
+class TestSTK < Test::Unit::TestCase
+
+  #############################################
+  # The setup method is called before each test
+  def setup
+#    puts "setup>"
+  end
+
+  ##############################################
+  # The teardown method is called after each test
+  def teardown
+#    puts "<teardown"
+  end
+
+  ########################################################
+  # The follow test cases are executed in alphabetic order
+
+  def test_00a_class_connect_to_stk
+    puts "#################################################"
+    puts "## Test Case: test_00a_class_connect_to_stk"
+    assert $tcp_socket_hash[$STKSocket].nil?
+    $initial_length_of_rdtl = $return_data_table_lookup.length
+    assert_nothing_raised do
+      STK::connect_to_stk($stk_port, $stk_ip, $STKSocket, 30)
+    end
+    assert $tcp_socket_hash[$STKSocket]
+  end
+
+
+  def test_00b_add_to_returns_data_table
+    puts "#################################################"
+    puts "## Test Case: test_00b_add_to_returns_data_table"
+    if $tcp_socket_hash[$STKSocket]
+      assert $initial_length_of_rdtl < $return_data_table_lookup.length
+    else
+      result = STK::add_to_returns_data_table
+      assert result
+    end
+  end
+
+  def test_01_class_create_connection_to_stk
+    puts "#################################################"
+    puts "## Test Case: test_01_class_create_connection_to_stk"
+    assert $tcp_socket_hash[$STKSocket]
+    assert_instance_of TCPSocket, $tcp_socket_hash[$STKSocket]
+  end
+  
+=begin
+  def test_02_class_ack_on_off
+    assert STK::is_ack_on($STKSocket)              ## default after connection
+    puts "DEBUG: calling ack_off"
+    STK::ack_off($STKSocket)
+    puts "DEBUG: returned  ack_off"
+    assert_equal false, STK::is_ack_on($STKSocket)
+    puts "DEBUG: calling ack_on"
+    STK::ack_on($STKSocket)
+    puts "DEBUG: returned ack_on"
+    assert STK::is_ack_on($STKSocket)
+    # leave ack_on for remaining tests
+  end
+
+  def test_03_class_async_on_off
+    assert_equal false, STK::is_async_on($STKSocket)        ## default after connection
+    STK::async_on($STKSocket)
+    assert STK::is_async_on($STKSocket)
+    STK::async_off($STKSocket)
+    assert_equal false, STK::is_async_on($STKSocket)
+    # leave Async off for remainder of the test cases
+  end
+=end
+
+
+  def test_04_class_send_command_to_stk
+    puts "#################################################"
+    puts "## Test Case: test_04_class_send_command_to_stk"
+    # low-leve routine used in previous test cases
+    assert STK::is_ack_on($STKSocket) and $tcp_socket_hash[$STKSocket]
+    assert_equal false, STK::is_async_on($STKSocket)
+  end
+
+
+################################################
+=begin
+ACKGETREPORT 3
+                           
+15
+GETREPORT 9                            
+"Version"GETREPORT 12                           
+"STK v8.1.2"GETREPORT 0                            
+GETREPORT 9                            
+"STKHome"GETREPORT 29                           
+"C:\Program Files\AGI\STK 8\"GETREPORT 0                            
+GETREPORT 11                           
+"CONFIGDIR"GETREPORT 62                           
+"C:\Documents and Settings\vanhoozd\My Documents\STK 8\Config"GETREPORT 0                            
+GETREPORT 7                            
+"STKDB"GETREPORT 55                           
+"C:\Documents and Settings\vanhoozd\My Documents\STK 8"GETREPORT 0                            
+GETREPORT 9                            
+"MSGP4DB"GETREPORT 56                           
+"C:\Program Files\AGI\STK 8\STKData\Databases\Satellite"GETREPORT 0                            
+
+=end
+
+  def test_05_class_stk_db
+    puts "#################################################"
+    puts "## Test Case: test_05_class_stk_db"
+    result = STK::stk_db($STKSocket)
+    assert_equal "\"C:\\Documents and Settings\\vanhoozd\\My Documents\\STK 8\"", result
+  end
+
+  def test_06_class_stk_home
+    puts "#################################################"
+    puts "## Test Case: test_06_class_stk_home"
+    result = STK::stk_home($STKSocket)
+    assert_equal "\"C:\\Program Files\\AGI\\STK 8\\\"", result
+  end
+
+  def test_07_class_stk_version
+    puts "#################################################"
+    puts "## Test Case: test_07_class_stk_version"
+    result = STK::stk_version($STKSocket)
+    assert_equal "\"STK v8.1.2\"", result
+  end
+
+  def test_08_class_user_config_dir
+    puts "#################################################"
+    puts "## Test Case: test_08_class_user_config_dir"
+    result = STK::user_config_dir($STKSocket)
+    assert_equal "\"C:\\Documents and Settings\\vanhoozd\\My Documents\\STK 8\\Config\"", result
+  end
+  
+#####################################################
+
+
+  def test_10_class_process_connect_command
+    puts "#################################################"
+    puts "## Test Case: test_10_class_process_connect_command"
+    result = STK::process_connect_command($STKSocket,'DewayneVanHoozer')
+    assert_instance_of Array, result
+    assert_equal 2, result.length, "Expecting an array with 2 elementsl first is status, 2nd is an array"
+    assert_equal 'NACK', result[0], "Invalid commands should always NACK"
+    assert result[1].empty?, "Invalid commands should have nothing returned by STK other than the NACK status"
+    puts 'Need to write test_class_process_connect_command'
+  end
+
+
+=begin
+  def test_class_con_log
+    puts 'Need to write test_class_con_log'
+  end
+
+  def test_class_first_2spaces_then_cr_seperate_data
+    puts 'Need to write test_class_first_2spaces_then_cr_seperate_data'
+  end
+
+  def test_class_get_socket_result
+    puts 'Need to write test_class_get_socket_result'
+  end
+
+  def test_class_getc
+    puts 'Need to write test_class_getc'
+  end
+
+  def test_class_load_obj_in_array
+    puts 'Need to write test_class_load_obj_in_array'
+  end
+
+
+  def test_class_read_async_header_stk_output
+    puts 'Need to write test_class_read_async_header_stk_output'
+  end
+
+  def test_class_read_async_stk_output
+    puts 'Need to write test_class_read_async_stk_output'
+  end
+
+  def test_class_read_chars_from_socket
+    puts 'Need to write test_class_read_chars_from_socket'
+  end
+
+  def test_class_read_report
+    puts 'Need to write test_class_read_report'
+  end
+
+  def test_class_read_stk_multiple_line_output
+    puts 'Need to write test_class_read_stk_multiple_line_output'
+  end
+
+  def test_class_read_stk_output
+    puts 'Need to write test_class_read_stk_output'
+  end
+
+  def test_class_read_stk_output_raw
+    puts 'Need to write test_class_read_stk_output_raw'
+  end
+
+  def test_class_read_stk_return_header
+    puts 'Need to write test_class_read_stk_return_header'
+  end
+
+  def test_class_read_stk_return_header_split
+    puts 'Need to write test_class_read_stk_return_header_split'
+  end
+
+  def test_class_read_stk_single_line_output
+    puts 'Need to write test_class_read_stk_single_line_output'
+  end
+
+  def test_class_read_time_period_data
+    puts 'Need to write test_class_read_time_period_data'
+  end
+
+  def test_class_return_list_of_object_type
+    puts 'Need to write test_class_return_list_of_object_type'
+  end
+
+  def test_class_spaces_seperate_data
+    puts 'Need to write test_class_spaces_seperate_data'
+  end
+  
+ 
+
+  def test_98_class_quit_stk
+    STK::quit_stk($STKSocket)
+    assert $tcp_socket_hash[$STKSocket]
+    assert_equal false, STK::is_ack_on($STKSocket)
+  end
+
+  
+  def test_99_class_close_connection_to_stk
+    STK::close_connection_to_stk($STKSocket)
+    assert $tcp_socket_hash[$STKSocket].nil?
+  end
+  
+=end 
+
+end
+
+# Number of errors detected: 36

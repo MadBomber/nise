@@ -1,0 +1,19 @@
+// -*- MPC -*-
+
+project : ISE-common, acelib, boost_serialization {
+
+  after += IsePeer SamsonMath
+  libs += SamsonMath
+
+  specific(vc71, vc8, vc9) {
+    add_references = SamsonMath IsePeer
+    includes += $(BOOST_ROOT)
+    libpaths += $(BOOST_ROOT)/lib
+  } else {
+    libs += SamsonMath IsePeer
+  }
+
+  includes += $(ISE_ROOT)/Common/messages 
+  includes += $(ISE_ROOT)/Models/Messages 
+  includes += $(ISE_ROOT)/Models/MathUtilities1p2
+}

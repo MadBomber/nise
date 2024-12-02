@@ -1,0 +1,17 @@
+# Turn off display "paging".
+set height 0
+
+# Don't drop into debugger when SIGPIPE happens.
+handle SIGPIPE nostop
+
+# Display more stuff.
+set print static-members off
+set print vtbl on
+set print object on
+set print pretty on
+
+# Be friendlier when debugging threads.
+set scheduler-locking step
+
+# Find some optional (unfound) source.
+dir /opt/ACE/ace

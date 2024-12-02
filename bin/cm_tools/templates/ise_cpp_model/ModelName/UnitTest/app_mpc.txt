@@ -1,0 +1,9 @@
+// -*- MPC -*-
+
+project(test_<%= model_name %>) : ISE-models {
+  includes += .
+
+  Source_Files {
+    test_<%= model_name %>.cpp
+  }
+}

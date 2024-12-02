@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  desc: MyString
+  default_input_dir: MyString
+  default_output_dir: MyString
+
+two:
+  name: MyString
+  desc: MyString
+  default_input_dir: MyString
+  default_output_dir: MyString

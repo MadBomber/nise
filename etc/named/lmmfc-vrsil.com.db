@@ -1,0 +1,61 @@
+$ORIGIN .
+$TTL 216000	; 2 days 12 hours
+lmmfc-vrsil.com		IN SOA	pcig31.lmmfc-vrsil.lmmfc-vrsil.com. lavender.lmmfc-vrsil.com.lmmfc-vrsil.com. (
+				15         ; serial
+				10800      ; refresh (3 hours)
+				3600       ; retry (1 hour)
+				604800     ; expire (1 week)
+				3600       ; minimum (1 hour)
+				)
+			NS	queen.lmmfc-vrsil.com.
+			MX	10 mail.lmmfc-vrsil.com.
+$ORIGIN lmmfc-vrsil.com.
+M37RTR			A	138.209.52.1
+battlesim-b		A	138.209.52.9
+battlesim-a		A	138.209.52.12
+battlesim-c		A	138.209.52.13
+battlesim-e		A	138.209.52.18
+battlesim-d		A	138.209.52.23
+battlesim-g		A	138.209.52.25
+battlesim-h		A	138.209.52.27
+battlesim-i		A	138.209.52.29
+vrsilnas		A	138.209.52.26
+dogday			A	138.209.52.62
+d8gxxy81		A	138.209.52.72
+LabPC103		A	138.209.52.103
+LabPC104		A	138.209.52.104
+LabPC105		A	138.209.52.105
+LabPC106		A	138.209.52.106
+LabPC107		A	138.209.52.107
+LabPC108		A	138.209.52.108
+LabPC109		A	138.209.52.109
+LabPC110		A	138.209.52.110
+LabPC111		A	138.209.52.111
+LabPC112		A	138.209.52.112
+LabPC113		A	138.209.52.113
+ftp				A	138.209.52.146
+ise				A	138.209.52.146
+ise-queen		A	138.209.52.146
+Lmail			A	138.209.52.146
+ns				A	138.209.52.146
+ntp				A	138.209.52.146
+queen			A	138.209.52.146
+www				A	138.209.52.146
+promise-nas		A	138.209.52.169
+doppler-a		A	138.209.52.100
+
+$TTL 216000	; 2 days 12 hours
+pcig22			A	138.209.52.137
+			TXT	"000e50be46d3e38e576887869752e84a30"
+pcig23			A	138.209.52.138
+			TXT	"0089a9b22a2883cc94fd88bc1009040f43"
+pcig24			A	138.209.52.139
+			TXT	"00109dda0edbf65aa2a3e7123dc40f1d58"
+pcig26			A	138.209.52.141
+			TXT	"00ba93e4fec4145cd89a4504661ddcf27d"
+pcig28			A	138.209.52.143
+			TXT	"00f624290ea827e8a5ec48be81bb13f5a1"
+pcig31			A	138.209.52.146
+			TXT	"0020af543761da59eb95922ab826cb7614"
+pcig32			A	138.209.52.147
+			TXT	"000cc41ce9c7c70dc8b1cc158e5d457dc1"

@@ -1,0 +1,9 @@
+// -*- MPC -*-
+
+project {
+  specific(vc71, vc8, vc9) {
+    //libpaths += $(YASSL_ROOT)/Debug
+    //libpaths += $(TAOCRYPT_ROOT)/Debug
+    //lit_libs += taocrypt yassl
+  }
+}

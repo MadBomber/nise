@@ -1,0 +1,29 @@
+%h1 Listing runs
+%table
+  %tr
+    %th Status
+    %th Job
+    %th User
+    %th Debug flags
+    %th Guid
+    %th Input dir
+    %th Output dir
+    %th
+    %th
+    %th
+  - @runs.each do |run|
+    %tr
+      %td{:align => "center"}
+        = link_to_status_code run.status
+      %td= run.job.name
+      %td= run.user.login
+      %td= run.debug_flags
+      %td= run.guid
+      %td= run.input_dir
+      %td= run.output_dir
+      %td= link_to 'Show', run
+      %td= link_to 'Edit', edit_run_path(run)
+      %td= link_to 'Destroy', run, confirm: 'Are you sure?', method: :delete
+%br/
+= link_to 'New Run', new_run_path
+

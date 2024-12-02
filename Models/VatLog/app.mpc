@@ -1,0 +1,9 @@
+// -*- MPC -*-
+
+project(VatLogData) : ISE-models {
+  includes += .
+
+  Source_Files {
+    VatLogData.cpp
+  }
+}

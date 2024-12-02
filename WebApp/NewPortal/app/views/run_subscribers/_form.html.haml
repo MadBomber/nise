@@ -1,0 +1,12 @@
+= form_for(@run_subscriber) do |f|
+  - if @run_subscriber.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@run_subscriber.errors.count, "error")
+        prohibited this run_subscriber from being saved:
+      %ul
+        - @run_subscriber.errors.full_messages.each do |msg|
+          %li= msg
+  .actions
+    = f.submit
+

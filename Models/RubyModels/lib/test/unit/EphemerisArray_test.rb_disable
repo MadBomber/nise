@@ -1,0 +1,305 @@
+#!/usr/bin/env ruby
+#################################################################
+###
+##  File: test_EphemerisArray.rb
+##  Desc: The EphemerisArray class unit test
+#
+
+require 'rubygems'
+require 'pp'
+require 'chronic'
+
+require 'StkEphemeris'
+
+require 'EphemerisArray'
+require 'test/unit/testcase'
+require 'test/unit' if $0 == __FILE__
+
+
+
+$se = StkEphemeris.new 'data/test_StkEphemeris.e'
+
+
+
+#############################################
+## Test class for the IseScenario library
+
+class TestEphemerisArray < Test::Unit::TestCase
+  
+  def setup
+    $debug = false
+    @ea = EphemerisArray.new $se.ephemeris_points
+  end
+  
+  def teardown
+  end
+
+  ##########################
+  def test_01_bad_parameters
+
+    assert_throws :ParameterIsNotAnArray do
+      EphemerisArray.new "xyzzy"
+    end
+
+    assert_throws :ParameterIsNotAnArray do
+      EphemerisArray.new Hash.new
+    end
+
+#    assert_throws :ParameterIsNotAnArray do
+#      EphemerisArray.new
+#    end
+
+#    assert_throws :ArrayIsEmpty do
+#      EphemerisArray.new []
+#    end
+
+    assert_throws :ArrayIsNot4D do
+      EphemerisArray.new [[1.0, 2.0, 3.0]]
+    end
+
+    assert_throws :ArrayIsNotAllFloat do
+      EphemerisArray.new [[1.0, 2.0, 3.0, "4.0"]]
+    end
+
+  end
+
+
+  #################################
+  def test_05_new_with_no_params
+    ea = EphemerisArray.new
+    assert_instance_of Array, ea.data
+    assert ea.data.empty?
+    assert_equal nil, ea.curr_index
+    assert_equal 0, ea.next_index
+    assert_equal -1, ea.last_index
+  end
+
+
+  ####################################
+  def test_07_adding_to_a_new_instance
+    ea = EphemerisArray.new
+    
+    ea.add [1.0, 2.0, 3.0, 4.0]
+    assert_equal nil, ea.curr_index
+    assert_equal 0, ea.next_index
+    assert_equal 0, ea.last_index
+    assert_equal [ [1.0, 2.0, 3.0, 4.0] ], ea.data
+
+    ea.add [2.0, 3.0, 4.0, 1.0]
+    assert_equal nil, ea.curr_index
+    assert_equal 0, ea.next_index
+    assert_equal 1, ea.last_index
+    assert_equal [ [1.0, 2.0, 3.0, 4.0], [2.0, 3.0, 4.0, 1.0] ], ea.data
+    
+    ea.add [3.0, 4.0, 1.0, 2.0]
+    assert_equal nil, ea.curr_index
+    assert_equal 0, ea.next_index
+    assert_equal 2, ea.last_index
+    assert_equal [ [1.0, 2.0, 3.0, 4.0], [2.0, 3.0, 4.0, 1.0], [3.0, 4.0, 1.0, 2.0] ], ea.data
+    
+    ea.add [4.0, 1.0, 2.0, 3.0]
+    assert_equal nil, ea.curr_index
+    assert_equal 0, ea.next_index
+    assert_equal 3, ea.last_index
+    assert_equal [ [1.0, 2.0, 3.0, 4.0], [2.0, 3.0, 4.0, 1.0], [3.0, 4.0, 1.0, 2.0], [4.0, 1.0, 2.0, 3.0] ], ea.data
+    
+  end
+
+
+
+
+
+  #################################
+  def test_10_new_with_valid_params
+    assert_equal $se.ephemeris_points, @ea.data, "data should be same as source data."
+    assert_nil @ea.curr_index, "current index is before start of array (represents time in the past)"
+    assert_equal 0, @ea.next_index, "next_index starts at zero"
+    assert_equal $se.ephemeris_points.length - 1, @ea.last_index, "last_index is one less than the length of the data"
+  end
+  
+  ###############
+  def test_15_now
+    assert_nil @ea.now, "Initial value is before first entry."
+    @ea.curr_index = 123
+    assert_equal @ea.data[@ea.curr_index], @ea.now, "now returns entry at current index"
+  end
+
+  ################
+  def test_20_succ
+  
+    a = @ea.succ
+
+    assert_equal 0, @ea.curr_index
+    assert_equal 1, @ea.next_index
+    
+    assert_instance_of Array, a, "succ returns an array"
+    
+    assert_equal $se.ephemeris_points[0], a
+    
+    @ea.next_index = @ea.last_index
+    
+    a=@ea.succ
+    assert_equal @ea.data[@ea.last_index], a, "Always return last entry"
+    
+
+    assert_raises EphemerisArray::BeyondLastIndex do
+      a=@ea.succ
+    end
+   
+  end
+  
+  ################
+  def test_30_prev
+  
+    @ea.next_index = 1
+    a = @ea.prev
+    
+    assert_equal 0, @ea.next_index
+    
+    assert_instance_of Array, a, "succ returns an array"
+    
+    assert_equal $se.ephemeris_points[0], a
+  
+  end
+  
+  ###############
+  def test_40_get
+    assert_throws :ParameterIsNotFloat do
+      @ea.get
+    end
+    assert_throws :ParameterIsNotFloat do
+      @ea.get "xyzzy"
+    end
+    assert_throws :ParameterIsNotFloat do
+      @ea.get 123
+    end
+    assert_throws :ParameterInThePast do
+      @ea.get 100.0
+    end
+    
+    a = @ea.get 1201.5
+    
+    assert_instance_of Array, a
+    assert_equal 4, a.length
+    
+    assert_equal 1201.5, a[0], "The x,y,z position at requested time."
+    
+    4.times do |x|
+      v = a[x]
+      assert (@ea.data[@ea.curr_index][x] .. @ea.data[@ea.next_index][x]).include?( v ), "Not in range for x == #{x}"
+    end
+    
+  end
+  
+  #######################
+  def test_45_get_off_end
+  
+    @ea.next_index = @ea.last_index
+    @ea.curr_index = @ea.last_index - 1
+    
+    a_time = @ea.data[@ea.last_index][0] + 1.0
+    
+    n = @ea.get a_time
+    assert_equal @ea.data[@ea.last_index], n, "get the last entry"
+    assert_equal @ea.data.length, @ea.next_index, "next is now one past last"
+
+    3.times do |x|
+      a_time += 123.45
+      n = @ea.get a_time
+      assert_equal @ea.data[@ea.last_index], n, "Always get the last entry"
+      assert_equal @ea.data.length, @ea.next_index, "next is now one past last"
+    end
+ 
+  end
+
+  
+  ##########################
+  def test_50_add_bad_params
+    
+    assert_throws :ParameterIsNotAnArray do
+      @ea.add
+    end
+    
+    assert_throws :ParameterIsNotAnArray do
+      @ea.add "xyzzy"
+    end
+    
+    assert_throws :ArrayIsEmpty do
+      @ea.add []
+    end
+    
+    assert_throws :ArrayIsNot4D do
+      @ea.add [1, 2, 3]
+    end
+    
+    assert_throws :ArrayIsNotAllFloat do
+      @ea.add [1, 2, 3, 4]
+    end
+    
+    assert_throws :ArrayIsNotAllFloat do
+      @ea.add [1.0, 2, 3.0, 4.0]
+    end
+
+
+    assert_throws :ArrayIsNot4D do
+      @ea.add [ [1.0, 2.0, 3.0, 4.0], [1.0, 2.0, 3.0], [1.0, 2.0, 3.0, 4.0] ]
+    end
+    
+    assert_throws :ArrayIsNotAllFloat do
+      @ea.add [ [1.0, 2, 3.0, 4.0], [1, 2, 3, 4], [1.0, 2, 3.0, 4.0] ]
+    end
+    
+    assert_throws :ArrayIsNotAllFloat do
+      @ea.add [ [1.0, 2.0, 3.0, 4.0], [1.0, "2.123", 3.0, 4.0], [1.0, 2, 3.0, 4.0] ]
+    end
+
+
+
+    
+  end
+
+
+  ##############################
+  def test_55_add_one_good_point
+    n   = [1761.896, 24.474, 54.576, 7.001801]
+    cli = @ea.last_index
+    cdl = @ea.data.length
+    
+    @ea.add n
+    
+    assert_equal cli + 1, @ea.last_index, "last index incremented by one"
+    assert_equal cdl + 1, @ea.data.length, "data length incremented by one"
+    assert_equal n, @ea.data.last, "new point added to end of data"
+
+  end
+  
+
+  ##############################
+  def test_57_add_several_good_point
+    n   = [1761.896, 24.474, 54.576, 7.001801]
+    nn  = []
+    nnn = []
+
+    3.times do |x|
+      nn = []
+      4.times do |y|
+        nn << n[y] + 1.5
+      end
+      nnn << nn
+    end
+    
+    cli = @ea.last_index
+    cdl = @ea.data.length
+    
+    @ea.add nnn
+    
+    assert_equal cli + 3, @ea.last_index, "last index incremented by three"
+    assert_equal cdl + 3, @ea.data.length, "data length incremented by three"
+    assert_equal nnn.last, @ea.data.last, "points added to end of data"
+
+  end
+
+end ## end of TestEphemerisArray
+
+
+

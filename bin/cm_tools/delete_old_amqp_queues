@@ -1,0 +1,14 @@
+#!/bin/sh
+########################################################
+###
+##  File: delete_old_amqp_queues
+##  Desc: Invokes the delete_old_amqp_queues.rb program to delete old queues
+##        Only one optional command line parameter the AMQP_HOST
+##        If no host is specified on the command line, the default is to the
+##        system environment variable AMQP_HOST.  If that variable does not
+##        exist the hard-coded default is localhost
+#
+
+chmod +x $ISE_ROOT/Utilities/rabbitmq/delete_old_amqp_queues.rb     # sometimes subversion does not have executable bit set.
+$ISE_ROOT/Utilities/rabbitmq/delete_old_amqp_queues.rb "$@"
+

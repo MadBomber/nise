@@ -1,0 +1,348 @@
+#!/bin/sh
+####################################################################
+###
+##  File: Yumfile
+##  Desc: Used with a new Fedora-based OS install.  Assumes
+##        That the base Fedora installed was the "software development"
+##        lable.
+##
+## TODO: Replace this Yumfile with a chef-server installation and
+##       project-specific, role-specific cookbooks.
+#
+
+[ -z "$ISE_ROOT" ] && export ISE_ROOT=`pwd`
+
+export YUM_REPO_FILES_DIR_SRC=$ISE_ROOT/etc/yum.repos.d
+export YUM_REPO_FILES_DIR_DEST=/etc/yum.repos.d
+
+# TODO: Adjust file to account for OS flavor; for example some libraries
+#       are not available under CENTOS.  "uname -r" could be used to tell
+#       which OS was being used.
+
+KERNAL=`uname -r`
+
+# if $KERNAL contains 'fc' then this is a fedora install
+#
+#
+# NOTE: Before you can extend the basic Fedora OS installation there are
+#       a few manual steps that must be taken.
+#
+#         1. The base OS should be a Fedora "software development" install
+#         2. There must be an entry for "queen" in the hosts file.
+#         3. The ISE User account (ise) must be added to the "sudoers" file.
+#         4. There must be access to the internet
+#
+#       If that has been done, then as the ISE User from your home
+#       directory, enter the following commands:
+#
+#         sudo yum -y install subversion
+#         mkdir sandbox
+#         cd sandbox
+#         svn co svn://queen/ISE/branches/edge ise
+#         cd ise
+#         sudo Yumfile
+#         ./bin/configure_ise_user_account
+#
+
+yum_options="-y"
+# -y is auto "yes" on all questions
+
+
+###################################
+## Make sure that the repo files are set for ISE dependencies
+
+cp -f $YUM_REPO_FILES_DIR_SRC/*.repo $YUM_REPO_FILES_DIR_DEST
+
+
+###################################
+# Ensure that the development groups are installed
+yum $yum_options groupinstall 'software development' 'X Software Development' 'Development*' 'Ruby' 'Web*' 'FTP*' 'Perl*' 'Java*' 'GNOME*' 'MySQL*'
+
+# Common hypervisors
+# yum $yum_options groupinstall 'Virt*'
+
+
+###################################
+# Ensure that the boost libraries are installed
+yum $yum_options install boost boost-*
+# The boost libraries are used by the cpp components of ISE
+
+
+###################################
+# Ensure that the uuid libraries are installed
+yum $yum_options install uuid uuid-c++ uuid-devel libuuid libuuid-devel
+
+
+###################################
+# Web Server
+yum $yum_options install httpd httpd-devel httpd-tools
+# httpd         The standard Apache web server
+# httpd-devel   Header files for Apache
+# httpd-tools   Some tools for management of an Apache server
+
+
+###################################
+# ZeroConf Tools
+yum $yum_options install avahi avahi-devel avahi-ui avahi-tools avahi-compat-* mod_dnssd
+# avahi             Standard linux zero-configuration support (mDNS/DNSSD)
+# avahi-devel       Header files
+# avahi-ui          QT-based service browser
+# avahi-tools       Command line tools to interact with the avahi network
+# avahi-compat-*    All of the compatability tools and library
+# mod_dnssd         Addse DNSSD capability to the Apache web server
+
+
+###################################
+# Database Support
+yum $yum_options install sqlite sqlite-devel
+# sqlite            Default database engine used for development and test
+# sqlite-devel      Header files
+
+yum $yum_options install mysql mysql-devel mysql-server phpmyadmin
+# mysql             Client library
+# mysql-devel       Header files
+# mysql-server      Standard database engine used in production environments
+# phpmyadmin        Support utility to CRUD the database content via a web browser
+
+yum $yum_options install  postgresql postgresql-contrib postgresql-devel postgresql-docs postgresql-libs postgresql-server postgresql-test phpPgAdmin
+# postgresql          replacement for the Oracle controlled MySQL
+# postgresql-contrib 
+# postgresql-devel 
+# postgresql-docs 
+# postgresql-libs 
+# postgresql-server 
+# postgresql-test
+# phpPgAdmin        browser-based admin tool for PostgreSQL
+
+yum $yum_options install postgis postgis-utils postgis-docs
+# postgis           Geographic Information System on top of postgresql
+# postgis-utils 
+# postgis-docs
+
+yum $yum_options install couchdb mongodb-server mongodb-devel
+# couchdb           Document-based database system
+# mongodb-sever     NoSQL database
+# mongodb-devel     Header files for mongodb
+
+
+
+###################################
+## Key-Value stores
+yum $yum_options install redis memcached-devel libmemcached-devel memcached libmemcached
+# redis             What all the cool kids are using
+# memcached         The old fashion memory-based store
+
+
+###################################
+# AMQP and XMPP Tools
+yum $yum_options install rabbitmq-server ejabberd
+# rabbitmq-server   Implements AMQP
+# ejabberd          Implements XMPP
+
+
+###################################
+# Sun Grid Engine
+# TODO: Remove dependency on the grid engine for job distribution on the IseCluster
+yum $yum_options install gridengine gridengine-devel gridengine-execd gridengine-qmaster gridengine-qmon
+# gridengine          Grid Engine - Distributed Computing Management software
+# gridengine-devel    Gridengine development files
+# gridengine-execd    Gridengine execd program
+# gridengine-qmaster  Gridengine qmaster programs
+# gridengine-qmon     Gridengine qmon monitor
+
+yum $yum_options groupinstall Clustering
+# Don't remember what the group brings but thought it would be good to have on a development system
+
+
+###################################
+# Developer Tools
+yum $yum_options install tcsh xxdiff agrep xclip xsel sloccount banner imvirt virt-what gecpde gecpde=devel
+# tcsh        is ONLY used by the iserelease.s script
+# xxdiff      is often used manually to verify file/directory content
+# agrep       approximent GREP used to review log files
+# xclip       command line tool to get access to the clipboard
+# xsel        command line tool to get access to the current selection
+# sloccount   Source Lines of Code (SLOC) counter
+# banner      Prints large block letters to stdout
+# imvirt      Identify the VM utility if running virtual otherwise returns 'Physical'
+# virt-what   Simular function to imvirt
+# gecode      Genetic Coding - used by chef-server
+# gecode-devel  Header files
+
+
+yum $yum_options install subversion subversion-devel git git-devel git-svn
+# subversion        should have been install manually in order to do the checkout of ISE from the repo
+# subversion-devel  Header files used by several gems to access repo info (gem: vclog, etc.)
+# git               FC14 prepackages git as part of the "software development" base install
+# git-devel         Not currently used; not even sure if such a thing exists
+# git-svn           Provides cross repo capability between git and subversion
+
+# The missing dock for GNOME 3
+yum $yum_options install avant-window-navigator avant-window-navigator-devel awn-extras-applets
+# avant-window-navigator        The AWN tools are a nice dock forgotten by GNOME 3
+# avant-window-navigator-devel
+# awn-extras-applets
+
+
+###################################
+# Graphics/Image Manipulation Tools
+yum $yum_options install graphviz graphviz-devel ImageMagick ImageMagick-devel
+# grapjviz          Directed graph drawing tools developed by AT&T
+# graphviz-devel    Header files
+# ImageMagick       An X application for displaying and manipulating images
+# ImageMagick-devel Library links and header files for ImageMagick app development
+
+
+###################################
+# notify Tools - provides pop-up notifications like growl on the macos
+yum $yum_options install libnotify libnotify-devel libnotifymm libnotifymm-devel
+
+
+###################################
+# GNU Scientific Libraru Tools
+yum $yum_options install gsl gsl-devel
+
+
+###################################
+# Network monitoring Tools
+yum $yum_options install ganglia-gmond
+# ganglia-gmond     Collects machine statistics and reports to Ganglia
+
+
+###################################
+# GNU Linear Programming Tools
+yum $yum_options install glpk glpk-devel glpk-doc glpk-utils
+
+
+###################################
+# System Network Management Protocol
+yum $yum_options install net-snmp
+# includes the snmpd daemon
+
+
+###################################
+# System base Ruby
+# dependant/optional libraries used by ruby
+yum $yum_options install libyaml libyaml-devel
+#
+yum $yum_options install ruby ruby-devel rubygems ruby-irb
+# ruby          The system Ruby is required to "jump start" RVM installs
+# ruby-devel    Ruby header files
+# rubygems      The basic "gem" utility
+# irb           Interactive Ruby
+
+gem update --system
+gem install bundler
+# bundler       Gemfile management
+
+# Install the project's base set of ruby gems
+if [ -f Gemfile ]; then
+  echo "#################################################################"
+  echo "## Installing ruby gems"
+  echo "#"
+  bundle install --no-color --verbose
+  echo "#"
+  echo "## End of ruby gems installation"
+  echo "#################################################################"
+fi
+
+#
+##  End of library installs
+###
+###############################################################
+# Configure Auto-start Services
+
+# Start the Database
+chkconfig mysqld on
+service mysqld start
+#/usr/bin/mysqladmin -u root password 'iseisnice'
+#/usr/bin/mysqladmin -u root -h `hostname` password 'iseisnice'
+# or ...
+#/usr/bin/mysql_secure_installation
+
+
+###############################################################
+# Start the redis data store
+
+# Start the popular key-value store
+chkconfig redis on
+service redis restart
+
+
+###############################################################
+# Start the Web-server
+chkconfig httpd on
+service httpd restart
+
+###############################################################
+# Startup snmpd after copying in config
+cp etc/snmp/snmpd.conf /etc/snmp/snmpd.conf
+chkconfig snmpd on
+service snmpd restart 
+
+###############################################################
+# Start The RabbitMQ AMQP Server
+#       RABBITMQ_MNESIA_BASE
+#           Defaults to /var/lib/rabbitmq/mnesia. Set this to the directory where Mnesia database files
+#           should be placed.
+#
+#       RABBITMQ_LOG_BASE
+#           Defaults to /var/log/rabbitmq. Log files generated by the server will be placed in this
+#           directory.
+#
+#       RABBITMQ_NODENAME
+#           Defaults to rabbit. This can be useful if you want to run more than one node per machine -
+#           RABBITMQ_NODENAME should be unique per erlang-node-and-machine combination. See the clustering
+#           on a single machine guide[1] for details.
+#
+#       RABBITMQ_NODE_IP_ADDRESS
+#           Defaults to 0.0.0.0. This can be changed if you only want to bind to one network interface.
+#
+#       RABBITMQ_NODE_PORT
+#           Defaults to 5672.
+#
+#   Web-management is at http://localhost:55672
+#
+# First copy the AMQP plugins into their correct place
+# TODO: Figure out a way to get the right plugins based on version from the web
+# cp Utilities/rabbitmq/2.6.1/* /usr/lib/rabbitmq/lib/rabbitmq_server-2.6.1/plugins
+# Now configure and start the AMQP server
+chkconfig rabbitmq-server on
+service rabbitmq-server restart
+rabbitmqctl add_vhost ise
+rabbitmqctl add_user iseuser iseuser
+rabbitmqctl set_permissions -p iseuser iseuser '.*' '.*' '.*'
+
+
+###############################################################
+# Startup snmpd after copying in config
+chkconfig gmond on
+service gmond restart
+echo
+echo "Please hand edit the /etc/ganglia/gmond.conf file to personalize its cluster info for this host"
+echo " ... aftward do: service gmond restart"
+echo
+
+###############################################################
+# TODO: Start The ejabberd XMPP Server
+ejabberdctl start
+
+
+###############################################################
+# TODO: Start the grid engine
+
+#
+##  End of Configure Auto-start Services
+###
+###############################################################
+# TODO: Configure ACE library
+
+echo
+echo
+echo "SEE: $ISE_ROOT/ACE/readme.txt for procedure for downloading/building ACE libraries"
+
+
+
+echo
+echo "Done."
+

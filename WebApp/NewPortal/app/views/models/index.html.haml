@@ -1,0 +1,26 @@
+%h1 Listing models
+%table
+  %tr
+    %th Node
+    %th Platform
+    %th Name
+    %th Desc
+    %th Location
+    %th Dll
+    %th
+    %th
+    %th
+  - @models.each do |model|
+    %tr
+      %td= model.node_id
+      %td= model.platform.name
+      %td= model.name
+      %td= model.description
+      %td= model.location
+      %td= model.dll
+      %td= link_to 'Show', model
+      %td= link_to 'Edit', edit_model_path(model)
+      %td= link_to 'Destroy', model, confirm: 'Are you sure?', method: :delete
+%br/
+= link_to 'New Model', new_model_path
+

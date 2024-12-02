@@ -1,0 +1,48 @@
+= form_for(@run) do |f|
+  - if @run.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@run.errors.count, "error")
+        prohibited this run from being saved:
+      %ul
+        - @run.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :status
+    %br/
+    = f.number_field :status
+  .field
+    = f.label :job_id
+    %br/
+    = f.number_field :job_id
+  .field
+    = f.label :run_peer_id
+    %br/
+    = f.number_field :run_peer_id
+  .field
+    = f.label :user_id
+    %br/
+    = f.number_field :user_id
+  .field
+    = f.label :notification_method
+    %br/
+    = f.number_field :notification_method
+  .field
+    = f.label :debug_flags
+    %br/
+    = f.text_field :debug_flags
+  .field
+    = f.label :guid
+    %br/
+    = f.text_field :guid
+  .field
+    = f.label :input_dir
+    %br/
+    = f.text_field :input_dir
+  .field
+    = f.label :output_dir
+    %br/
+    = f.text_field :output_dir
+  .actions
+    = f.submit
+

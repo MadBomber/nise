@@ -1,0 +1,36 @@
+= form_for(@platform) do |f|
+  - if @platform.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@platform.errors.count, "error")
+        prohibited this platform from being saved:
+      %ul
+        - @platform.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name
+  .field
+    = f.label :desc
+    %br/
+    = f.text_field :description
+  .field
+    = f.label :lib_prefix
+    %br/
+    = f.text_field :lib_prefix
+  .field
+    = f.label :lib_suffix
+    %br/
+    = f.text_field :lib_suffix
+  .field
+    = f.label :lib_path_name
+    %br/
+    = f.text_field :lib_path_name
+  .field
+    = f.label :lib_path_sep
+    %br/
+    = f.text_field :lib_path_sep
+  .actions
+    = f.submit
+

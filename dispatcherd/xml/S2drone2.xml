@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'iso-8859-1'?>
+<Simulation>
+  <simEntity>
+    <Entity  id="1" name="local"   host="127.0.0.1" port="8001" role="B" type="P" header="samson"/>
+    <Entity  id="2" name="delilah" host="delilah.samson" port="8000" role="B" type="A" header="samson"/>
+    <Entity  id="3" name="drone1" host="drone1.samson" port="8000" role="B" type="A" header="samson"/>
+    <Entity  id="4" name="drone3" host="drone3.samson" port="8000" role="B" type="A" header="samson"/>
+  </simEntity>
+</Simulation>

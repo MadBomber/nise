@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  platform_id: 1
+  status: 1
+  name: MyString
+  desc: MyString
+  ip_address: MyString
+  fqdn: MyString
+
+two:
+  platform_id: 1
+  status: 1
+  name: MyString
+  desc: MyString
+  ip_address: MyString
+  fqdn: MyString

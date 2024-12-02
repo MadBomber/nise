@@ -1,0 +1,12 @@
+%h1 Listing job_configs
+- @jobs.each do |job|
+  %hr/
+  %pre
+    = job.id
+    = job.name
+    = job.description
+    Models:
+    - JobConfig.find_all_by_job_id(job.id).each do |jc|
+      = jc.model.id
+      = jc.model.name
+      = jc.model.description

@@ -1,0 +1,14 @@
+%h1 Listing run_subscribers
+%table
+  %tr
+    %th
+    %th
+    %th
+  - @run_subscribers.each do |run_subscriber|
+    %tr
+      %td= link_to 'Show', run_subscriber
+      %td= link_to 'Edit', edit_run_subscriber_path(run_subscriber)
+      %td= link_to 'Destroy', run_subscriber, confirm: 'Are you sure?', method: :delete
+%br/
+= link_to 'New Run subscriber', new_run_subscriber_path
+

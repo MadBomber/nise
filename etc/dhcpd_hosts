@@ -1,0 +1,140 @@
+##############################
+# fixed addresses
+#
+# NOTE: these are global PERIOD, generates warning if inside of a subnet
+
+host pcig22 {
+	hardware ethernet 00:0E:0C:5D:A6:6D;
+	fixed-address 138.209.52.137;
+	ddns-hostname "pcig22";
+}
+
+host pcig23 {
+	hardware ethernet 00:0E:0C:5D:A8:2D;
+	fixed-address 138.209.52.138;
+	ddns-hostname "pcig23";
+}
+
+host pcig24 {
+	hardware ethernet 00:0E:0C:5D:A6:3C;
+	fixed-address 138.209.52.139;
+	ddns-hostname "pcig24";
+}
+
+host pcig25 {
+	hardware ethernet FF:1E:0C:5F:CA:3D;
+	fixed-address 138.209.52.140;
+	ddns-hostname "pcig25";
+}
+
+host pcig26 {
+	hardware ethernet 00:0E:0C:5F:C9:1E;
+	fixed-address 138.209.52.141;
+	ddns-hostname "pcig26";
+}
+
+host pcig27 {
+	hardware ethernet FF:3E:0C:5F:CA:3D;
+	fixed-address 138.209.52.142;
+	ddns-hostname "pcig27";
+}
+
+host pcig28 {
+	hardware ethernet 00:0e:0c:5d:a6:5a;
+	fixed-address 138.209.52.143;
+	ddns-hostname "pcig28";
+}
+
+#.... Dead!  given to dell laptop
+host pcig29 {
+	#hardware ethernet 00:0E:0C:5F:C9:85;
+	hardware ethernet 00:1D:09:55:D3:36;
+	fixed-address 138.209.52.144;
+	ddns-hostname "pcig29";
+}
+
+#.... this is the jack dev queen, backup SGE master
+host pcig30 {
+	hardware ethernet 00:0E:0C:5F:C9:ED;
+	fixed-address 138.209.52.145;
+	ddns-hostname "pcig30";
+}
+
+#.... the new ISE Queen
+host pcig31 {
+	hardware ethernet 00:0E:0C:5F:CA:3D;
+	fixed-address 138.209.52.146;
+	ddns-hostname "pcig31";
+}
+
+host pcig32 {
+	hardware ethernet 00:0e:0c:5f:c9:a6;
+	fixed-address 138.209.52.147;
+	ddns-hostname "pcig32";
+}
+
+host pcig33 {
+	hardware ethernet 00:0E:0C:5D:A8:EE;
+	fixed-address 138.209.52.148;
+	ddns-hostname "pcig33";
+}
+
+#... Dewaynes Desk
+host LabPC103 {
+	hardware ethernet 00:11:43:A4:23:37;
+	fixed-address 138.209.52.103;
+	ddns-hostname "labpc103";
+}
+
+#.... Alienware Laptop
+host LabPC104 {
+	hardware ethernet 00:90:F5:3F:B2:21;
+	fixed-address 138.209.52.104;
+	ddns-hostname "labpc104";
+}
+
+#.... Jack's Desk
+host LabPC106 {
+	hardware ethernet 00:12:3F:67:A1:94;
+	fixed-address 138.209.52.106;
+	ddns-hostname "labpc106";
+}
+
+#.... AAD lab (Daniel)
+host LabPC109 {
+	hardware ethernet 00:13:72:28:C1:FC;
+	fixed-address 138.209.52.109;
+	ddns-hostname "labpc109";
+}
+
+#.... AAD lab (Ollie)
+host LabPC110 {
+	hardware ethernet 00:13:72:28:C1:FD;
+	fixed-address 138.209.52.110;
+	ddns-hostname "labpc110";
+}
+
+#.... Phil's Desk
+host LabPC111 {
+	hardware ethernet 00:12:22:3d:9a:17;
+	fixed-address 138.209.52.111;
+	ddns-hostname "labpc111";
+}
+
+#.... Desktop for CCD in Phil's cubicle
+host LabPC112 {
+	hardware ethernet 00:1a:a0:29:ee:ea;
+	fixed-address 138.209.52.112;
+	ddns-hostname "labpc112";
+}
+
+#.... Panasonic Laptop for CCD in Phil's cubicle
+host LabPC113 {
+	hardware ethernet 00:0B:97:D8:7C:12;
+	fixed-address 138.209.52.113;
+	ddns-hostname "labpc113";
+}
+
+
+
+

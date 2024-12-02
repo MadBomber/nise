@@ -1,0 +1,105 @@
+// -*- MPC -*-
+
+project(Dispatcher) : mysql_xplatform, ISE-common, acelib, boost_serialization {
+  includes += .
+
+  specific(vc71, vc8, vc9) {
+    libpaths += /usr/local/lib
+  }
+
+  Source_Files {
+    ../Common/ISETask.cpp
+    ../Common/DebugFlag.cpp
+    ../Common/SamsonHeader.cpp
+    ../Common/DataCountHeader.cpp
+    ../Common/NoHeader.cpp
+    ../Common/SimTransform.cpp
+    ../Common/EventHeaderFactory.cpp
+    ../Common/DBMgr.cpp
+    ../Common/Base_ObjMgr.cpp
+    ../Common/Service_ObjMgr.cpp
+    ../Common/SamsonMsgSender.h
+	../Common/FilterBase.cpp
+	ChannelFilterMgr.cpp
+    SubscriptionCache.h
+    PeerRouteCache.h
+    CommandParser.cpp
+    EventChannel.cpp
+    ConnectionHandler.cpp
+    Reaction.cpp
+    Peer_Acceptor.cpp
+    Peer_Connector.cpp
+    ReceiveHandler.cpp
+    TransmitHandler.cpp
+    RouterStats.cpp
+    TransceiverHandler.cpp
+    DispatcherFactory.cpp
+    PubSubDispatch.cpp
+    ModelIdentity.cpp
+    DispatcherIdentity.cpp
+    CommandIdentity.cpp
+    ConnectionTable.cpp
+    XMLParser.cpp
+    Options.cpp
+  }
+
+  Header_files {
+	ChannelFilterMgr.h
+    CommandParser.h
+    ConnectionHandlerFactory_T.h
+    ConnectionHandler.h
+    ConnectionRecord.h
+    ConnectionTable.h
+    DispatcherFactory.h
+    EventChannel.h
+    IdentityTrace.h
+    ModelIdentity.h
+    DispatcherIdentity.h
+    CommandIdentity.h
+    Options.h
+    Peer_Acceptor.h
+    Peer_Connector.h
+    PubSubDispatch.h
+    Reaction.h
+    ReceiveHandler.h
+    RouterStats.h
+    TransceiverHandler.h
+    TransmitHandler.h
+    XMLParser.h
+    ../Common/FilterBase.h
+    ../Common/DebugFlag.h
+    ../Common/SamsonHeader.h
+    ../Common/DataCountHeader.h
+    ../Common/EventHeader.h
+    ../Common/GatewayHeader.h
+    ../Common/NoHeader.h
+    ../Common/SimHeader.h
+    ../Common/SimTransform.h
+    ../Common/EventHeaderFactory.h
+    ../Common/DBMgr.h
+    ../Common/Base_ObjMgr.h
+    ../Common/Service_ObjMgr.h
+    ../Common/SamsonMsgSender.h
+  }
+
+  Documentation_Files {
+    svc.conf
+  }
+}
+
+project(dispatcherd) : mysql_xplatform, ISE-common, aceexe, boost_serialization, yassl {
+  exename = dispatcherd
+  includes += . 
+  after += Dispatcher
+  libs += Dispatcher 
+
+  specific(vc71, vc8, vc9) {
+    lit_libs += zlib
+  } else {
+    libpaths += /usr/local/lib
+  }
+
+  Source_Files {
+    dispatcherd.cpp
+  }
+}

@@ -1,0 +1,58 @@
+#################################################
+###
+##  File: integration.yml
+##  Desc: The integration environment for NISE
+#
+---
+common: &common
+  domain:   -intergration.local # suffix for host names
+  username: niseuser
+  password: niseuser
+  root:     ENV['NISE_ROOT']  # location of NISE source code
+  etc:      /etc/nise.d       # Location of NISE configuration items
+
+ci:
+  <<:       *common
+  host:     ENV['NISE_CI_HOST']   # host name; add suffix for FQDN
+  app:      jenkins               # The CI Application
+
+database:
+  <<:         *common
+  host:       ENV['NISE_DBHOST']
+  replicate:  2                   # How many hosts are replicated
+  config:     ENV['NISE_ROOT']+"/WebApp/NewPortal/config/database.yml"
+
+file:
+  <<:       *common
+  host:     ENV['NISE_FILE_SERVER_HOST']
+
+gem:
+  <<:       *common
+  source:
+    - rubygems.org
+    - ENV['NISE_LOCAL_GEM_HOST']
+
+scm:
+  <<:       *common
+  app:      svn                         # SCM application
+  host:     ENV['NISE_SCM_HOST']
+  backup:   ENV['NISE_SCM_BACKUP_HOST']
+  project:  NISE
+  access:   svn://
+
+vm:
+  <<:       *common
+  app:      virtualbox    # application: vagrant, virtualbox, vmware, xen, openstack
+  cm:       chef          # CM provisioning tool
+  prefix:   nise          # VM hostname prefix
+  
+wiki:
+  <<:       *common
+  host:     ENV['NISE_WIKI_HOST']
+
+package:
+  <<:       *common
+  app:      yum         # Package management application
+  host:     ENV['NISE_YUM_SERVER_HOST']
+
+

@@ -1,0 +1,17 @@
+#!/bin/sh
+# FIXME: The JavaPeer currently is located in the MicroGridJava MCC project.
+#        It is intended to be added to the ISE project.
+
+java_peer=$MCC_ROOT/lib/PeerJ-jar-with-dependencies.jar
+
+peerj_debug_helper=$ISE_ROOT/bin/peerj_debug_helper.rb
+
+
+# NOTE: This debugger junk is for running jdb against a port
+#debugger_port=8000
+
+#debugger_options="-Xdebug -Xrunjdwp:transport=dt_socket,address=${debugger_port},server=y,suspend=n "
+
+debugger_options=`ruby $peerj_debug_helper`
+sleep 5
+java $debugger_options -jar $java_peer $@

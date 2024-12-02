@@ -1,0 +1,187 @@
+#stk.v.4.4
+##########################################################################
+##########################################################################
+#
+#	Date:		1997-2005	
+#	Author:	Analytical Graphics, Inc.
+#			220 Valley Creek Blvd
+#			Exton, PA 19341
+#	Phone:		1.800.220.4STK
+#				1.610.981.8000
+#	Fax:		1.610.981.8001
+#	Support:	1.888.785.9973 or 1.610.981.8888
+#
+#	Description: This file sets the initial values for the Connect Library.
+#                    The default values are presented.  Uncomment and modify
+#                    as desired.
+#
+##########################################################################
+##########################################################################
+
+##########################################################################
+##########################################################################
+#
+#	Connect Commands that return data... The format of the input directive
+#	is:
+#		ReturnsData <IPCCommand> [ Multiple ]
+#
+#	Below is the default list that will always be registered.  
+#	Make additions as necessary.
+
+#	*****Keep this list in Alphabetical order!***** 
+#	Update files: connect.dat and StkCon.java to match list... 
+# Begin ReturnsDataList   -Used for auto script updates... Always a comment!
+ReturnsData 3DGETVIEWPOINT
+ReturnsData ACCESS
+ReturnsData ACCESSINFO_R
+ReturnsData AER
+ReturnsData ALLACCESS			Multiple
+ReturnsData ALLINSTANCENAMES
+ReturnsData ANIMFRAMERATE
+ReturnsData ANTENNA		        Multiple
+ReturnsData ASTROGATOR_RM		Multiple
+ReturnsData ASYNCALLOWED_R
+ReturnsData ATTCOV_RM		    Multiple
+ReturnsData AUTHOR_RM	Multiple
+ReturnsData CAT_RM				Multiple
+ReturnsData CENTRALBODY
+ReturnsData CENTRALBODYNAMES
+ReturnsData CHAINS_R
+ReturnsData CHAINS_RM			Multiple
+ReturnsData CHAINALLACCESS		Multiple
+ReturnsData CHAINGETACCESSES	Multiple
+ReturnsData CHAINGETINTERVALS	Multiple
+ReturnsData CHAINGETSTRANDS	Multiple
+ReturnsData CHECKSCENARIO
+ReturnsData CLOSEAPPROACH		Multiple
+ReturnsData COMMQUERY
+ReturnsData COMPUTECRDN
+ReturnsData CONEXPORTCONFIG_R
+ReturnsData CONVERT
+ReturnsData CONVERTCOORD
+ReturnsData CONVERTDATE
+ReturnsData CONVERTUNIT
+ReturnsData COV_R
+ReturnsData COV_RM				Multiple
+ReturnsData DECKACCESS			Multiple
+ReturnsData DISPERSIONELLIPSE_R
+ReturnsData DISQUERY
+ReturnsData DOESOBJEXIST
+ReturnsData EXPORTCONFIG_R
+ReturnsData GETACCESSES		Multiple
+ReturnsData GETANIMTIME
+ReturnsData GETANIMATIONDATA
+ReturnsData GETATTITUDE		Multiple 
+ReturnsData GETATTITUDETARG
+ReturnsData GETBOUNDARY		Multiple
+ReturnsData GETCONVERSION
+ReturnsData GETDB
+ReturnsData GETDEFAULTDIR
+ReturnsData GETDESCRIPTION
+ReturnsData GETDSPFLAG
+ReturnsData GETDSPINTERVALS
+ReturnsData GETDSPTIMES
+ReturnsData GETEPOCH
+ReturnsData GETFULLREPORT		Multiple
+ReturnsData GETIPCVERSION
+ReturnsData GETLASTCOMMAND		Multiple
+ReturnsData GETLICENSES		Multiple
+ReturnsData GETLINE		    Multiple
+ReturnsData GETMAPSTYLES_R
+ReturnsData GETMARKERLIST		Multiple
+ReturnsData GETMESSAGELOGFILE
+ReturnsData GETNUMNOTES
+ReturnsData GETPROPNAME		Multiple
+ReturnsData GETPROPERTIES
+ReturnsData GETREPORT			Multiple
+ReturnsData GETRPTSUMMARY		Multiple
+ReturnsData GETSCENPATH
+ReturnsData GETSTKHOMEDIR
+ReturnsData GETSTKVERSION
+ReturnsData GETTIMEPERIOD
+ReturnsData GETUSERDIR
+ReturnsData GRAPHICS_R
+ReturnsData GRIDINSPECTOR
+ReturnsData GROUNDELLIPSE_R
+ReturnsData HEIGHTABOVEGROUND_R
+ReturnsData LICENSE_RM			Multiple
+ReturnsData LIFETIME
+ReturnsData LISTOPERATOR
+ReturnsData LISTSUBOBJECTS
+ReturnsData MAPID_R
+ReturnsData MATLAB_R
+ReturnsData MEASURESURFACEDISTANCE
+ReturnsData MISSIONMODELER_RM	Multiple
+ReturnsData ONEPOINTACCESS		Multiple
+ReturnsData PERCENTCOMPLETE_R
+ReturnsData POSITION
+ReturnsData QUICKREPORT_RM		Multiple
+ReturnsData RCS_R
+ReturnsData REPORT_RM			Multiple
+ReturnsData SCHED				Multiple
+ReturnsData SENSORQUERY
+#ReturnsData SHOWNAMES   Multiple
+ReturnsData SHOWNAMES
+ReturnsData SHOWUNITS
+ReturnsData STARDATA_RM		Multiple
+ReturnsData STOPWATCHGET
+ReturnsData VIEWER_RM			Multiple
+ReturnsData VISIBILITY_RM		Multiple
+ReturnsData VO_R
+ReturnsData WINDOW2D_R
+ReturnsData ZOOM_R
+#
+# End ReturnsDataList   -Used for auto script updates... Always a comment!
+#
+##########################################################################
+##########################################################################
+#
+#   PL Plugin Library
+#
+#ReturnsData GETFOCALLENGTH
+
+#
+##########################################################################
+##########################################################################
+#
+#	Initial Connect Control that is commanded at connection time.
+#
+
+#Acknowledge		On
+#Verbose		Off
+#Error			On
+#Async			Off
+
+#
+##########################################################################
+##########################################################################
+#
+#	Timeout value for reads (in milliseconds)
+#
+
+#Timeout		30000
+
+#
+##########################################################################
+##########################################################################
+#
+#	Connect version information
+#
+
+#Version		4
+#Revision		0
+
+#
+##########################################################################
+##########################################################################
+#
+#	Connect verbose flag 
+#		Verbose can also be turned on by defining an environment variable
+#		with the same name
+#
+
+#CON_VERBOSE		Off
+
+#
+##########################################################################
+##########################################################################

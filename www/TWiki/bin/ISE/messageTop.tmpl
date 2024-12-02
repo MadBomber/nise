@@ -1,0 +1,33 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+// Filename:         ___NAME___.hpp
+//
+// Classification:   UNCLASSIFIED
+//
+// Company Name:     Lockheed Martin
+//                   Missiles & Fire Control
+//                   Dallas, TX
+//
+// Revision History:
+//
+// <yyyymmdd> <Eng> <Description of modification>
+//
+////////////////////////////////////////////////////////////////////////////////
+
+#ifndef ____UNAME____HPP
+#define ____UNAME____HPP
+
+
+#include "ISEExport.h"
+#include "ObjMessage.h"
+
+//.................................................................................
+class ISE_Export ___NAME___ :  public ObjMessage<___NAME___>
+{
+	public:
+		___NAME___ (void) : 
+			ObjMessage<___NAME___>(	std::string("___NAME___"),
+						std::string("___DESC___")) {}
+		
+
+	#define ITEMS \

@@ -1,0 +1,38 @@
+/
+  File: views/jobs/index.html.erb
+  Desc: An entry point
+
+%h1 HAML
+
+= content_for :header do
+  The following 
+  = link_to 'Jobs',
+      "http://#{ configatron.wiki_url }/NiceJobs", 
+      title:'Click here to go to the wiki'
+  have been defined
+
+
+%h2 Jobs
+
+%table
+  %tr
+    %th
+    %th>Name
+    %th>Description<
+    %th>Default input dir
+    %th>Default output dir
+  - for job in @jobs
+    %tr
+      %td
+        - if ise_job_control_service_is_alive?
+          = link_to 'Launch',
+            { :controller => "jobs", :action => "launch", :id => job.id },
+            {:confirm => "Are you sure you want to launch the #{job.name} job?"}
+      %td= job.name
+      %td= job.description
+      %td= job.default_input_dir
+      %td= job.default_output_dir
+      %td= link_to 'Show', job
+      %td= link_to 'Edit', edit_job_path(job)
+      %td= link_to 'Destroy', job, :confirm => 'Are you sure?', :method => :delete
+

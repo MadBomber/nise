@@ -1,0 +1,13 @@
+// -*- MPC -*-
+
+project(Executive) : ISE-models {
+  includes += .
+
+  Source_Files {
+    Executive.cpp
+  }
+
+  Header_Files {
+    Executive.hpp
+  }
+}

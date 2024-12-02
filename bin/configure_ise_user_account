@@ -1,0 +1,121 @@
+#!/bin/sh
+####################################################################
+###
+##  File: configure_ise_user_account
+##  Desc: Automates the configuration of a standard ISE User account
+##
+##  NOTE: Assumes that a base OS install has occured and that a standard
+##        Ruby is available in $PATH
+#
+
+export ISE_ROOT=`ruby -r pathname -e 'puts Pathname.new(ARGV[0]).realpath' -- $0/../..`
+
+echo
+echo "FYI: The ISE_ROOT is $ISE_ROOT"
+
+echo
+echo "This process will configure your user account in a way that will"
+echo "allow you to easily run ISE-based projects.  Some of your existing"
+echo "'dot' files will be saved in a time-stamped *.tgz file.  Only the"
+echo "files that are modified for ISE operations are part of the backup."
+echo "Your other 'dot' files not required by ISE will be unmodified."
+
+echo
+echo "The ability to access the outside internet is required for the"
+echo "purpose of downloading libraries and programs used by ISE"
+echo "projects.  Accessing the world-wide-web (internet) may require"
+echo "the configuration of a proxy server."
+
+echo
+echo "The proxy configuration is an interactive process for the"
+echo "proper setup of your environment.  If you do not need a proxy"
+echo "to access the outside internet just press return when asked."
+echo "If you require a proxy but do not know what it is, you should"
+echo "stop this configuration process now with a control-C and then"
+echo "find out what your proxy setting should be."
+
+echo
+echo "FYI: The proxy setting for LMMFC is 138.209.111.74:80"
+
+user_verification="nope"
+
+until [ x$user_verification == x'yes' ]; do
+  echo
+  echo "Press return if a proxy is not required."
+  read -p "What is your proxy? " proxy_setting
+  echo
+  echo "You entered: $proxy_setting"
+  read -p "Enter 'yes' if this is correct? " user_verification
+done
+
+export ISE_PROXY=$proxy_setting
+
+echo
+echo "The ISE_PROXY is $ISE_PROXY"
+echo
+
+
+###########################################
+# Backup Existing dot files
+
+build_user=$ISE_ROOT/etc/home/build_user.rb
+
+# backup $HOME files and then copy $ISE_ROOT/etc/home to $HOME
+$build_user
+
+###########################################
+# Ruby Configuration
+# NOTE: the gem install of rvm was not working out well.
+#       rvm's author recommends recommends installation by
+#       retrieving the install script from his website via curl.
+#       The install script in turn uses a git clone command to
+#       retrieve the lastest revision.
+
+#temp_file=$HOME/rvm-installer
+#curl -s https://rvm.beginrescueend.com/install/rvm -o $temp_file
+#chmod +x $temp_file
+#$temp_file
+
+curl -L https://get.rvm.io | bash -s stable --ruby
+
+# --version lastest
+
+# rm -fr $temp_file   # The rvm-installer script can be used again to update or revert to older versions
+
+#source $HOME/.rvm/scripts/rvm
+#rvm update
+#rvm reload
+# rvm is now installed and operational for user account
+
+# Install Ruby version 1.8.7 and gems
+#rvm install 1.8.7
+#rvm use 1.8.7
+#gem install bundler
+#cd $ISE_ROOT
+#rm -f Gemfile.lock
+#bundle install --without=test development
+
+# Replace Ruby's builtin DateTime class with faster version
+#home_run --install
+
+## Install Ruby version 1.9.2 and gems
+#rvm install 1.9.2
+#rvm use 1.9.2 --default
+#gem install bundler
+#cd $ISE_ROOT
+#rm -f Gemfile.lock
+#bundle install --without=test development
+
+# Replace Ruby's builtin DateTime class with faster version
+#home_run --install
+
+
+echo
+echo "Production configuration complete.  Close this shell and open a new one."
+echo "To add test and development libraries do the following:"
+echo "    cd $ISE_ROOT"
+echo "    bundle install"
+echo
+
+
+

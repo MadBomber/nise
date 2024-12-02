@@ -1,0 +1,105 @@
+#######################################################################
+###
+##  File: setup_symbols
+##  Desc: Define the system environment varilables used by
+##        the <%= project_name %> project.
+##
+##        This file is for use with UNIX-like systems.  To establish
+##        the proper environment within a shell window for the 
+##        <%= project_name %> project do the following at the shell
+##        command prompt:
+##
+##            source $<%= project_id.upcase %>_ROOT/setup_symbols
+##
+##        Note that $<%= project_id.upcase %>_ROOT should be setup
+##        prior to sourcing setup_symbols.  One way to do this is to
+##        create a file in your home directory that exports all of
+##        your *_ROOT directories.  It should have an entry that looks
+##        like this:
+##
+##            export <%= project_id.upcase %>_ROOT=<%= Dir.pwd %>/<%= project_id %>
+##
+##        By convention the ISE developers use the filename '.roots' in their
+##        home directory to hold all of the definitions for the *_ROOT variables.
+##        The '~/.roots' file is sourced from the '~/.bashrc' file.
+##
+##        In the same way that $HOME/.iserc can be used by individual
+##        developers to over-ride the $ISE_ROOT/setup_symbols,
+##        $HOME/.<%= project_id.downcase %>rc is used to over-ride
+##        the symbols defined by this file.
+#
+
+
+# Ensure the ISE environment has been established
+if [ ! -e ${ISE_ROOT} ]; then
+  echo ""
+  echo "ERROR: The ISE environment has not been established"
+  echo "       Change to the ISE directory and source it's setup_symbols"
+	echo ""
+	exit 1
+fi
+
+
+ise_munge () {
+        export $2=${!2-$1}
+        if ! echo ${!2} | egrep -q "(^|:)${1}(:|$)" ; then
+           if [ "$3" = "after" ] ; then
+              export $2=${!2}:$1
+           else
+              export $2=$1:${!2}
+           fi
+        fi
+}
+
+#export <%= project_id.upcase %>_ROOT=`pwd`
+[ $# -gt 0 ] && unset <%= project_id.upcase %>_ROOT
+[ -z "$<%= project_id.upcase %>_ROOT" ] && export <%= project_id.upcase %>_ROOT=`pwd`
+
+
+# <=- Place any other system environment variables required by the
+#     <%= project_name %> project here.
+
+
+#############
+# Ruby Things
+export RUBYOPT=rubygems
+
+
+#####################################
+# Web-based applications config stuff
+
+
+
+export <%= project_id.upcase %>_RAILS_ENV=development
+#export <%= project_id.upcase %>_RAILS_ENV=test
+#export <%= project_id.upcase %>_RAILS_ENV=production
+
+
+###################################################################
+# Allow local developer to over-ride standard environment variables
+
+if [ -f "$HOME/.<%= project_id.downcase %>rc" ]; then
+	#echo "Loading user preferences from $HOME/.<%= project_id.downcase %>rc ..."
+	source "$HOME/.<%= project_id.downcase %>rc"
+fi
+
+
+##################################
+## ise_munge does head patching so
+## make sequence in reverse priority order
+
+ise_munge $<%= project_id.upcase %>_ROOT/Models/RubyModels/lib RUBYLIB
+ise_munge $<%= project_id.upcase %>_ROOT/Models/RubyModels RUBYLIB
+ise_munge $<%= project_id.upcase %>_ROOT/Models/Messages RUBYLIB
+ise_munge $<%= project_id.upcase %>_ROOT/Models RUBYLIB
+ise_munge $<%= project_id.upcase %>_ROOT/lib RUBYLIB
+
+
+##################################
+## Extend the PATH
+ise_munge ${<%= project_id.upcase %>_ROOT}/bin PATH
+
+unset ise_munge
+
+
+

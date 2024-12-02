@@ -1,0 +1,13 @@
+###########################################################################
+###
+##	File:	SUMMARY.txt
+##	Desc:	This file summarizes the contents of this directory
+#
+
+ise_hotbackup.sh		- Creates a "hotcopy" backup of the ISE svn repo
+conflict.s			- lists all conflicts in a working copy after an svn update or merge
+resolve.s			- supports resolving those conflicts
+iserelease.s                    - builds an ISE release from scratch
+job_archive.rb                  - archives an IseJob configuration from the IseDatabase as an IseJCL file
+
+

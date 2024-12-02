@@ -1,0 +1,14 @@
+%h1 Listing run_messages
+%table
+  %tr
+    %th
+    %th
+    %th
+  - @run_messages.each do |run_message|
+    %tr
+      %td= link_to 'Show', run_message
+      %td= link_to 'Edit', edit_run_message_path(run_message)
+      %td= link_to 'Destroy', run_message, confirm: 'Are you sure?', method: :delete
+%br/
+= link_to 'New Run message', new_run_message_path
+

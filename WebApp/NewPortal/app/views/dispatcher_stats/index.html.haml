@@ -1,0 +1,18 @@
+%h1 Listing dispatcher_stats
+
+%table
+  %tr
+    %th
+    %th
+    %th
+  </tr>
+
+- @dispatcher_stats.each do |dispatcher_stat|
+  %tr
+    %td= link_to 'Show', dispatcher_stat
+    %td= link_to 'Edit', edit_dispatcher_stat_path(dispatcher_stat)
+    %td= link_to 'Destroy', dispatcher_stat, confirm: 'Are you sure?', method: :delete
+
+%br
+
+= link_to 'New Dispatcher stat', new_dispatcher_stat_path

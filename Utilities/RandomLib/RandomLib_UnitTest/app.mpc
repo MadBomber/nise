@@ -1,0 +1,5 @@
+project(Random_UnitTest_01): RandomBase {
+  install = .
+  includes += .. ../..
+}
+

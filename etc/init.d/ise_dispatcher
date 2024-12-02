@@ -1,0 +1,129 @@
+#!/bin/bash
+#
+# chkconfig: 345 91 10
+# description: Starts and stops the ISE Dispatcher Daemon
+#
+
+# Source function library.
+. /etc/init.d/functions
+
+# Get config.
+. /etc/sysconfig/network
+
+# Check that networking is up.
+[ "${NETWORKING}" = "no" ] && exit 0
+
+
+# Set the default values
+ISE_USER=ise
+ISE_ROOT=~ise/sandbox/ise
+
+# NOTE:  this is where you override the user and root
+[ -r /etc/sysconfig/ise_dispatcher ] && . /etc/sysconfig/ise_dispatcher
+
+# This sets ISE_ROOT
+#[ -f /home/${ISE_USER}/.service ] &&  . /home/${ISE_USER}/.service || exit 0
+
+# Source configuration options
+if [ -f ${ISE_ROOT}/setup_symbols ]; then
+	. ${ISE_ROOT}/setup_symbols NO_RUBY
+fi
+
+RETVAL=0
+
+prog="dispatcherd"
+progpath="${ISE_ROOT}/bin/ise_main"
+lockpath="/var/lock/subsys/$prog"
+ldpath=${ISE_ROOT}/lib:${ACE_ROOT}/lib:${LD_LIBRARY_PATH}
+
+#echo $progpath
+#echo $ldpath
+
+pid_of_dispatcher() {
+    ps auxwww | grep ise_main | grep -v grep | awk '{print $2}'
+}
+
+
+start()
+{
+    echo -n $"Starting $prog: "
+
+    pid=`pid_of_dispatcher`
+    if [ -n $pid ]; then
+        su -l $ISE_USER -c "ISE_QUEEN=$ISE_QUEEN LD_LIBRARY_PATH=$ldpath $progpath -b -f ${ISE_ROOT}/etc/ISE/dispatcherd.conf"
+        RETVAL=$?
+        [ "$RETVAL" = 0 ] && touch $lockpath
+        echo
+    else
+        echo $prog already running: $pid
+        exit 2;
+    fi
+}
+
+stop() {
+    echo -n "Stopping $prog: "
+
+    pid=`pid_of_dispatcher`
+    [ -n "$pid" ] && kill $pid
+    RETVAL=$?
+    cnt=10
+    while [ $RETVAL = 0 -a $cnt -gt 0 ] &&
+          { pid_of_dispatcher > /dev/null ; } ; do
+        sleep 1
+        ((cnt--))
+    done
+
+    [ $RETVAL = 0 ] && rm -f "$lockpath"
+    [ $RETVAL = 0 ] && success $"$STRING" || failure $"$STRING"
+    echo
+}
+
+
+status() {
+    pid=`pid_of_dispatcher`
+    if [ -n "$pid" ]; then
+        echo "$prog (pid $pid) is running..."
+        return 0
+    fi
+    if [ -f "$LOCK" ]; then
+        echo $"${base} dead but subsys locked"
+        return 2
+    fi
+    echo "$prog is stopped"
+    return 3
+}
+
+
+
+# See how we were called.
+case "$1" in
+  start)
+  start
+  ;;
+  stop)
+  stop
+  ;;
+  status)
+  status -p $pidpath $prog
+  RETVAL=$?
+  ;;
+  restart)
+  stop
+	start
+	RETVAL=$?
+	;;
+  condrestart)
+	if [ -f $lockpath ]; then
+	    stop
+	    start
+	    RETVAL=$?
+	fi
+	;;
+  reload)
+  ;;
+  *)
+	echo $"Usage: $0 {start|stop|status|restart|condrestart|reload}"
+	exit 1
+	;;
+esac
+exit $RETVAL

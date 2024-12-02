@@ -1,0 +1,22 @@
+// -*- MPC -*-
+
+workspace {
+
+//  static {
+//    cmdline += -static
+//    Utilities/RandomLib/app.mpc
+//  }
+
+  exclude {
+    tests
+    Utilities/RandomLib
+	Models/RamThreat
+  }
+
+  exclude(vc71, vc8, vc9) {
+    Filters
+    dispatcherd
+    Models/Graphics
+  }
+}
+

@@ -1,0 +1,32 @@
+####################################################
+###
+##  File: build_portal
+##  Desc: Crates a blank rails web application for ISE
+#
+rails --database=mysql Portal
+#
+cd Portal
+#
+script/generate controller dashboard index
+script/generate controller dispatcher index detail
+#
+script/generate scaffold app_message app_message_key:string description:text
+script/generate scaffold debug_flag name:string desc:string
+script/generate scaffold dispatcher_stat
+script/generate scaffold job_config
+script/generate scaffold job name:string desc:string default_input_dir:string default_output_dir:string
+script/generate scaffold model node_id:integer platform_id:integer name:string desc:string location:string dll:string
+script/generate scaffold name_value name:string value:text
+script/generate scaffold node platform_id:integer status:integer name:string desc:string ip_address:string fqdn:string
+script/generate scaffold platform name:string desc:string lib_prefix:string lib_suffix:string lib_path_name:string lib_path_sep:string
+script/generate scaffold run_message
+script/generate scaffold run_model
+script/generate scaffold run_model_override run_id:integer user_id:integer model_id:integer instance:integer cmd_line_param:string debug_flags:string
+script/generate scaffold run_peer
+script/generate scaffold run status:integer job_id:integer model_id:integer user_id:integer notification_method:integer debug_flags:string guid:string input_dir:string output_dir:string
+script/generate scaffold run_subscriber
+script/generate scaffold status_code code:integer desc:text
+script/generate scaffold user admin:boolean login:string name:string email:string phone_number:string
+
+
+

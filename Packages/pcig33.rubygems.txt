@@ -1,0 +1,550 @@
+
+*** LOCAL GEMS ***
+
+abstract (1.0.0)
+    a library which enable you to define abstract method in Ruby
+
+action_requires (1.0.2)
+    action_requires
+
+actionmailer (2.1.0)
+    Service layer for easy email delivery and testing.
+
+actionpack (2.1.0)
+    Web-flow and rendering framework putting the VC in MVC.
+
+actionservice (0.3.0)
+    Web service support for Action Pack.
+
+active_record_voyeur (1.0.3)
+    active_record_voyeur
+
+activeldap (1.0.1)
+    Ruby/ActiveLdap is a object-oriented API to LDAP
+
+activerecord (2.1.0)
+    Implements the ActiveRecord pattern for ORM.
+
+activeresource (2.1.0)
+    Think Active Record for web resources.
+
+activesupport (2.1.0)
+    Support and utility classes used by the Rails framework.
+
+acts_as_constant (2.0.5)
+    acts_as_constant
+
+acts_as_pack_rat (1.0.7)
+    acts_as_pack_rat
+
+acts_as_statused (2.0.3)
+    acts_as_statused
+
+addressable (1.0.4)
+    URI Implementation
+
+application_configuration (1.5.2)
+    A simple system for configuring Ruby applications.
+
+arcadia (0.4.0)
+    An Ide for Ruby written in Ruby using the classic tcl/tk GUI
+    toolkit.
+
+archive-tar (0.9.0)
+    An interface library for reading and writing UNIX tar files.
+
+archive-zip (0.2.0)
+    Simple, extensible, pure Ruby ZIP archive support.
+
+arrayfields (4.6.0)
+    arrayfields
+
+attributes (5.0.1)
+    attributes
+
+bishop (0.3.0)
+    A port of the Reverend Bayesian classification library.
+
+bj (1.0.1)
+    bj
+
+BlueCloth (1.0.0)
+    BlueCloth is a Ruby implementation of Markdown, a text-to-HTML
+    conversion tool for web writers. Markdown allows you to write using
+    an easy-to-read, easy-to-write plain text format, then convert it to
+    structurally valid XHTML (or HTML).
+
+bn4r (0.9.0)
+    bn4r is a bayesian networks library on ruby that provides the user
+    with classes for create bayesian networks and diverse algorithms for
+    solve them.
+
+bones (2.0.3)
+    Mr Bones is a handy tool that builds a skeleton for your new Ruby
+    projects
+
+box_layout (1.0.0)
+    Allows you to lay out HTML using ASCII art.
+
+builder (2.1.2)
+    Builders for MarkUp.
+
+cachetastic (1.7.3)
+    A very simple, yet very powerful caching framework for Ruby.
+
+camping (1.5)
+    minature rails for stay-at-home moms
+
+capistrano (2.4.3)
+    Capistrano is a utility and framework for executing commands in
+    parallel on multiple remote machines, via SSH.
+
+cappy-monit (0.1.0)
+    Capistrano tasks for monitoring, controlling and configuring a
+    remote monit instance.
+
+cgi_multipart_eof_fix (2.5.0)
+    Fix an exploitable bug in CGI multipart parsing.
+
+columnize (0.1)
+    Read file with caching
+
+controller_helpers (1.0.3.1)
+    controller_helpers
+
+daemons (1.0.10)
+    A toolkit to create and control daemons in different ways
+
+data_objects (0.9.3)
+    The Core DataObjects class
+
+datamapper (0.9.3)
+    An Object/Relational Mapper for Ruby
+
+diff-lcs (1.1.2)
+    Provides a list of changes that represent the difference between two
+    sequenced collections.
+
+directory_watcher (1.1.1)
+    A class for watching files within a directory and generating events
+    when those files change
+
+dm-adjust (0.9.3)
+    DataMapper plugin providing methods to increment and decrement
+    properties
+
+dm-aggregates (0.9.3)
+    DataMapper plugin providing support for aggregates, functions on
+    collections and datasets
+
+dm-ar-finders (0.9.3)
+    DataMapper plugin providing ActiveRecord-style finders
+
+dm-cli (0.9.3)
+    DataMapper plugin allowing interaction with models through a CLI
+
+dm-core (0.9.3)
+    An Object/Relational Mapper for Ruby
+
+dm-couchdb-adapter (0.9.3)
+    CouchDB Adapter for DataMapper
+
+dm-is-list (0.9.3)
+    DataMapper plugin for creating and organizing lists
+
+dm-is-nested_set (0.9.3)
+    DataMapper plugin allowing the creation of nested sets from data
+    models
+
+dm-is-tree (0.9.3)
+    DataMapper plugin allowing the creation of tree structures from data
+    models
+
+dm-migrations (0.9.3)
+    DataMapper plugin for writing and speccing migrations
+
+dm-more (0.9.3)
+    An Object/Relational Mapper for Ruby
+
+dm-observer (0.9.3)
+    DataMapper plugin for observing Resource Models
+
+dm-querizer (0.9.3)
+    DataMapper plugin that provides a short rubyish query-syntax
+
+dm-rest-adapter (0.9.3)
+    REST Adapter for DataMapper
+
+dm-serializer (0.9.3)
+    DataMapper plugin for serializing DataMapper objects
+
+dm-shorthand (0.9.3)
+    DataMapper plugin providing shortcuts for using multiple
+    repositories
+
+dm-timestamps (0.9.3)
+    DataMapper plugin for magical timestamps
+
+dm-types (0.9.3)
+    DataMapper plugin providing extra data types
+
+dm-validations (0.9.3)
+    DataMapper plugin for performing validations on data models
+
+dotr (0.3)
+    Produce directed graph images using the 'dot' utility.
+
+drawr (1.0.1)
+    == FEATURES/PROBLEMS:  * Needs more tests!
+
+echoe (3)
+    A Rubygems packaging tool that provides Rake tasks for
+    documentation, extension compiling, testing, and deployment.
+
+english (0.2.0)
+    English Code Kit
+
+error_messages_for (2.0.1)
+    error_messages_for
+
+erubis (2.6.2)
+    a fast and extensible eRuby implementation which supports
+    multi-language
+
+extensions (0.6.0)
+    'extensions' is a set of extensions to Ruby's built-in classes.  It
+    gathers common idioms, useful additions, and aliases, complete with
+    unit testing and documentation, so they are suitable for production
+    code.
+
+extlib (0.9.4, 0.9.3)
+    Support library for DataMapper and Merb.
+
+facets (2.4.3, 2.4.1)
+    Facets is a single largest collection of core extension methods and
+    standard cla
+
+faker (0.3.1)
+    A port of Perl's Data::Faker - Generates fake names, phone numbers,
+    etc.
+
+fastthread (1.0.1)
+    Optimized replacement for thread.rb primitives
+
+fattr (1.0.3)
+    fattr
+
+ferret (0.11.6)
+    Ruby indexing library.
+
+flog (1.1.0)
+    Flog reports the most tortured code in an easy to read pain report.
+    The higher the score, the more pain the code is in.
+
+gem2rpm (0.5.3)
+    Generate rpm specfiles from gems
+
+gem_plugin (0.2.3)
+    A plugin system based on rubygems that uses dependencies only
+
+gemsonrails (0.7.2)
+    Link or freeze RubyGems into your rails apps, instead of plugins To
+    reinstall, run "gemsonrails" in rails app folder.
+
+genosaurus (1.2.2)
+    genosaurus
+
+gnuplot (2.2)
+    Utility library to aid in interacting with gnuplot
+
+GraphvizR (0.5.1)
+    Graphviz wrapper for Ruby and Rails
+
+gruff (0.3.1)
+    Beautiful graphs for one or multiple datasets.
+
+guid (0.1.1)
+    Guid is a Ruby library for portable GUID/UUID generation. At the
+    moment it can be used on Windows (except first release of Win95 and
+    older) and on Unix. This is a fork of David Garamond's ruby-uuid
+    library.
+
+haml (2.0.2)
+    An elegant, structured XHTML/XML templating engine. Comes with Sass,
+    a similar CSS templating engine.
+
+has_many_by_status (2.0.6)
+    has_many_by_status
+
+heckle (1.4.1)
+    Unit Test Sadism
+
+highline (1.4.0)
+    HighLine is a high-level command-line IO library.
+
+hoe (1.7.0)
+    Hoe is a simple rake/rubygems helper for project Rakefiles
+
+httpclient (2.1.2)
+    gives something like the functionality of libwww-perl (LWP) in Ruby
+
+io-like (0.1.0)
+    A module which provides the functionality of an IO object to any
+    class which provides a couple of simple methods.
+
+klass_name_types (1.0.9)
+    klass_name_types
+
+krb5-auth (0.7)
+    Kerberos binding for Ruby
+
+libxml-ruby (0.8.3)
+    Ruby libxml bindings
+
+linecache (0.43)
+    Read file with caching
+
+log4r (1.0.5)
+    Log4r is a comprehensive and flexible logging library for Ruby.
+
+logrotate (1.0.0)
+    This package is a library of methods that perform log rotation
+
+main (2.8.2)
+    main
+
+markaby (0.5)
+    Markup as Ruby, write HTML in your native Ruby tongue
+
+memcache-client (1.5.0)
+    A Ruby memcached client
+
+metaid (1.0)
+    slight metaprogramming helpers
+
+mongrel (1.1.5)
+    A small fast HTTP library and server that runs Rails, Camping, Nitro
+    and Iowa apps.
+
+mongrel_cluster (1.0.5)
+    Mongrel plugin that provides commands and Capistrano tasks for
+    managing multiple Mongrel processes.
+
+mongrel_config (0.3.1)
+    Mongrel plugin that gives you web based config tool using Camping
+
+mongrel_console (0.2.1)
+    Provides a combined Mongrel and Rails IRB console.
+
+mongrel_page_cache_handler (1.6.11)
+    mongrel_page_cache_handler
+
+mongrel_status (0.2.3)
+    A sample plugin that reports the status of mongrel.
+
+mongrel_upload_progress (0.2.2)
+    The mongrel_upload_progress gemplugin
+
+net-scp (1.0.1)
+    A pure Ruby implementation of the SCP client protocol
+
+net-sftp (2.0.1)
+    A pure Ruby implementation of the SFTP client protocol
+
+net-ssh (2.0.3)
+    a pure-Ruby implementation of the SSH2 client protocol
+
+net-ssh-gateway (1.0.0)
+    A simple library to assist in establishing tunneled Net::SSH
+    connections
+
+orderedhash (0.0.4)
+    orderedhash
+
+ParseTree (2.2.0, 2.1.1)
+    ParseTree is a C extension (using RubyInline) that extracts the
+    parse tree for an entire class or a specific method and returns it
+    as a s-expression (aka sexp) using ruby's arrays, strings, symbols,
+    and integers
+
+png (1.1.0)
+    An almost-pure-ruby PNG library
+
+production_log_analyzer (1.5.0)
+    production_log_analyzer lets you find out which actions on a Rails
+    site are slowing you down.
+
+rack (0.3.0)
+    a modular Ruby webserver interface
+
+railroad (0.5.0)
+    A DOT diagram generator for Ruby on Rail applications
+
+rails (2.1.0)
+    Web-application framework with template engine, control-flow layer,
+    and ORM.
+
+rails_analyzer_tools (1.4.0)
+    Tools for analyzing the performance of web sites.
+
+rails_extensions (1.0.6)
+    rails_extensions
+
+railsmachine (1.0.1)
+    The Rails Machine task library
+
+RailsRemoteControl (1.0.0)
+    Alter Rails log levels and monitor processes without restarts
+
+rake (0.8.1)
+    Ruby based make-like utility.
+
+rapt (0.2.2)
+    Rails Plugin Tool.
+
+ratom (0.5.1)
+    Atom Syndication and Publication API
+
+rbayes (1.0.0)
+    An email-focused bayesian filter
+
+rc-rest (2.2.1)
+    Robot Co-op REST web services base class
+
+rcodetools (0.8.0.0)
+    rcodetools is a collection of Ruby code manipulation tools
+
+rcov (0.8.1.2.0)
+    Code coverage analysis tool for Ruby
+
+reap (9.4.0)
+    Ruby Project Assistant
+
+RedCloth (4.0.1)
+    RedCloth-4.0.1 - Textile parser for Ruby. http://redcloth.org/
+
+reliable-msg (1.1.0)
+    Reliable messaging and persistent queues for building asynchronous
+    applications in Ruby
+
+rgl (0.3.1)
+    Ruby Graph Library
+
+RingyDingy (1.2.1)
+    RingyDingy is a little boat that keeps your DRb service afloat!
+
+rmagick (2.5.2)
+    Ruby binding to ImageMagick
+
+roxml (1.2)
+    Ruby Object to XML mapping library
+
+rq (3.4.0)
+    rq
+
+rspec (1.1.4)
+    RSpec-1.1.4 (build 20080526202855) - BDD for Ruby
+    http://rspec.rubyforge.org/
+
+ruby-debug (0.10.1)
+    Command line interface (CLI) for ruby-debug-base
+
+ruby-debug-base (0.10.1)
+    Fast Ruby debugger - core component
+
+ruby2ruby (1.1.9)
+    ruby2ruby provides a means of generating pure ruby code easily from
+    ParseTree's Sexps
+
+ruby_extensions (1.0.14)
+    ruby_extensions
+
+ruby_parser (1.0.0)
+    ruby_parser (RP) is a ruby parser written in pure ruby (utilizing
+    racc--which does by default use a C extension). RP's output is the
+    same as ParseTree's output: s-expressions using ruby's arrays and
+    base types.
+
+rubyforge (1.0.0)
+    A script which automates a limited set of rubyforge operations
+
+RubyInline (3.7.0)
+    Inline allows you to write foreign code within your ruby code
+
+RubyToC (1.0.0.5)
+    Ruby (subset) to C translator.
+
+runt (0.7.0)
+    Ruby Temporal Expressions.
+
+scruffy (0.2.3)
+    A powerful, clean graphing library for Ruby.
+
+slave (1.2.1)
+    slave
+
+soap4r (1.5.8)
+    An implementation of SOAP 1.1 for Ruby.
+
+sources (0.0.1)
+    This package provides download sources for remote gem installation
+
+stemmer (1.0.1)
+    Word stemming algorithm(s)
+
+stream (0.5)
+    Stream - Extended External Iterators
+
+SuperCaller (1.0.0)
+    A Kernel#caller enhancement
+
+SyslogLogger (1.4.0)
+    SyslogLogger is a Logger replacement that logs to syslog.  It is
+    almost drop-in with a few caveats.
+
+systemu (1.2.0)
+    systemu
+
+tioga (1.8)
+    Tioga - a powerful scientific plotting library
+
+UPnP (1.1.0)
+    An implementation of the UPnP protocol
+
+UPnP-ConnectionManager (1.0)
+    Stub implementation for a UPnP ConnectionManager service
+
+UPnP-ContentDirectory (1.0)
+    A UPnP ContentDirectory service with some DLNA extensions
+
+UPnP-IGD (1.0.0)
+    A UPnP extension for Internet Gateway Devices
+
+UPnP-MediaServer (1.0.0)
+    A UPnP MediaServer
+
+uuid (1.0.4)
+    UUID generator
+
+uuidtools (1.0.3)
+    Generation of UUIDs.
+
+wxruby (1.9.7)
+    Ruby interface to the wxWidgets GUI library
+
+xmpp4r (0.4, 0.3.2)
+    XMPP4R is an XMPP/Jabber library for Ruby.
+
+ZenHacks (1.0.1)
+    Tools and toys of mine that don't have a better home.
+
+ZenTest (3.10.0)
+    ZenTest provides 4 different tools and 1 library: zentest,
+    unit_diff, autotest, multiruby, and Test::Rails
+
+zoom (0.4.1)
+    Ruby/ZOOM provides a Ruby binding to the Z40.50 Object-Orientation
+    Model (ZOOM), an abstract object-oriented programming interface to a
+    subset of the services specified by the Z39.50 standard, also known
+    as the international standard ISO 23950.  This version introduces
+    ZOOM Extended Services.

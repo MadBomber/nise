@@ -1,0 +1,26 @@
+%h1 Listing run_model_overrides
+%table
+  %tr
+    %th Run
+    %th User
+    %th Model
+    %th Instance
+    %th Cmd line param
+    %th Debug flags
+    %th
+    %th
+    %th
+  - @run_model_overrides.each do |run_model_override|
+    %tr
+      %td= run_model_override.run_id
+      %td= run_model_override.user_id
+      %td= run_model_override.model_id
+      %td= run_model_override.instance
+      %td= run_model_override.cmd_line_param
+      %td= run_model_override.debug_flags
+      %td= link_to 'Show', run_model_override
+      %td= link_to 'Edit', edit_run_model_override_path(run_model_override)
+      %td= link_to 'Destroy', run_model_override, confirm: 'Are you sure?', method: :delete
+%br/
+= link_to 'New Run model override', new_run_model_override_path
+

@@ -1,0 +1,100 @@
+#!/bin/bash
+#
+# chkconfig: 345 79 16
+# description: Starts and stops the ISE Logging Service.
+
+# Source function library.
+. /etc/init.d/functions
+
+#
+ISE_ROOT=/home/ise
+ISE_USER=ise
+ISE_CLUSTER_LOGGER=`hostname`
+fqdn=`hostname`
+
+# Source configuration options
+if [ -f ${ISE_ROOT}/etc/ISE/ise.conf ]; then
+	. ${ISE_ROOT}/etc/ISE/ise.conf
+fi
+
+if [ $ISE_CLUSTER_LOGGER = $fqdn ]; then
+cat > /tmp/iseLogger.conf <<EOT
+dynamic Logger Service_Object * ACE:_make_ACE_Logging_Strategy() "-w -s /var/spool/ise/log -f VERBOSE"
+dynamic Thr_Server_Logging_Service Service_Object * ISE_Logger:_make_ISE_Thr_Server_Logging_Acceptor() active "-p 20009"
+dynamic Client_Logging_Service     Service_Object * ISE_Logger:_make_ISE_Client_Logging_Acceptor() active "-h 127.0.0.1 -p20009"
+EOT
+else
+cat > /tmp/iseLogger.conf <<EOT
+dynamic Client_Logging_Service Service_Object * ISE_Logger:_make_ISE_Client_Logging_Acceptor() active "-h $ISE_CLUSTER_LOGGER -p 20009"
+EOT
+fi
+
+RETVAL=0
+
+prog="iseLogger"
+progpath="${ISE_ROOT}/bin/ise_main"
+lockpath="/var/lock/subsys/${prog}"
+pidpath="/var/run/ise/${prog}.pid"
+ldpath=${ISE_ROOT}/lib:${ACE_ROOT}/lib
+
+
+start()
+{
+    echo -n $"Starting $prog: "
+
+    if [ -f $pidpath ]; then
+        PID=`cat $pidpath`
+        echo $prog already running: $PID
+        exit 2;
+    else
+        daemon --user $ISE_USER LD_LIBRARY_PATH=$ldpath $progpath -b -p $pidpath -f /tmp/iseLogger.conf &
+        RETVAL=$?
+        [ "$RETVAL" = 0 ] && touch $lockpath
+        echo
+    fi
+}
+
+stop()
+{
+    echo -n $"Stopping $prog: "
+    killproc -p $pidpath -TERM
+    RETVAL=$?
+    if [ $RETVAL -eq 0 ] ; then
+	rm -f $lockpath
+	rm -f $pidpath
+    fi
+    echo
+}
+
+# See how we were called.
+case "$1" in
+    start)
+	start
+	;;
+    stop)
+	stop
+	;;
+    status)
+	status -p $pidpath $prog
+	RETVAL=$?
+        ;;
+    restart)
+	stop
+	start
+	RETVAL=$?
+	;;
+    condrestart)
+	if [ -f $lockpath ]; then
+	    stop
+	    start
+	    RETVAL=$?
+	fi
+	;;
+    reload)
+        ;;
+    *)
+	echo $"Usage: $0 {start|stop|status|restart|condrestart|reload}"
+	exit 1
+	;;
+esac
+exit $RETVAL

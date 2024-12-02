@@ -1,0 +1,4 @@
+#!/bin/sh
+mount -o loop $1 ./iso
+mount -o loop ./iso/LiveOS/squashfs.img  ./squashed
+mount -o loop ./squashed/LiveOS/ext3fs.img  ./live

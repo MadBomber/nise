@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ############################################################################## -->
+<!-- ### -->
+<!-- ##   File: uaeIranianAirPatrolPath.kml -->
+<!-- ##   Desc: Iranian Air Force Patrol Pattern -->
+<!-- # -->
+<kml xmlns="http://earth.google.com/kml/2.2">
+<Document>
+	<name>uaeIranianAirPatrolPath.kml</name>
+	<open>1</open>
+	<StyleMap id="msn_red-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_red-pushpin0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_red-pushpin</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_red-pushpin">
+		<LineStyle>
+			<color>ff00ff00</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="sh_red-pushpin">
+		<IconStyle>
+			<scale>1.2</scale>
+		</IconStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="sh_red-pushpin0">
+		<IconStyle>
+			<scale>1.2</scale>
+		</IconStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="msn_red-pushpin0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_red-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_red-pushpin0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_red-pushpin0">
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Placemark>
+		<name>iranianAF-1</name>
+		<description>Iranian Air Force Patrol Pattern</description>
+		<styleUrl>#msn_red-pushpin</styleUrl>
+		<LineString>
+			<extrude>1</extrude>
+			<tessellate>1</tessellate>
+			<altitudeMode>absolute</altitudeMode>
+			<coordinates>
+56.38713562943536,27.23195345932947,10 
+56.37965389362012,27.21924894440819,50 
+56.37113126376319,27.20477911580908,500 
+56.40292779638973,27.16543775199442,1500 
+56.68612814512881,26.73759747842227,5000 
+57.41375057424977,25.74836125027824,10000 
+58.19272562186809,25.03192293995436,10000 
+57.70596663788606,24.68353392681291,10000 
+56.66671006404006,25.45420037689536,10000 
+56.44261895119726,26.60849079785284,10000 
+53.75778272995753,25.17274005360037,10000 
+53.72698475773784,26.08293536054368,10000 
+54.93056643433106,26.01405473367423,10000 
+55.32002455539371,26.36978546259198,10000 
+55.85831951738142,26.55061361451593,5000 
+56.37638304701274,27.25529998625124,1000 
+56.39486033164841,27.25981463870624,500 
+56.39343920597472,27.24280997934855,300 
+56.38671356350633,27.23138527851264,10 
+			</coordinates>
+		</LineString>
+	</Placemark>
+</Document>
+</kml>

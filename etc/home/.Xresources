@@ -1,0 +1,13 @@
+!###########################################################################
+!###
+!## File: ~/.Xresources
+!## Desc: x-window resource configuration file
+!
+! after making any change to this file, run the following command:
+!   xrdb -merge ~/.Xresources
+!
+! see also /usr/X11R6/lib/X11/app-defaults/
+! -----------------
+! huge xmessage font: (BIG!)
+xmessage*font: -*-*-*-*-*--40-*-*-*-*-*-*-*
+

@@ -1,0 +1,64 @@
+// -*- MPC -*-
+// peer.mpc,v 4.2 2004/09/16 10:11:59 jwillemsen Exp
+
+project(IsePeer) : mysql_xplatform, ISE-common, boost_serialization, acelib {
+  sharedname = IsePeer
+  includes += . ../Utilities/XMLParser
+
+  specific(vc71, vc8,vc9) {
+    ignore_default_library_names = libcmtd
+  }
+
+ Source_Files {
+   ../Common/DebugFlag.cpp
+   ../Common/SimTransform.cpp
+   ../Common/EventHeaderFactory.cpp
+   ../Common/DataCountHeader.cpp
+   ../Common/NoHeader.cpp
+   ../Common/SamsonHeader.cpp
+   ../Common/MessageBase.cpp
+   ../Common/StringMessage.cpp
+   ../Common/DataMessage.cpp
+   ../Common/CtrlMessage.cpp
+   ../Common/AppBase.cpp
+   ../Common/SamsonModel.cpp
+   ../Common/DBMgr.cpp
+   ../Common/Base_ObjMgr.cpp
+   ../Common/Model_ObjMgr.cpp
+   ../Common/ModelTiming.cpp
+   ../Common/ISETask.cpp
+   ../Common/XMLWrapper.cpp
+   ../Utilities/XMLParser/xmlParser.cpp
+   SharedAppMgr.cpp
+   Options.cpp
+   Peer_Stdin_Handler.cpp
+   Peer_Handler.cpp
+   Peer_Acceptor.cpp
+   Peer_Connector.cpp
+   Peer_Factory.cpp
+  }
+
+Header_Files {
+  Options.h
+  Peer_Acceptor.h
+  Peer_Connector.h
+  Peer_Factory.h
+  Peer_Handler.h
+  Peer_Stdin_Handler.h
+  SharedAppMgr.h
+ }
+
+}
+
+project(peerd) : mysql_xplatform, ISE-common, aceexe, boost_serialization, samson {
+  exename = peerd
+  includes += . 
+
+  specific(vc71,vc8,vc9) {
+    lit_libs  += zlib
+  }
+
+  Source_Files {
+    peerd.cpp
+  }
+}

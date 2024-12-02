@@ -1,0 +1,13 @@
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\CSharpReferenceStream\bin\Debug\CSharpReferenceStreamF.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\CSharpReferenceStream\bin\Debug\CSharpReferenceStreamF.pdb
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\CSharpReferenceStream\bin\Debug\CSharpReferenceStreamF.tlb
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\CSharpReferenceStream\bin\Debug\Interop.AGI.Attr.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\CSharpReferenceStream\bin\Debug\Interop.AGI.Entity.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\CSharpReferenceStream\bin\Debug\Interop.AGI.Realtime.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\CSharpReferenceStream\obj\Debug\ResolveAssemblyReference.cache
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\CSharpReferenceStream\obj\Debug\Interop.AGI.Attr.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\CSharpReferenceStream\obj\Debug\Interop.AGI.Entity.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\CSharpReferenceStream\obj\Debug\Interop.AGI.Realtime.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\CSharpReferenceStream\obj\Debug\CSharpReferenceStreamF.csproj.ResolveComReference.cache
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\CSharpReferenceStream\obj\Debug\CSharpReferenceStreamF.dll
+C:\Program Files\AGI\STK 8\Help\RT3\Samples\CSharp\CSharpReferenceStream\obj\Debug\CSharpReferenceStreamF.pdb

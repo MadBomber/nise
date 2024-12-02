@@ -1,0 +1,4 @@
+FontText: "Lucidatypewriter,10,-1,5,75,0,0,0,0,0"
+Color.Same.Fore: "#ffff00"
+Color.Same.Back: "#000000"
+Show.Toolbar: True

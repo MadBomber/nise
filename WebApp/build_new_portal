@@ -1,0 +1,35 @@
+#!/bin/sh
+####################################################
+###
+##  File: build_new_portal
+##  Desc: Crates a blank rails 3+ web application for ISE
+#
+new_portal=$ISE_ROOT/WebApp/NewPortal
+#
+rails new $new_portal --database=mysql 
+#
+cd $new_portal
+#
+rails generate controller dashboard index
+rails generate controller dispatcher index detail
+#
+rails generate scaffold app_message app_message_key:string description:text
+rails generate scaffold debug_flag name:string desc:string
+rails generate scaffold dispatcher_stat
+rails generate scaffold job_config
+rails generate scaffold job name:string desc:string default_input_dir:string default_output_dir:string
+rails generate scaffold model node_id:integer platform_id:integer name:string desc:string location:string dll:string
+rails generate scaffold name_value name:string value:text
+rails generate scaffold node platform_id:integer status:integer name:string desc:string ip_address:string fqdn:string
+rails generate scaffold platform name:string desc:string lib_prefix:string lib_suffix:string lib_path_name:string lib_path_sep:string
+rails generate scaffold run_message
+rails generate scaffold run_model
+rails generate scaffold run_model_override run_id:integer user_id:integer model_id:integer instance:integer cmd_line_param:string debug_flags:string
+rails generate scaffold run_peer
+rails generate scaffold run status:integer job_id:integer model_id:integer user_id:integer notification_method:integer debug_flags:string guid:string input_dir:string output_dir:string
+rails generate scaffold run_subscriber
+rails generate scaffold status_code code:integer desc:text
+rails generate scaffold user admin:boolean login:string name:string email:string phone_number:string
+
+
+

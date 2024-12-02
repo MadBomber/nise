@@ -1,0 +1,46 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %title= configatron.site_name
+    = stylesheet_link_tag 'default'
+    = stylesheet_link_tag '/p7exp/p7exp'
+    = javascript_include_tag '/p7exp/p7exp'
+    = javascript_include_tag 'application'
+    = javascript_include_tag 'controls'
+    = javascript_include_tag 'dragdrop'
+    = javascript_include_tag 'effects'
+    = javascript_include_tag 'prototype'
+  %body{:onload => "P7_ExpMenu()"}
+    #header
+      #global_links{:style => "float: right;"}
+        = render :partial => 'shared/global_links'
+      %h1
+        %img{:alt => "NICE Logo", :height => "64", :src => "/images/nice_logo.gif", :width => "64"}/
+        = configatron.site_name
+        %br/
+        %span= configatron.company_name
+      = render :partial => 'shared/tabs'
+    %br/
+    #main
+      #left
+        / <haml:loud> render :partial =&amp;gt; 'shared/sidebar' </haml:loud>
+        = yield_or_default(yield(:sidebar))
+      #right
+        - if flash[:notice]
+          #notice= flash[:notice]
+        - if flash[:warning]
+          #warning= flash[:warning]
+        - if flash[:error]
+          #error= flash[:error]
+        %h2.head= yield_or_default yield(:header), "Use 'content_for :header do; end' in your view to set this title"
+        #screen
+          = yield
+    #footer
+      %br/
+      %br/
+      %hr/
+      = configatron.site_name
+      by #{configatron.company_name}
+      %br/
+      Copyright © #{configatron.company_name}

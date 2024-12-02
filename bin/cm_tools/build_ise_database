@@ -1,0 +1,27 @@
+#!/bin/sh
+##################################################
+##  File:  build_database
+##  Desc: builds the ISE database from scratch
+##
+## FIXME: This script is not cross-platform
+#
+
+cd $RAILS_ROOT
+
+echo
+echo
+rake db:show_config
+echo
+echo
+
+
+echo "Dropping existing database ..."
+rake db:drop
+
+echo "Creating new database ..."
+#rake db:create
+
+$ISE_ROOT/SQL/install.sh
+
+source $ISE_ROOT/bin/cm_tools/update_database
+

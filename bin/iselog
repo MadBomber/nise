@@ -1,0 +1,2 @@
+#!/bin/sh
+$ISE_ROOT/bin/iselog.rb $@
